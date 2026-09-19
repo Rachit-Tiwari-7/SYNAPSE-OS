@@ -41,7 +41,7 @@
 
 ---
 
-## 📝 1. Executive Summary
+## 1. Executive Summary
 
 **Synapse-OS** is an open-source, production-grade **Autonomous Urban Healthcare Operating Grid** designed for **Fund My Crazy 2026 (A Google Gemini Initiative)**. It reimagines city healthcare from an overburdened, reactive hospital system into an ambient, proactive municipal immune system powered by Google Gemini.
 
@@ -55,7 +55,7 @@
 
 ---
 
-## 🎯 Fund My Crazy 2026: Theme & Solution Mapping
+## Fund My Crazy 2026: Theme & Solution Mapping
 
 > **Competition**: *Fund My Crazy 2026 — Google Gemini ₹1 Crore Initiative* <br/>
 > **Theme**: *Our Healthcare — Rethink the places we turn to for care. Build healthcare for the needs of the future.* <br/>
@@ -71,7 +71,7 @@
 
 ---
 
-## ⚡ System Highlights & Core Engineering Architecture
+## System Highlights & Core Engineering Architecture
 
 > Synapse-OS is an open-source, full-stack **autonomous clinical operating grid** engineered with zero-failure resilience, deterministic emergency gates, and official national digital health integrations:
 
@@ -118,69 +118,69 @@ graph TD
 
 ---
 
-## 📑 Table of Contents
+## Table of Contents
 
-| Icon | Section | Description | Link |
-| :---: | :--- | :--- | :--- |
-| ⚡ | **System Highlights & Architecture** | Core multi-agent clinical pipeline and engineering design | [Go to section](#-system-highlights--core-engineering-architecture) |
-| 📝 | **1. Executive Summary** | High-level overview of the health platform | [Go to section](#-1-executive-summary) |
-| 🎯 | **National Competition Alignment & Impact** | Built for Fund My Crazy 2026 (A Google Gemini Initiative) | [Go to section](#-fund-my-crazy-2026--competition-alignment) |
-| 📸 | **Product & Interface Showcase** | Visual gallery of the SynapseOS platform | [Go to section](#📸-product-interface-showcase) |
-| 📖 | **2. Feature Documentation** | List of all 21 core features and capabilities | [Go to section](#📖-2-feature-documentation) |
-| 🏗️ | **3. Official Architecture Diagrams** | System flows and user journey maps | [Go to section](#🏗️-3-official-architecture-diagrams) |
-| 🏛️ | **4. System Architecture** | N-tier omnichannel and microservices design | [Go to section](#🏛️-4-system-architecture) |
-| 🔐 | **5. Two-Factor Authentication (2FA)** | TOTP MFA, email verification, session management | [Go to section](#🔐-5-two-factor-authentication-2fa) |
-| 🤖 | **6. Agent Swarm — 13 Specialized Agents** | Deep dive into the clinical AI swarm | [Go to section](#🤖-6-agent-swarm-13-specialized-agents) |
-| 🔗 | **7. Blockchain Architecture** | Tamper-proof medical records on Sepolia | [Go to section](#🔗-7-blockchain-architecture) |
-| ⌚ | **8. Wearable Telemetry Pipeline** | Apple Health & Google Fit ingestion pathways | [Go to section](#⌚-8-wearable-telemetry-pipeline) |
-| 🌐 | **9. Multilingual Architecture** | 11 Indic language translation engine details | [Go to section](#🌐-9-multilingual-architecture) |
-| 📱 | **10. Omnichannel 2-Way SMS Gateway & Twilio / Pinata IPFS Architecture** | Twilio SMS & Pinata IPFS decentralized records | [Go to section](#📱-10-omnichannel-2-way-sms-gateway-twilio-pinata-ipfs-architecture) |
-| 💻 | **11. Technology Stack** | Frameworks, ML models, and infrastructure used | [Go to section](#💻-11-technology-stack) |
-| 🔄 | **12. Application Workflow** | End-to-end request pipeline and intent routing | [Go to section](#🔄-12-application-workflow) |
-| 🌊 | **13. Data Flow** | Shared state management and blockchain anchoring | [Go to section](#🌊-13-data-flow) |
-| 📁 | **14. Project Structure** | Directory layout and component responsibilities | [Go to section](#📁-14-project-structure) |
-| 🔌 | **15. API Reference** | Core endpoints for agents and omnichannel services | [Go to section](#🔌-15-api-reference) |
-| ⚙️ | **16. Environment Configuration** | Required environment variables and API keys | [Go to section](#⚙️-16-environment-configuration) |
-| 🚀 | **17. Installation & Local Setup** | Step-by-step guide to running the platform locally | [Go to section](#🚀-17-installation-local-setup) |
-| 🐳 | **18. Docker & Kubernetes Deployment** | Containerization and cluster auto-scaling | [Go to section](#🐳-18-docker-kubernetes-deployment) |
-| 🔒 | **19. Security Considerations** | Deterministic safety gates and data privacy | [Go to section](#🔒-19-security-considerations) |
-| 📈 | **20. Scalability & Future Improvements** | Planned enhancements and production roadmap | [Go to section](#📈-20-scalability-future-improvements) |
-| 🤝 | **21. Contributing** | Guidelines for contributing to the repository | [Go to section](#🤝-21-contributing) |
-| 📜 | **22. License** | Open-source licensing and hackathon usage terms | [Go to section](#📜-22-license) |
+| Section | Description | Link |
+| :--- | :--- | :--- |
+| **System Highlights & Architecture** | Core multi-agent clinical pipeline and engineering design | [Go to section](#system-highlights--core-engineering-architecture) |
+| **1. Executive Summary** | High-level overview of the health platform | [Go to section](#1-executive-summary) |
+| **National Competition Alignment & Impact** | Built for Fund My Crazy 2026 (A Google Gemini Initiative) | [Go to section](#fund-my-crazy-2026-theme--solution-mapping) |
+| **Product & Interface Showcase** | Visual gallery of the SynapseOS platform | [Go to section](#product--interface-showcase) |
+| **2. Feature Documentation** | List of all 21 core features and capabilities | [Go to section](#2-feature-documentation) |
+| **3. Official Architecture Diagrams** | System flows and user journey maps | [Go to section](#3-official-architecture-diagrams) |
+| **4. System Architecture** | N-tier omnichannel and microservices design | [Go to section](#4-system-architecture) |
+| **5. Two-Factor Authentication (2FA)** | TOTP MFA, email verification, session management | [Go to section](#5-two-factor-authentication-2fa) |
+| **6. Agent Swarm — 13 Specialized Agents** | Deep dive into the clinical AI swarm | [Go to section](#6-agent-swarm--13-specialized-agents) |
+| **7. Blockchain Architecture** | Tamper-proof medical records on Sepolia | [Go to section](#7-blockchain-architecture) |
+| **8. Wearable Telemetry Pipeline** | Apple Health & Google Fit ingestion pathways | [Go to section](#8-wearable-telemetry-pipeline) |
+| **9. Multilingual Architecture** | 11 Indic language translation engine details | [Go to section](#9-multilingual-architecture) |
+| **10. Omnichannel 2-Way SMS Gateway & Twilio / Pinata IPFS Architecture** | Twilio SMS & Pinata IPFS decentralized records | [Go to section](#10-omnichannel-2-way-sms-gateway--twilio--pinata-ipfs-architecture) |
+| **11. Technology Stack** | Frameworks, ML models, and infrastructure used | [Go to section](#11-technology-stack) |
+| **12. Application Workflow** | End-to-end request pipeline and intent routing | [Go to section](#12-application-workflow) |
+| **13. Data Flow** | Shared state management and blockchain anchoring | [Go to section](#13-data-flow) |
+| **14. Project Structure** | Directory layout and component responsibilities | [Go to section](#14-project-structure) |
+| **15. API Reference** | Core endpoints for agents and omnichannel services | [Go to section](#15-api-reference) |
+| **16. Environment Configuration** | Required environment variables and API keys | [Go to section](#16-environment-configuration) |
+| **17. Installation & Local Setup** | Step-by-step guide to running the platform locally | [Go to section](#17-installation--local-setup) |
+| **18. Docker & Kubernetes Deployment** | Containerization and cluster auto-scaling | [Go to section](#18-docker--kubernetes-deployment) |
+| **19. Security Considerations** | Deterministic safety gates and data privacy | [Go to section](#19-security-considerations) |
+| **20. Scalability & Future Improvements** | Planned enhancements and production roadmap | [Go to section](#20-scalability--future-improvements) |
+| **21. Contributing** | Guidelines for contributing to the repository | [Go to section](#21-contributing) |
+| **22. License** | Open-source licensing and hackathon usage terms | [Go to section](#22-license) |
 
 ---
-## 📸 Product & Interface Showcase
+## Product & Interface Showcase
 
 <div align="center">
 
-### 🏠 Landing Page & Autonomous Agentic Architecture
+### Landing Page & Autonomous Agentic Architecture
 ![SynapseOS Landing Page](./Preview%20Images/01_Landing_Page_Architecture_Hero.png)
 
-### 🩺 Clinical AI Copilot & Voice Interface
+### Clinical AI Copilot & Voice Interface
 
 | Multilingual AI Copilot Workspace | Live Multimodal Voice AI Orb |
 | :---: | :---: |
 | ![Clinical Copilot](./Preview%20Images/02_AI_Assistant_Clinical_Copilot_Workspace.png) | ![Voice AI Orb](./Preview%20Images/03_Live_AI_Voice_Orb_Interface.png) |
 
-### 🧍 Orchestrator 3D Digital Health Twin & Rural Healthcare Hub
+### Orchestrator 3D Digital Health Twin & Rural Healthcare Hub
 
 | 3D Digital Health Twin (Hindi UI) | Omnichannel WhatsApp & 2G SMS Gateway |
 | :---: | :---: |
 | ![3D Body Twin](./Preview%20Images/04_Orchestrator_3D_Digital_Body_Twin.png) | ![Rural WhatsApp SMS Hub](./Preview%20Images/05_Rural_Health_WhatsApp_SMS_Gateway.png) |
 
-### 🦠 Disease Surveillance & Universal Immunization
+### Disease Surveillance & Universal Immunization
 
 | UIP & U-WIN Vaccine Milestone Tracker | WHO Global Epidemic Transmission Vector Map |
 | :---: | :---: |
 | ![UIP Vaccine Tracker](./Preview%20Images/06_Universal_Immunization_UWIN_Tracker.png) | ![WHO Outbreak Radar](./Preview%20Images/08_WHO_Epidemic_Outbreak_Vector_Map.png) |
 
-### 🩻 Medical Scan AI & Blockchain Records
+### Medical Scan AI & Blockchain Records
 
 | MONAI & YOLOv8 FractureNet Radiography | ABDM ABHA Generator & Blockchain Passport |
 | :---: | :---: |
 | ![Medical Scan AI](./Preview%20Images/09_Medical_Scan_MONAI_YOLOv8_Diagnostics.png) | ![ABDM Blockchain Passport](./Preview%20Images/10_ABDM_ABHA_Health_Records_Blockchain.png) |
 
-### 📊 Wearable Telemetry & Longitudinal Analytics
+### Wearable Telemetry & Longitudinal Analytics
 
 | Apple Health & Google Fit Live ECG Stream | Longitudinal Biomarkers & Wellness Dashboard |
 | :---: | :---: |
@@ -191,7 +191,7 @@ graph TD
 
 ---
 
-## 📖 2. Feature Documentation
+## 2. Feature Documentation
 
 | Feature | Description | Key Technologies |
 | :--- | :--- | :--- |
@@ -219,17 +219,17 @@ graph TD
 
 ---
 
-## 🏗️ 3. Official Architecture Diagrams
+##  3. Official Architecture Diagrams
 
 The following diagrams are official project artifacts from the `architecture-docs/` directory.
 
-### 🏛️ System Architecture (Dark Theme)
+###  System Architecture (Dark Theme)
 
 ![SynapseOS Architecture Diagram](./architecture-docs/Architecture%20Diagram%20Dark.png)
 
 *Five-layer freeform architecture: 6 user channels → Channel Adapter → Orchestrator Agent → 18-agent swarm in 5 clusters → shared memory (Vector DB + Relational DB + Event Bus) + external APIs + blockchain verification.*
 
-### 🔹 User Journey Flowchart (Light Theme)
+### User Journey Flowchart (Light Theme)
 
 ![SynapseOS Flowchart](./architecture-docs/Flowchart%20dark.png)
 
@@ -237,9 +237,9 @@ The following diagrams are official project artifacts from the `architecture-doc
 
 ---
 
-## 🏛️ 4. System Architecture
+##  4. System Architecture
 
-### 🥞 Five-Layer Architecture Overview
+### Five-Layer Architecture Overview
 
 ```mermaid
 flowchart LR
@@ -250,25 +250,25 @@ flowchart LR
     classDef db fill:#083344,stroke:#06b6d4,stroke-width:2px,color:#ffffff
     classDef web3 fill:#450a0a,stroke:#ef4444,stroke-width:2px,color:#ffffff
 
-    subgraph Clients ["📱 1. Channels"]
+    subgraph Clients ["1. Channels"]
         direction TB
-        WEB["🖥️ Web Dashboard"]:::client
-        VOICE["🎙️ Live Voice AI"]:::client
-        WA["💬 WhatsApp / SMS"]:::client
+        WEB["Web Dashboard"]:::client
+        VOICE["Live Voice AI"]:::client
+        WA["WhatsApp / SMS"]:::client
     end
 
-    subgraph API ["⚙️ 2. Gateway"]
+    subgraph API ["2. Gateway"]
         direction TB
-        SAFETY{"🛡️ Safety Gate"}:::api
-        I18N["🌐 11-Lang i18n"]:::api
-        FHIR["🏥 FHIR R4"]:::api
+        SAFETY{"Safety Gate"}:::api
+        I18N["11-Lang i18n"]:::api
+        FHIR["FHIR R4"]:::api
     end
 
-    subgraph Core ["🧠 3. Orchestrator"]
+    subgraph Core ["3. Orchestrator"]
         ORCH{"Groq LLaMA-70B\nAgent Router"}:::core
     end
 
-    subgraph Swarm ["🤖 4. Agent Swarm"]
+    subgraph Swarm ["4. Agent Swarm"]
         direction TB
         TRIAGE["Symptom Triage"]:::agent
         SCAN["Medical Scan"]:::agent
@@ -278,11 +278,11 @@ flowchart LR
         ABDM["ABHA Gateway"]:::agent
     end
 
-    subgraph Data ["💾 5. Data & Chain"]
+    subgraph Data ["5. Data & Chain"]
         direction TB
-        REDIS[("⚡ Redis Cache")]:::db
-        IPFS[("📦 IPFS Pinata")]:::web3
-        CHAIN{{"⛓️ Sepolia Chain"}}:::web3
+        REDIS[("Redis Cache")]:::db
+        IPFS[("IPFS Pinata")]:::web3
+        CHAIN{{"Sepolia Chain"}}:::web3
     end
 
     Clients --> API
@@ -291,7 +291,7 @@ flowchart LR
     Swarm --> Data
 ```
 
-### 🔑 Authentication & Session Flow
+### Authentication & Session Flow
 
 SynapseOS uses a **session-based stateless model**. Each API request receives a UUID-based `session_id` generated server-side. No third-party authentication provider is implemented — the platform operates as a public health tool without user accounts, preserving anonymity for rural populations.
 
@@ -305,7 +305,7 @@ SynapseOS uses a **session-based stateless model**. Each API request receives a 
 
 ---
 
-## 🔐 5. Two-Factor Authentication (2FA)
+## 5. Two-Factor Authentication (2FA)
 
 
 > **Full documentation:** [`docs/2FA.md`](./docs/2FA.md)
@@ -321,15 +321,15 @@ flowchart LR
     classDef store fill:#14532d,stroke:#22c55e,color:#fff
     classDef mfa fill:#2d0a44,stroke:#a855f7,color:#fff
 
-    U(["👤 User"])
+    U(["User"])
 
     subgraph AUTH ["Auth Pages"]
         direction TB
-        REG["📄 /signup"]:::page
-        CONF["📄 /confirm-account\n(OTP)"]:::page
-        LOG["📄 /login"]:::page
-        MFP["📄 /verify-mfa\n(TOTP)"]:::page
-        FP["📄 /forgot-password"]:::page
+        REG["/signup"]:::page
+        CONF["/confirm-account\n(OTP)"]:::page
+        LOG["/login"]:::page
+        MFP["/verify-mfa\n(TOTP)"]:::page
+        FP["/forgot-password"]:::page
     end
 
     subgraph API ["API Routes /api/v1/"]
@@ -342,13 +342,13 @@ flowchart LR
 
     subgraph STORE ["AuthStore"]
         direction TB
-        US["👥 Users\n(bcrypt hashed)"]:::store
-        SS["🎫 Sessions\n(httpOnly cookie)"]:::store
-        TOTP["🔢 TOTP Engine\n(speakeasy RFC 6238)"]:::mfa
+        US["Users\n(bcrypt hashed)"]:::store
+        SS["Sessions\n(httpOnly cookie)"]:::store
+        TOTP["TOTP Engine\n(speakeasy RFC 6238)"]:::mfa
     end
 
-    PROTECTED["🏥 /orchestrator-agent\n(Protected)"]:::page
-    MW["🛡️ middleware.ts\nRoute Guard"]
+    PROTECTED["/orchestrator-agent\n(Protected)"]:::page
+    MW["middleware.ts\nRoute Guard"]
 
     U --> REG --> A1 --> US
     A1 -->|"OTP email (Resend)"| CONF --> A1
@@ -388,18 +388,18 @@ POST /auth/login
                                     └─ Valid → upgrade session → /orchestrator-agent
 ```
 
-## 🤖 6. Agent Swarm — 13 Specialized Agents
+## 6. Agent Swarm — 13 Specialized Agents
 
 All 13 agents share a common `SynapseOSState` Pydantic schema and contribute structured outputs to a unified execution trace that the frontend renders as a visual DAG progress tracker.
 
-### 🎛️ 4.1 Interface & Orchestration
+###  4.1 Interface & Orchestration
 
 | Agent | File | Responsibility | Key Trigger Keywords |
 | :--- | :--- | :--- | :--- |
 | **Deterministic Safety Gate** | `core/safety_router.py` | Pre-pipeline intercept for crisis, suicide ideation, and medical emergencies using deterministic regex. Never bypassed by LLM. | "kill myself", "chest pain", "unconscious" |
 | **Orchestrator DAG** | `agents/orchestrator.py` | Intent classification → agent routing → multi-agent result merge → LLM synthesis. Coordinates the full pipeline with execution tracing. | Every incoming message |
 
-### 🧠 4.2 Clinical Intelligence Cluster
+### 4.2 Clinical Intelligence Cluster
 
 | Agent | File | Responsibility | External Services |
 | :--- | :--- | :--- | :--- |
@@ -409,7 +409,7 @@ All 13 agents share a common `SynapseOSState` Pydantic schema and contribute str
 | **Hybrid Retrieval Agent** | `agents/retrieval_agent.py` | Parallel Wikipedia Medical REST + curated knowledge index (23 WHO/ICMR/MoHFW guidelines). Returns grounded clinical context. | Wikipedia REST API |
 | **Mental Health Agent** | `agents/mental_health_agent.py` | Tele-MANAS (14416) integration, WHO mhGAP protocol routing, CBT/SSRIs guidance. | Groq LLM |
 
-### 🏥 4.3 Public Health Cluster
+### 4.3 Public Health Cluster
 
 | Agent | File | Responsibility | External Services |
 | :--- | :--- | :--- | :--- |
@@ -417,7 +417,7 @@ All 13 agents share a common `SynapseOSState` Pydantic schema and contribute str
 | **Universal Immunization** | `agents/vaccination_agent.py` | Complete UIP schedule (Birth → 16 years), U-WIN digital certificate generation, maternal Td immunization, age-milestone due-date calculation. | Groq LLM |
 | **Preventive Health Hub** | `agents/preventive_health_agent.py` | ORS preparation, nutrition guides (POSHAN), breastfeeding, vector control, community health quizzes in 11 languages. | Groq LLM |
 
-### 🧬 4.4 Records & Digital Twin Cluster
+### 4.4 Records & Digital Twin Cluster
 
 | Agent / Service | File | Responsibility |
 | :--- | :--- | :--- |
@@ -431,9 +431,9 @@ All 13 agents share a common `SynapseOSState` Pydantic schema and contribute str
 
 ---
 
-## 🔗 7. Blockchain Architecture
+## 7. Blockchain Architecture
 
-### 📝 Smart Contract: `MedicalRecords.sol`
+### Smart Contract: `MedicalRecords.sol`
 
 Deployed on **Hardhat local node** (development) and **Ethereum Sepolia testnet** (staging). The contract provides a tamper-proof health record registry with SHA-256 file integrity verification and address-based access control.
 
@@ -454,7 +454,7 @@ Contract: MedicalRecords (Solidity 0.8.20)
     └── hasAccess(recordId, grantee) view → bool
 ```
 
-### 🤝 Blockchain Interaction Flow
+### Blockchain Interaction Flow
 
 ```mermaid
 sequenceDiagram
@@ -470,7 +470,7 @@ sequenceDiagram
     Note over FE,SOL: Record permanently anchored on-chain
 ```
 
-### 📡 Network Configuration
+### Network Configuration
 
 | Environment | Network | RPC |
 | :--- | :--- | :--- |
@@ -481,7 +481,7 @@ sequenceDiagram
 
 ---
 
-## ⌚ 8. Wearable Telemetry Pipeline
+## 8. Wearable Telemetry Pipeline
 
 SynapseOS implements four production-grade pathways to ingest real-world health telemetry from consumer wearables:
 
@@ -515,7 +515,7 @@ flowchart TD
 
 ---
 
-## 🌐 9. Multilingual Architecture
+## 9. Multilingual Architecture
 
 SynapseOS natively supports **11 Indic languages + English** across both frontend UI and backend clinical responses.
 
@@ -540,18 +540,18 @@ SynapseOS natively supports **11 Indic languages + English** across both fronten
 
 ---
 
-## 📱 10. Omnichannel 2-Way SMS Gateway & Twilio / Pinata IPFS Architecture
+## 10. Omnichannel 2-Way SMS Gateway & Twilio / Pinata IPFS Architecture
 
 SynapseOS provides a complete **2-way conversational SMS engine** designed specifically for **2G feature phones and low-bandwidth rural populations**, fully integrated with **Twilio** and **Pinata IPFS decentralized medical record storage**.
 
 ```mermaid
 sequenceDiagram
     autonumber
-    actor Patient as 📱 Patient (2G Keypad / Feature Phone)
-    participant SMS as 🛰️ SMS Gateway (Twilio / Android Gateway)
-    participant API as 🐍 FastAPI Backend (/api/sms/webhook)
-    participant Swarm as 🤖 Multi-Agent Clinical Swarm
-    participant Pinata as 📦 Pinata IPFS Cloud
+    actor Patient as Patient (2G Keypad / Feature Phone)
+    participant SMS as SMS Gateway (Twilio / Android Gateway)
+    participant API as FastAPI Backend (/api/sms/webhook)
+    participant Swarm as Multi-Agent Clinical Swarm
+    participant Pinata as Pinata IPFS Cloud
 
     Patient->>SMS: Sends SMS ("Can I take Aspirin with Warfarin?" or "1 Fever & Cough")
     SMS->>API: HTTP POST application/x-www-form-urlencoded (From, Body)
@@ -568,10 +568,10 @@ sequenceDiagram
     end
 
     API->>SMS: Returns Instant XML TwiML <Response><Message>
-    SMS-->>Patient: 📨 Plain-Text SMS + Decentralized IPFS Medical Record URL
+    SMS-->>Patient: Plain-Text SMS + Decentralized IPFS Medical Record URL
 ```
 
-### 🌟 Key Capabilities
+### Key Capabilities
 
 1. **Zero-Mode Natural Intent Tracking:**
    * Patients **do not need to select menu numbers**. They can text free-form natural language queries (e.g., *"severe headache since morning"*, *"is combiflam safe with dolo?"*, *"baby vaccine at 6 weeks"*, *"dengue cases in Delhi"*).
@@ -601,9 +601,9 @@ sequenceDiagram
 
 ---
 
-## 💻 11. Technology Stack
+## 11. Technology Stack
 
-### 🖥️ 5.1 Frontend
+###  5.1 Frontend
 
 | Technology | Version | Purpose |
 | :--- | :--- | :--- |
@@ -621,7 +621,7 @@ sequenceDiagram
 | ![VAPI AI Web](https://img.shields.io/badge/VAPI%20AI%20Web-16C4B0?style=flat) **VAPI AI Web** | 2.6.3 | WebRTC Voice AI SDK — STT → LLM → TTS real-time session |
 | ![clsx / tailwind-merge](https://img.shields.io/badge/clsx%20/%20tailwind--merge-475569?style=flat) **clsx / tailwind-merge** | latest | Conditional class composition across component variants |
 
-### ⚙️ 5.2 Backend & APIs
+###  5.2 Backend & APIs
 
 | Technology | Version | Purpose |
 | :--- | :--- | :--- |
@@ -637,7 +637,7 @@ sequenceDiagram
 | ![Pytest](https://img.shields.io/badge/Pytest-0A9EDC?logo=pytest&logoColor=white&style=flat) **Pytest** | ≥8.0 | Backend unit and integration tests in `backend/tests/` |
 | ![OpenWA / wa-automate](https://img.shields.io/badge/OpenWA%20/%20wa--automate-25D366?logo=whatsapp&logoColor=white&style=flat) **OpenWA / wa-automate** | 4.70.0 | Node.js bridge translating WhatsApp messages to FastAPI webhook |
 
-### 🧠 5.3 AI / ML & LLM Layer
+### 5.3 AI / ML & LLM Layer
 
 | Model / Service | Provider | Role |
 | :--- | :--- | :--- |
@@ -650,7 +650,7 @@ sequenceDiagram
 | ![Wikipedia Medical REST](https://img.shields.io/badge/Wikipedia%20Medical%20REST-000000?logo=wikipedia&logoColor=white&style=flat) **Wikipedia Medical REST** | Wikimedia | Knowledge retrieval, no auth required |
 | ![NIH RxNav REST](https://img.shields.io/badge/NIH%20RxNav%20REST-475569?style=flat) **NIH RxNav REST** | NIH NLM | Drug name normalization and interaction lookup |
 
-### ⛓️ 5.4 Blockchain & Web3
+###  5.4 Blockchain & Web3
 
 | Technology | Role |
 | :--- | :--- |
@@ -662,7 +662,7 @@ sequenceDiagram
 | ![Pinata](https://img.shields.io/badge/Pinata-7F2BCE?style=flat) **Pinata** | IPFS pinning service via JWT authentication |
 | ![SHA-256 hashing](https://img.shields.io/badge/SHA--256%20hashing-475569?style=flat) **SHA-256 hashing** | Client-side file integrity hash before on-chain commit |
 
-### 🏗️ 5.5 Infrastructure & DevOps
+###  5.5 Infrastructure & DevOps
 
 | Component | Technology | Responsibility |
 | :--- | :--- | :--- |
@@ -674,7 +674,7 @@ sequenceDiagram
 | ![Docker Compose](https://img.shields.io/badge/Docker%20Compose-2496ED?logo=docker&logoColor=white&style=flat) **Docker Compose** | v3.8 | Local full-stack orchestration with health checks |
 | ![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?logo=kubernetes&logoColor=white&style=flat) **Kubernetes** | 8 manifests in `k8s/` | Namespace, ConfigMap, Secrets, Deployments, Ingress, HPA |
 
-### 🔗 5.6 Third-Party Services & External APIs
+### 5.6 Third-Party Services & External APIs
 
 | Provider / Service | Category | Integration Point |
 | :--- | :--- | :--- |
@@ -690,9 +690,9 @@ sequenceDiagram
 
 ---
 
-## 🔄 12. Application Workflow
+## 12. Application Workflow
 
-### 🛤️ End-to-End Request Pipeline
+###  End-to-End Request Pipeline
 
 ```mermaid
 sequenceDiagram
@@ -728,7 +728,7 @@ sequenceDiagram
     end
 ```
 
-### 🏷️ Intent Classification
+###  Intent Classification
 
 The Orchestrator classifies every incoming message into one of 8 intents before routing:
 
@@ -745,7 +745,7 @@ The Orchestrator classifies every incoming message into one of 8 intents before 
 
 ---
 
-## 🌊 13. Data Flow
+## 13. Data Flow
 
 ```mermaid
 flowchart LR
@@ -770,7 +770,7 @@ flowchart LR
     FHIR_B --> IPFS_P --> SOLIDITY
 ```
 
-### 💾 Shared Agent State Schema
+### Shared Agent State Schema
 
 Every agent reads from and writes to a unified `SynapseOSState` Pydantic object:
 
@@ -793,7 +793,7 @@ Every agent reads from and writes to a unified `SynapseOSState` Pydantic object:
 
 ---
 
-## 📁 14. Project Structure
+## 14. Project Structure
 
 ```
 Synapse-OS/
@@ -883,11 +883,11 @@ Synapse-OS/
 
 ---
 
-## 🔌 15. API Reference
+## 15. API Reference
 
 All endpoints served at `http://localhost:8000/api`. Interactive docs at `http://localhost:8000/docs`.
 
-### 🤖 Agent Swarm Endpoints
+### Agent Swarm Endpoints
 
 | Method | Endpoint | Description |
 | :--- | :--- | :--- |
@@ -901,7 +901,7 @@ All endpoints served at `http://localhost:8000/api`. Interactive docs at `http:/
 | `POST` | `/api/diagnostics/risk-score` | Framingham CVD, ADA Diabetes, CKD eGFR calculations |
 | `GET` | `/api/benchmarks/accuracy` | Empirical MedQA/WHO clinical accuracy validation metrics (>91%) |
 
-### 🏛️ Government Health & Records
+###  Government Health & Records
 
 | Method | Endpoint | Description |
 | :--- | :--- | :--- |
@@ -910,7 +910,7 @@ All endpoints served at `http://localhost:8000/api`. Interactive docs at `http:/
 | `POST` | `/api/reports/generate-pdf` | Clinical PDF with blockchain QR (binary response) |
 | `GET` | `/api/fhir/bundle` | HL7 FHIR R4 patient bundle |
 
-### 📱 Omnichannel & Emergency (Meta WhatsApp Cloud API, 2G SMS & Pinata IPFS)
+### Omnichannel & Emergency (Meta WhatsApp Cloud API, 2G SMS & Pinata IPFS)
 
 | Method | Endpoint | Description |
 | :--- | :--- | :--- |
@@ -925,7 +925,7 @@ All endpoints served at `http://localhost:8000/api`. Interactive docs at `http:/
 | `POST` | `/api/ipfs/pin-json` | Decentralized IPFS pinning for FHIR records & triage summaries |
 | `POST` | `/api/ipfs/pin-file` | Decentralized IPFS pinning for raw clinical PDFs & radiography |
 
-### 🏥 Public Health
+### Public Health
 
 | Method | Endpoint | Description |
 | :--- | :--- | :--- |
@@ -938,7 +938,7 @@ All endpoints served at `http://localhost:8000/api`. Interactive docs at `http:/
 
 ---
 
-## ⚙️ 16. Environment Configuration
+##  16. Environment Configuration
 
 Copy `.env.example` to `.env`. No secrets required for core offline operation — the platform runs deterministically with built-in simulations.
 
@@ -966,9 +966,9 @@ Copy `.env.example` to `.env`. No secrets required for core offline operation �
 
 ---
 
-## 🚀 17. Installation & Local Setup
+## 17. Installation & Local Setup
 
-### ✅ Prerequisites
+### Prerequisites
 
 | Tool | Version | Purpose |
 | :--- | :--- | :--- |
@@ -977,7 +977,7 @@ Copy `.env.example` to `.env`. No secrets required for core offline operation �
 | Docker + Compose | Latest | Full containerized stack |
 | Git | ≥2.40 | Repository cloning |
 
-### ⚡ Quick Start
+### Quick Start
 
 ```bash
 # 1. Clone
@@ -991,13 +991,13 @@ cp .env.example .env
 cd backend
 pip install -r requirements.txt
 python -m uvicorn app.main:app --host 127.0.0.1 --port 8000 --reload
-# → http://127.0.0.1:8000/docs
+# http://127.0.0.1:8000/docs
 
 # 4. Frontend (new terminal)
 cd frontend
 npm install
 npm run dev
-# → http://localhost:3000
+# http://localhost:3000
 
 # 5. (Optional) Blockchain
 cd blockchain/contracts
@@ -1013,9 +1013,9 @@ cloudflared tunnel --url http://localhost:8000
 
 ---
 
-## 🐳 18. Docker & Kubernetes Deployment
+## 18. Docker & Kubernetes Deployment
 
-### 🐳 Docker Compose (Full Stack)
+### Docker Compose (Full Stack)
 
 ```bash
 docker compose up --build          # Development
@@ -1030,7 +1030,7 @@ docker compose -f docker-compose.prod.yml up --build -d  # Production
 | `synapseos-redis` | Redis 7 Alpine | 6379 | `redis-cli ping` |
 | `synapseos-ipfs` | Kubo latest | 5001, 8081 | — |
 
-### ☸️ Kubernetes Deployment
+###  Kubernetes Deployment
 
 ```bash
 kubectl apply -f k8s/namespace.yaml
@@ -1051,7 +1051,7 @@ kubectl get pods -n synapseos
 
 ---
 
-## 🔒 19. Security Considerations
+## 19. Security Considerations
 
 | Area | Implementation | Status |
 | :--- | :--- | :--- |
@@ -1073,25 +1073,25 @@ kubectl get pods -n synapseos
 
 ---
 
-### 🛡️ Responsible Disclosure
+###  Responsible Disclosure
 
 If you discover a security vulnerability, please **do not** open a public GitHub issue. Open a private security advisory via the GitHub Security tab. Allow a minimum 72-hour disclosure window before any public disclosure.
 
 
 ---
 
-## 📈 20. Scalability & Future Improvements
+## 20. Scalability & Future Improvements
 
-### ✅ Currently Implemented
-- ✅ 13 specialized autonomous agents with shared state schema
-- ✅ Docker Compose full-stack local deployment (5 services)
-- ✅ Kubernetes manifests with HPA for auto-scaling
-- ✅ Redis for session caching and event bus
-- ✅ IPFS decentralized storage with Pinata pinning
-- ✅ Ethereum Sepolia + local Hardhat dual-network support
-- ✅ Offline-first deterministic operation without API keys
+### Currently Implemented
+- 13 specialized autonomous agents with shared state schema
+- Docker Compose full-stack local deployment (5 services)
+- Kubernetes manifests with HPA for auto-scaling
+- Redis for session caching and event bus
+- IPFS decentralized storage with Pinata pinning
+- Ethereum Sepolia + local Hardhat dual-network support
+- Offline-first deterministic operation without API keys
 
-### 🚀 Planned Future Improvements
+### Planned Future Improvements
 
 | Area | Improvement | Complexity |
 | :--- | :--- | :--- |
@@ -1109,11 +1109,11 @@ If you discover a security vulnerability, please **do not** open a public GitHub
 
 ---
 
-## 🤝 21. Contributing
+## 21. Contributing
 
 We welcome contributions from developers, healthcare professionals, and public health researchers.
 
-### 📝 Contribution Workflow
+### Contribution Workflow
 
 1. **Understand the architecture**: Read the [System Architecture](#3-system-architecture) and [Agent Swarm](#4-agent-swarm--13-specialized-agents) sections thoroughly.
 
@@ -1140,7 +1140,7 @@ We welcome contributions from developers, healthcare professionals, and public h
 
 ---
 
-## 📜 22. License
+## 22. License
 
 The smart contract component (`blockchain/contracts/`) is licensed under **ISC**.
 
@@ -1152,7 +1152,7 @@ The remainder of the repository is provided for **Fund My Crazy 2026 (A Google G
 
 ---
 
-### 🌿 Built with love for Fund My Crazy 2026 — A Google Gemini Initiative
+### Built with love for Fund My Crazy 2026 — A Google Gemini Initiative
 
 *Synapse / Synapse-OS — Autonomous Urban Health Grid for India*
 
