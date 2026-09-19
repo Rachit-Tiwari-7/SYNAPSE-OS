@@ -36,11 +36,11 @@ export default function AssistantHeader({
   return (
     <div className="synapseos-header">
       <div className="synapseos-header-inner" style={{ padding: '10px 14px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '8px' }}>
-        {/* Left: Sanjeevni Logo & Brand */}
+        {/* Left: Synapse Logo & Brand */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', minWidth: 0 }}>
           <img 
             src="/synapseos-icon.svg" 
-            alt="Sanjeevni AI" 
+            alt="Synapse AI" 
             style={{ width: '28px', height: '28px', borderRadius: '7px', objectFit: 'contain', flexShrink: 0 }}
           />
           <div style={{ display: 'flex', alignItems: 'center', gap: '6px', whiteSpace: 'nowrap' }}>

@@ -27,7 +27,7 @@ async def call_gemini(
     timeout: float = 12.0
 ) -> Optional[str]:
     """
-    Primary Google Gemini Generative API client for SynapseOS / Sanjeevni.
+    Primary Google Gemini Generative API client for Synapse-OS.
     Powers the multimodal hero intelligence layer: clinical reasoning, Indic dialect synthesis,
     vernacular explanation, and multi-agent consensus.
     """

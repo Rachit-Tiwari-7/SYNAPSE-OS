@@ -58,7 +58,7 @@ app.include_router(api_router, prefix=settings.API_PREFIX)
 @app.get("/api/health", tags=["Health Check"])
 async def root():
     return {
-        "platform": "Sanjeevni-OS",
+        "platform": "Synapse-OS",
         "version": settings.VERSION,
         "status": "ONLINE",
         "agents_active": [

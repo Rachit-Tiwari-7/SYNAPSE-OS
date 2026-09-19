@@ -1,5 +1,5 @@
 # ==============================================================================
-# SynapseOS / Sanjeevni-OS Frontend Dockerfile (Production Multi-Stage Build)
+# Synapse-OS-OS Frontend Dockerfile (Production Multi-Stage Build)
 # Next.js 16 + React 19 + TypeScript Standalone Optimization
 # ==============================================================================
 

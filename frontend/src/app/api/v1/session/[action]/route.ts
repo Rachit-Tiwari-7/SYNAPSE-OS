@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { AuthStore } from '@/lib/auth-store';
 
 function getSessionFromRequest(req: NextRequest) {
-  const sessionId = req.cookies.get('sanjeevni_session_id')?.value ||
+  const sessionId = req.cookies.get('synapse_session_id')?.value ||
     req.headers.get('authorization')?.replace('Bearer ', '');
   if (!sessionId) return null;
   return AuthStore.findSessionById(sessionId);
@@ -78,7 +78,7 @@ export async function DELETE(
     // If user terminated their OWN current session
     if (targetSessionId === session.id) {
       const res = NextResponse.json({ message: 'Current session terminated', loggedOut: true });
-      res.cookies.set('sanjeevni_session_id', '', { httpOnly: true, path: '/', maxAge: 0 });
+      res.cookies.set('synapse_session_id', '', { httpOnly: true, path: '/', maxAge: 0 });
       return res;
     }
 

@@ -1,4 +1,4 @@
-# 🌿 Sanjeevni-OS — WhatsApp Healthcare Service (Google Gemini Powered)
+# 🌿 Synapse-OS — WhatsApp Healthcare Service (Google Gemini Powered)
 
 A standalone, high-performance **Meta WhatsApp Cloud API (Graph API v20.0)** microservice integrated directly with **Google Gemini API** (`gemini-2.0-flash` & `gemini-1.5-flash`) for clinical intelligence, drug-drug safety evaluation, and multimodal prescription OCR vision.
 
@@ -139,6 +139,6 @@ curl -X POST http://localhost:8001/whatsapp/simulate \
 
 1. In the **Meta for Developers Dashboard**, navigate to **WhatsApp > Configuration**.
 2. Set Callback URL: `https://your-domain.com/whatsapp/webhook`
-3. Set Verify Token: `sanjeevni_secret_token_123` (or the token configured in `WHATSAPP_WEBHOOK_VERIFY_TOKEN`).
+3. Set Verify Token: `synapse_secret_token_123` (or the token configured in `WHATSAPP_WEBHOOK_VERIFY_TOKEN`).
 4. Subscribe to the `messages` webhook field.
 5. Provide `WHATSAPP_CLOUD_API_TOKEN` and `WHATSAPP_PHONE_NUMBER_ID` in your `.env`.

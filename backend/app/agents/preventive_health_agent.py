@@ -166,7 +166,7 @@ def generate_community_health_quiz(count: int = 3) -> Dict[str, Any]:
     """Generates a randomized 3-question community health awareness quiz."""
     selected_questions = random.sample(COMMUNITY_QUIZ_BANK, min(count, len(COMMUNITY_QUIZ_BANK)))
     return {
-        "quiz_title": "Sanjeevni-OS Community Preventive Health Awareness Quiz",
+        "quiz_title": "Synapse-OS Community Preventive Health Awareness Quiz",
         "target_audience": "Rural & Semi-Urban Communities, ASHA Workers, Families",
         "total_questions": len(selected_questions),
         "questions": [

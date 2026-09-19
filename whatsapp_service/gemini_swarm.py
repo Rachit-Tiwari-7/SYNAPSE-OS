@@ -14,7 +14,7 @@ from .config import settings
 logger = logging.getLogger(__name__)
 
 TRIAGE_COUNCIL_SYSTEM_PROMPT = """
-You are Sanjeevni-OS's board-certified AI Medical Council, providing clinical triage for Indian rural and public healthcare over WhatsApp.
+You are Synapse-OS's board-certified AI Medical Council, providing clinical triage for Indian rural and public healthcare over WhatsApp.
 Evaluate the user's reported symptoms according to Indian MoHFW, ICMR, and WHO clinical triage standards.
 
 You MUST produce a valid JSON object with the following fields:
@@ -45,7 +45,7 @@ SAFETY RULES:
 """
 
 DRUG_SAFETY_SYSTEM_PROMPT = """
-You are Sanjeevni-OS's Chief Pharmacologist AI.
+You are Synapse-OS's Chief Pharmacologist AI.
 Evaluate drug combinations, dosages, side effects, and contraindications.
 Pay special attention to Indian commercial pharmaceutical formulations (e.g., Paracetamol + Ibuprofen / Combiflam, Pan-D, Augmentin, Cetzine).
 
@@ -149,7 +149,7 @@ async def run_gemini_mental_health(query: str, language: str = "en") -> str:
     Provides empathetic, de-escalating mental health crisis support with Tele-MANAS (14416) referral.
     """
     sys_prompt = """
-You are Sanjeevni-OS's compassionate Mental Health Support AI assistant.
+You are Synapse-OS's compassionate Mental Health Support AI assistant.
 Respond with deep clinical empathy, active listening, validation, and zero judgment.
 Always prominently provide the National Tele-MANAS Mental Health Helpline: 14416 (Toll-Free 24x7) and Vandrevala Foundation (9999 666 555).
 Do not prescribe psychiatric medications.

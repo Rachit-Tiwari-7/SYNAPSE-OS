@@ -487,7 +487,7 @@ Always leverage this patient's live clinical context in your answers. Provide st
       ? 'Speak fluently and conversationally in Hindi (हिन्दी) or Hinglish as preferred by the patient. Keep responses natural and culturally empathetic.'
       : 'Speak fluently in natural, clear, and professional English.';
 
-    return `You are Sanjeevni-OS Clinical Voice AI, the real-time voice intelligence for India's Next-Generation Multi-Agent Health Operating System.
+    return `You are Synapse-OS Clinical Voice AI, the real-time voice intelligence for India's Next-Generation Multi-Agent Health Operating System.
 You are having an interactive voice conversation with the patient in real time.
 
 CORE VOICE DIRECTIVES:
@@ -496,7 +496,7 @@ CORE VOICE DIRECTIVES:
 3. ${langDirective}
 
 PLATFORM ARCHITECTURE & WEBSITE KNOWLEDGE:
-• Sanjeevni-OS / SynapseOS is an autonomous healthcare operating system integrating ABDM/ABHA electronic health records, 5-Agent Swarm Intelligence consensus (Triage, Drug Safety, Mental Health, Verification, Biometrics), 3D Digital Organ Twin simulation, MONAI medical imaging AI, WHO & IDSP epidemic outbreak monitoring, U-WIN universal immunization tracking, and 2G GSM zero-bandwidth SMS triage.
+• Synapse-OS / SynapseOS is an autonomous healthcare operating system integrating ABDM/ABHA electronic health records, 5-Agent Swarm Intelligence consensus (Triage, Drug Safety, Mental Health, Verification, Biometrics), 3D Digital Organ Twin simulation, MONAI medical imaging AI, WHO & IDSP epidemic outbreak monitoring, U-WIN universal immunization tracking, and 2G GSM zero-bandwidth SMS triage.
 
 ACTIVE CITIZEN DOSSIER:
 • Name: ${activePatient.patient.name}
@@ -621,12 +621,12 @@ Reference the patient's vitals when relevant. If symptoms suggest an emergency (
             ? 'नमस्ते! मैं संजीवनी ट्राइएज वॉइस असिस्टेंट हूँ। कृपया अपने लक्षणों के बारे में बताएं।'
             : assistantPersona === 'nutrition'
             ? 'नमस्ते! मैं संजीवनी न्यूट्रिशन वॉइस असिस्टेंट हूँ। अपने खान-पान और स्वास्थ्य लक्ष्यों के बारे में बताएं।'
-            : `नमस्ते ${activePatient.patient.name}! मैं संजीवनी एआई क्लिनिकल वॉइस असिस्टेंट हूँ। मैं सुन रहा हूँ, आपकी क्या मदद कर सकता हूँ?`)
+            : `नमस्ते ${activePatient.patient.name}! मैं सिनैप्स ओएस एआई क्लिनिकल वॉइस असिस्टेंट हूँ। मैं सुन रहा हूँ, आपकी क्या मदद कर सकता हूँ?`)
         : (assistantPersona === 'triage'
-            ? 'Hello! I am your Sanjeevni OS Triage Specialist. Please describe any symptoms you are experiencing.'
+            ? 'Hello! I am your Synapse-OS Triage Specialist. Please describe any symptoms you are experiencing.'
             : assistantPersona === 'nutrition'
-            ? 'Hello! I am your Sanjeevni OS Nutrition Specialist. Tell me your dietary or metabolic goals.'
-            : `Hello ${activePatient.patient.name}! I am Sanjeevni OS Clinical Voice Assistant. How can I assist with your health today?`);
+            ? 'Hello! I am your Synapse-OS Nutrition Specialist. Tell me your dietary or metabolic goals.'
+            : `Hello ${activePatient.patient.name}! I am Synapse-OS Clinical Voice Assistant. How can I assist with your health today?`);
 
       const voiceSystemPrompt = buildVoiceSystemPrompt();
 

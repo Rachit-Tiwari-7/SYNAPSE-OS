@@ -16,7 +16,7 @@ If you discover a security vulnerability within this project, please **do not** 
 
 Instead, follow these steps:
 1. Navigate to the **Security** tab of this repository on GitHub.
-2. Click on **Private vulnerability reporting** (if enabled) or reach out directly to the maintainers via email at `security@sanjeevnios.com` (placeholder).
+2. Click on **Private vulnerability reporting** (if enabled) or reach out directly to the maintainers via email at `security@synapseos.health` (placeholder).
 3. Provide a detailed description of the vulnerability, steps to reproduce, and potential impact.
 
 We will acknowledge receipt of your vulnerability report within 48 hours and strive to send you regular updates about our progress. If you report a vulnerability, we will coordinate a public disclosure with you once a fix is released.

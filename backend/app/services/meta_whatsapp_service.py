@@ -95,7 +95,7 @@ LOCALIZED_MENUS: Dict[str, str] = {
         "भाषा बदलने के लिए 'lang' लिखें।"
     ),
     "bn": (
-        "🌿 *সঞ্জীবনী-ওএস (Sanjeevni-OS) — গ্রামীণ ও জনস্বাস্থ্য এআই* 🌿\n"
+        "🌿 *সঞ্জীবনী-ওএস (Synapse-OS) — গ্রামীণ ও জনস্বাস্থ্য এআই* 🌿\n"
         "_বহুভাষিক স্বাস্থ্য পরিষেবা ও টিকাদান নির্দেশিকা_\n\n"
         "স্বাগতম! আমি আপনাকে কীভাবে সাহায্য করতে পারি? একটি *নম্বর* লিখুন:\n\n"
         "1️⃣ *লক্ষণ পরীক্ষা* — `1` লিখে আপনার লক্ষণ জানান\n"
@@ -110,7 +110,7 @@ LOCALIZED_MENUS: Dict[str, str] = {
         "🚨 *জরুরি সহায়তা* — তৎক্ষণাৎ *SOS* পাঠান"
     ),
     "ta": (
-        "🌿 *சஞ்சீவனி-ஓஎஸ் (Sanjeevni-OS) — கிராமப்புற சுகாதார ஏஐ* 🌿\n"
+        "🌿 *சஞ்சீவனி-ஓஎஸ் (Synapse-OS) — கிராமப்புற சுகாதார ஏஐ* 🌿\n"
         "_பன்மொழி சுகாதார பராமரிப்பு & தடுப்பூசி வழிகாட்டி_\n\n"
         "வணக்கம்! நான் உங்களுக்கு எப்படி உதவ முடியும்? எண்ணைத் தேர்ந்தெடுக்கவும்:\n\n"
         "1️⃣ *அறிகுறி பரிசோதனை* — `1` எழுதி அறிகுறிகளை அனுப்பவும்\n"
@@ -125,7 +125,7 @@ LOCALIZED_MENUS: Dict[str, str] = {
         "🚨 *அவசர உதவி* — *SOS* அனுப்பவும்"
     ),
     "te": (
-        "🌿 *సంజీవని-ఓఎస్ (Sanjeevni-OS) — గ్రామీణ ప్రజారోగ్య ఏఐ* 🌿\n"
+        "🌿 *సంజీవని-ఓఎస్ (Synapse-OS) — గ్రామీణ ప్రజారోగ్య ఏఐ* 🌿\n"
         "_బహుభాషా ఆరోగ్య సంరక్షణ & వ్యాక్సినేషన్ ఇంటెలిజెన్స్_\n\n"
         "నమస్కారం! నేను మీకు ఎలా సహాయపడగలను? నంబర్ ఎంచుకోండి:\n\n"
         "1️⃣ *లక్షణాల నిర్ధారణ* — `1` మరియు లక్షణాలను టైప్ చేయండి\n"
@@ -140,7 +140,7 @@ LOCALIZED_MENUS: Dict[str, str] = {
         "🚨 *అత్యవసర సహాయం* — *SOS* టైప్ చేయండి"
     ),
     "mr": (
-        "🌿 *संजीवनी-ओएस (Sanjeevni-OS) — ग्रामीण व सार्वजनिक आरोग्य एआय* 🌿\n"
+        "🌿 *संजीवनी-ओएस (Synapse-OS) — ग्रामीण व सार्वजनिक आरोग्य एआय* 🌿\n"
         "_बहुभाषिक आरोग्य सेवा आणि लसीकरण मार्गदर्शक_\n\n"
         "नमस्कार! मी आपली काय मदत करू शकतो? खालील पर्याय निवडा:\n\n"
         "1️⃣ *लक्षणे तपासणी* — `1` लिहून लक्षणे सांगा\n"
@@ -155,7 +155,7 @@ LOCALIZED_MENUS: Dict[str, str] = {
         "🚨 *तातडीची मदत* — *SOS* पाठवा"
     ),
     "gu": (
-        "🌿 *સંજીવની-ઓએસ (Sanjeevni-OS) — ગ્રામીણ આરોગ્ય એઆઈ* 🌿\n"
+        "🌿 *સંજીવની-ઓએસ (Synapse-OS) — ગ્રામીણ આરોગ્ય એઆઈ* 🌿\n"
         "_બહુભાષી આરોગ્ય સેવા અને રસીકરણ માર્ગદર્શિકા_\n\n"
         "નમસ્તે! હું તમારી શું મદદ કરી શકું? નંબર પસંદ કરો:\n\n"
         "1️⃣ *લક્ષણો તપાસ* — `1` લખીને લક્ષણો જણાવો\n"
@@ -170,7 +170,7 @@ LOCALIZED_MENUS: Dict[str, str] = {
         "🚨 *ઇમરજન્સી સહાય* — *SOS* મોકલો"
     ),
     "kn": (
-        "🌿 *ಸಂಜೀವನಿ-ಓಎಸ್ (Sanjeevni-OS) — ಗ್ರಾಮೀಣ ಆರೋಗ್ಯ ಎಐ* 🌿\n"
+        "🌿 *ಸಂಜೀವನಿ-ಓಎಸ್ (Synapse-OS) — ಗ್ರಾಮೀಣ ಆರೋಗ್ಯ ಎಐ* 🌿\n"
         "_ಬಹುಭಾಷಾ ಆರೋಗ್ಯ ಸೇವೆ ಮತ್ತು ಲಸಿಕೆ ಮಾರ್ಗದರ್ಶಿ_\n\n"
         "ನಮಸ್ಕಾರ! ನಾನು ನಿಮಗೆ ಹೇಗೆ ಸಹಾಯ ಮಾಡಲಿ? ಸಂಖ್ಯೆಯನ್ನು ಆರಿಸಿ:\n\n"
         "1️⃣ *ರೋಗಲಕ್ಷಣ ಪರೀಕ್ಷೆ* — `1` ಬರೆದು ಕಳುಹಿಸಿ\n"
@@ -185,7 +185,7 @@ LOCALIZED_MENUS: Dict[str, str] = {
         "🚨 *ತುರ್ತು ಸೇವೆ* — *SOS* ಕಳುಹಿಸಿ"
     ),
     "ml": (
-        "🌿 *സഞ്ജീവനി-ഒഎസ് (Sanjeevni-OS) — ആരോഗ്യ എഐ* 🌿\n"
+        "🌿 *സഞ്ജീവനി-ഒഎസ് (Synapse-OS) — ആരോഗ്യ എഐ* 🌿\n"
         "_ബഹുഭാഷാ ആരോഗ്യ പരിപാലനം & പ്രതിരോധ കുത്തിവയ്പ്പ്_\n\n"
         "നമസ്കാരം! ഞാൻ നിങ്ങളെ എങ്ങനെ സഹായിക്കണം? നമ്പർ തിരഞ്ഞെടുക്കുക:\n\n"
         "1️⃣ *രോഗലക്ഷണ പരിശോധന* — `1` ടൈപ്പ് ചെയ്യുക\n"
@@ -200,7 +200,7 @@ LOCALIZED_MENUS: Dict[str, str] = {
         "🚨 *അടിയന്തര സഹായം* — *SOS* ടൈപ്പ് ചെയ്യുക"
     ),
     "pa": (
-        "🌿 *ਸੰਜੀਵਨੀ-ਓਐਸ (Sanjeevni-OS) — ਸਿਹਤ ਏਆਈ* 🌿\n"
+        "🌿 *ਸੰਜੀਵਨੀ-ਓਐਸ (Synapse-OS) — ਸਿਹਤ ਏਆਈ* 🌿\n"
         "_ਬਹੁ-ਭਾਸ਼ਾਈ ਸਿਹਤ ਸੰਭਾਲ ਅਤੇ ਟੀਕਾਕਰਨ ਗਾਈਡ_\n\n"
         "ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ! ਮੈਂ ਤੁਹਾਡੀ ਕੀ ਮਦਦ ਕਰ ਸਕਦਾ ਹਾਂ? ਨੰਬਰ ਚੁਣੋ:\n\n"
         "1️⃣ *ਲੱਛਣ ਜਾਂਚ* — `1` ਲਿਖ ਕੇ ਲੱਛਣ ਦੱਸੋ\n"
@@ -215,7 +215,7 @@ LOCALIZED_MENUS: Dict[str, str] = {
         "🚨 *ਐਮਰਜੈਂਸੀ ਸਹਾਇਤਾ* — *SOS* ਭੇਜੋ"
     ),
     "or": (
-        "🌿 *ସଞ୍ଜୀବନୀ-ଓଏସ୍ (Sanjeevni-OS) — ସ୍ୱାସ୍ଥ୍ୟ ଏଆଇ* 🌿\n"
+        "🌿 *ସଞ୍ଜୀବନୀ-ଓଏସ୍ (Synapse-OS) — ସ୍ୱାସ୍ଥ୍ୟ ଏଆଇ* 🌿\n"
         "_ବହୁଭାଷୀ ସ୍ୱାସ୍ଥ୍ୟ ସେବା ଏବଂ ଟୀକାକରଣ ନିର୍ଦ୍ଦେଶିକା_\n\n"
         "ନମସ୍କାର! ମୁଁ ଆପଣଙ୍କୁ କିପରି ସାହାଯ୍ୟ କରିପାରିବି? ନମ୍ବର ବାଛନ୍ତୁ:\n\n"
         "1️⃣ *ଲକ୍ଷଣ ପରୀକ୍ଷା* — `1` ଲେଖି ଲକ୍ଷଣ ଜଣାନ୍ତୁ\n"
@@ -391,7 +391,7 @@ def _extract_diagnosis_condition(text: str, is_hindi: bool = False) -> str:
     elif any(k in text_lower for k in ["vomiting", "diarrhea", "loose motion", "pet dard"]):
         return "गैस्ट्रोएंटेराइटिस / पेट में संक्रमण" if is_hindi else "Acute Gastroenteritis / Gastrointestinal Distress"
 
-    return "संजीवनी एआई द्वारा संपूर्ण स्वास्थ्य परीक्षण संपन्न।" if is_hindi else "Clinical Symptom Assessment — Professional Medical Review Required"
+    return "सिनैप्स ओएस एआई द्वारा संपूर्ण स्वास्थ्य परीक्षण संपन्न।" if is_hindi else "Clinical Symptom Assessment — Professional Medical Review Required"
 
 def _extract_medications_guidance(text: str, is_emergency: bool, is_hindi: bool = False) -> List[str]:
     meds: List[str] = []
@@ -504,8 +504,8 @@ async def classify_medical_image_type(image_base64: Optional[str], caption: Opti
         headers = {
             "Authorization": f"Bearer {settings.OPENROUTER_API_KEY}",
             "Content-Type": "application/json",
-            "HTTP-Referer": settings.OPENROUTER_REFERER or "https://sanjeevni.in",
-            "X-Title": settings.OPENROUTER_APP_TITLE or "Sanjeevni-OS Image Classifier"
+            "HTTP-Referer": settings.OPENROUTER_REFERER or "https://synapse.in",
+            "X-Title": settings.OPENROUTER_APP_TITLE or "Synapse-OS Image Classifier"
         }
         vision_model = settings.OPENROUTER_PRIMARY_MODEL or "google/gemini-2.0-flash-001"
         payload = {
@@ -571,7 +571,7 @@ def format_compact_generic_qa_card(text: str) -> str:
         "",
         "⚠️ Medical Note: Educational guidance only. Consult a doctor for personal evaluation.",
         "━━━━━━━━━━━━━━━━━━━━",
-        "🌿 Powered by Sanjeevni-OS"
+        "🌿 Powered by Synapse-OS"
     ]
     return "\n".join(lines).strip()
 
@@ -745,7 +745,7 @@ def format_compact_whatsapp_card(text: str, lang: str = "en") -> str:
         lines.append("• Reply 5 to find PM-JAY doctors & book slot")
         lines.append("• Reply sos for instant emergency ambulance (108)")
         lines.append("• Reply full for the complete clinical report")
-        lines.append("\n🌿 Powered by Sanjeevni-OS Multi-Agent Swarm")
+        lines.append("\n🌿 Powered by Synapse-OS Multi-Agent Swarm")
 
     card_str = "\n".join(lines)
     return strip_markdown_to_plain_text(card_str)
@@ -764,7 +764,7 @@ def format_response_for_whatsapp(text: str, compact: bool = True, lang: str = "e
     if not text:
         if is_hindi:
             return "संजीवनी-ओएस से परामर्श लेने के लिए धन्यवाद। कृपया अपने स्वास्थ्य की निगरानी करें और आवश्यकतानुसार डॉक्टर से सलाह लें।"
-        return "Thank you for consulting Sanjeevni-OS. Please monitor your health and consult a physician if needed."
+        return "Thank you for consulting Synapse-OS. Please monitor your health and consult a physician if needed."
 
     text_lower = text.lower()
     # Check if this is a general informational Q&A without active symptoms
@@ -773,7 +773,7 @@ def format_response_for_whatsapp(text: str, compact: bool = True, lang: str = "e
         "what is ", "what is calpol", "benefits of ", "how does ", "why is "
     ]) and not any(k in text_lower for k in ["patient status: emergency", "fever", "severe pain", "vomiting", "diarrhea"])
 
-    footer = "🌿 संजीवनी-ओएस मल्टी-एजेंट द्वारा संचालित" if is_hindi else "🌿 Powered by Sanjeevni-OS Multi-Agent Swarm"
+    footer = "🌿 संजीवनी-ओएस मल्टी-एजेंट द्वारा संचालित" if is_hindi else "🌿 Powered by Synapse-OS Multi-Agent Swarm"
 
     if is_general_inquiry:
         plain = strip_markdown_to_plain_text(text)
@@ -950,7 +950,7 @@ async def process_whatsapp_inbound_webhook(payload: Dict[str, Any]) -> Dict[str,
             "• Emergency red flag warning symptoms",
             "",
             "━━━━━━━━━━━━━━━━━━━━",
-            "🌿 Powered by Sanjeevni-OS"
+            "🌿 Powered by Synapse-OS"
         ]
         reply_text = "\n".join(fallback_lines)
         dispatch_res = await send_whatsapp_message(to_phone=sender_phone, text=reply_text)
@@ -1016,7 +1016,7 @@ async def process_whatsapp_inbound_webhook(payload: Dict[str, Any]) -> Dict[str,
 
     # 7. Greeting / Main Menu Trigger (supports English & Indic scripts)
     native_greetings = (
-        "hi", "hello", "hey", "menu", "help", "start", "guide", "synapse", "synapseos", "sanjeevni", "options",
+        "hi", "hello", "hey", "menu", "help", "start", "guide", "synapse", "synapseos", "synapse", "options",
         "नमस्ते", "नमस्कार", "வணக்கம்", "নমস্কার", "నమస్కారం", "హలో", "ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ", "નમસ્તે", "നമസ്കാരം", "ନମସ୍କାର",
         "namaste", "pranam", "vanakkam", "namaskara"
     )
@@ -1059,7 +1059,7 @@ async def process_whatsapp_inbound_webhook(payload: Dict[str, Any]) -> Dict[str,
         last_report = session["context"].get("last_full_report")
         if last_report:
             clean_full = strip_markdown_to_plain_text(last_report)
-            footer = "🌿 Powered by Sanjeevni-OS Multi-Agent Swarm"
+            footer = "🌿 Powered by Synapse-OS Multi-Agent Swarm"
             if not clean_full.endswith(footer):
                 clean_full += f"\n\n{footer}"
             dispatch_res = await send_whatsapp_message(to_phone=sender_phone, text=clean_full)
@@ -1174,7 +1174,7 @@ async def process_whatsapp_inbound_webhook(payload: Dict[str, Any]) -> Dict[str,
                     f"🏪 Available at nearest Jan Aushadhi Kendra (Govt. of India)."
                 )
 
-            reply_parts.append("\n━━━━━━━━━━━━━━━━━━━━\n🌿 Powered by Sanjeevni-OS")
+            reply_parts.append("\n━━━━━━━━━━━━━━━━━━━━\n🌿 Powered by Synapse-OS")
             reply_text = "\n".join(reply_parts)
 
         dispatch_res = await send_whatsapp_message(to_phone=sender_phone, text=reply_text)
@@ -1209,7 +1209,7 @@ async def process_whatsapp_inbound_webhook(payload: Dict[str, Any]) -> Dict[str,
         else:
             reply_parts.append(f"No specific doctors found for '{specialty}'. Please consult a General Physician.")
 
-        reply_parts.append("━━━━━━━━━━━━━━━━━━━━\n🌿 Powered by Sanjeevni-OS")
+        reply_parts.append("━━━━━━━━━━━━━━━━━━━━\n🌿 Powered by Synapse-OS")
         reply_text = "\n".join(reply_parts)
         dispatch_res = await send_whatsapp_message(to_phone=sender_phone, text=reply_text)
         return {
@@ -1222,7 +1222,7 @@ async def process_whatsapp_inbound_webhook(payload: Dict[str, Any]) -> Dict[str,
 
     # 12. Command Option 6: ABHA Health Card & PM-JAY
     if text_lower == "6" or text_lower.startswith("6 "):
-        abha_data = generate_abha_id(name="Sanjeevni User", year_of_birth=1998, state_code="MP")
+        abha_data = generate_abha_id(name="Synapse User", year_of_birth=1998, state_code="MP")
         abha_num = abha_data.get("abha_number") or abha_data.get("abha_id")
         schemes_data = check_ayushman_bharat_schemes()
         pmjay_cov = schemes_data.get("pmjay", {}).get("coverage", "₹5 Lakh / family / year free care")
@@ -1239,7 +1239,7 @@ async def process_whatsapp_inbound_webhook(payload: Dict[str, Any]) -> Dict[str,
             f"• Jan Aushadhi (PMBJP): {jan_benefit}"
         ]
 
-        reply_parts.append("\n━━━━━━━━━━━━━━━━━━━━\n🌿 Powered by Sanjeevni-OS")
+        reply_parts.append("\n━━━━━━━━━━━━━━━━━━━━\n🌿 Powered by Synapse-OS")
         reply_text = "\n".join(reply_parts)
         dispatch_res = await send_whatsapp_message(to_phone=sender_phone, text=reply_text)
         return {
@@ -1296,7 +1296,7 @@ async def process_whatsapp_inbound_webhook(payload: Dict[str, Any]) -> Dict[str,
 
             reply_parts.append("\n🏥 Free at all Anganwadis & Primary Health Centres.")
 
-        reply_parts.append("━━━━━━━━━━━━━━━━━━━━\n🌿 Powered by Sanjeevni-OS")
+        reply_parts.append("━━━━━━━━━━━━━━━━━━━━\n🌿 Powered by Synapse-OS")
         reply_text = "\n".join(reply_parts)
         dispatch_res = await send_whatsapp_message(to_phone=sender_phone, text=reply_text)
         return {
@@ -1330,7 +1330,7 @@ async def process_whatsapp_inbound_webhook(payload: Dict[str, Any]) -> Dict[str,
                     f"📈 Effective Reproduction Number (Rt): {w['effective_reproduction_rt']}",
                     f"📉 7-Day Velocity: {w['trend_7d']}",
                     f"\n📋 Municipal Directives:\n{w['containment_action']}",
-                    "━━━━━━━━━━━━━━━━━━━━\n🌿 Powered by Sanjeevni-OS (City Immune Grid)"
+                    "━━━━━━━━━━━━━━━━━━━━\n🌿 Powered by Synapse-OS (City Immune Grid)"
                 ]
                 reply_text = "\n".join(reply_parts)
                 dispatch_res = await send_whatsapp_message(to_phone=sender_phone, text=reply_text)
@@ -1352,7 +1352,7 @@ async def process_whatsapp_inbound_webhook(payload: Dict[str, Any]) -> Dict[str,
             f"\n📋 Advisory: {outbreak_res['preventive_advisory']}",
             f"📞 Helpdesk: {outbreak_res['helpline']}",
             f"\n💡 Tip: Send '8 <6-digit PIN>' (e.g. '8 110005') for ward-level micro-heatmap.",
-            "━━━━━━━━━━━━━━━━━━━━\n🌿 Powered by Sanjeevni-OS (City Immune Grid)"
+            "━━━━━━━━━━━━━━━━━━━━\n🌿 Powered by Synapse-OS (City Immune Grid)"
         ]
         reply_text = "\n".join(reply_parts)
         dispatch_res = await send_whatsapp_message(to_phone=sender_phone, text=reply_text)
@@ -1397,7 +1397,7 @@ async def process_whatsapp_inbound_webhook(payload: Dict[str, Any]) -> Dict[str,
             "3. 🦟 Dengue Control: Empty water coolers every Sunday; sleep under mosquito nets.",
             "4. 🧼 Safe Water: Boil water for 2 mins; 20-second handwashing before food.\n",
             "👉 Reply '9 quiz' to take the 3-question awareness quiz!",
-            "━━━━━━━━━━━━━━━━━━━━\n🌿 Powered by Sanjeevni-OS"
+            "━━━━━━━━━━━━━━━━━━━━\n🌿 Powered by Synapse-OS"
         ]
         reply_text = "\n".join(reply_parts)
         dispatch_res = await send_whatsapp_message(to_phone=sender_phone, text=reply_text)
@@ -1460,7 +1460,7 @@ async def process_whatsapp_inbound_webhook(payload: Dict[str, Any]) -> Dict[str,
                 "👉 Quick Shortcuts:\n"
                 "• Reply menu for directory and schedules\n"
                 "• Reply sos for instant ambulance dispatch\n\n"
-                "🌿 Powered by Sanjeevni-OS"
+                "🌿 Powered by Synapse-OS"
             )
         trace_steps = 0
         intent = "fallback_emergency_advisory"

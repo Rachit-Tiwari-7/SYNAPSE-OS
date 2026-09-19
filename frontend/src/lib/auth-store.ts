@@ -155,7 +155,7 @@ function ensureAdminUsersExist() {
 
   // 2. Clinical Lead User (Dr. Mausam Kar)
   const existingMausam = Object.values(storeData.users).find(
-    (u) => u.email.toLowerCase() === 'mausam@synapse.ai' || u.email.toLowerCase() === 'mausam@sanjeevni.ai'
+    (u) => u.email.toLowerCase() === 'mausam@synapse.ai' || u.email.toLowerCase() === 'mausam@synapse.ai'
   );
   if (!existingMausam) {
     const { hash, salt } = hashPassword('Synapse@2026');
@@ -204,9 +204,9 @@ export const AuthStore = {
 
     // Map common aliases
     let target = normalized;
-    if (normalized === 'admin' || normalized === 'admin@sanjeevni.ai') {
+    if (normalized === 'admin' || normalized === 'admin@synapse.ai') {
       target = 'admin@synapse.ai';
-    } else if (normalized === 'mausam' || normalized === 'mausam@sanjeevni.ai') {
+    } else if (normalized === 'mausam' || normalized === 'mausam@synapse.ai') {
       target = 'mausam@synapse.ai';
     }
 
@@ -215,11 +215,11 @@ export const AuthStore = {
       if (uEmail === target || uEmail === normalized) {
         return u;
       }
-      // Backwards compatibility for previous sanjeevni email in local store
-      if (target === 'mausam@synapse.ai' && uEmail === 'mausam@sanjeevni.ai') {
+      // Backwards compatibility for previous synapse email in local store
+      if (target === 'mausam@synapse.ai' && uEmail === 'mausam@synapse.ai') {
         return u;
       }
-      if (target === 'admin@synapse.ai' && (uEmail === 'admin@sanjeevni.ai' || u.id === 'usr_admin_synapse')) {
+      if (target === 'admin@synapse.ai' && (uEmail === 'admin@synapse.ai' || u.id === 'usr_admin_synapse')) {
         return u;
       }
     }
@@ -270,7 +270,7 @@ export const AuthStore = {
       const allowedAdminPasswords = [
         'Admin@2026',
         'Synapse@2026',
-        'Sanjeevni@2026',
+        'Synapse@2026',
         'Admin@Synapse2026',
         'admin',
       ];
@@ -400,8 +400,8 @@ export const AuthStore = {
     let secretKey = user.userPreferences.twoFactorSecret;
     if (!secretKey) {
       const secret = speakeasy.generateSecret({
-        name: `SanjeevniOS (${user.email})`,
-        issuer: 'Sanjeevni-OS',
+        name: `SynapseOS (${user.email})`,
+        issuer: 'Synapse-OS',
         length: 20,
       });
       secretKey = secret.base32;
@@ -410,8 +410,8 @@ export const AuthStore = {
 
     const otpauthUrl = speakeasy.otpauthURL({
       secret: secretKey,
-      label: encodeURIComponent(`SanjeevniOS:${user.email}`),
-      issuer: 'Sanjeevni-OS',
+      label: encodeURIComponent(`SynapseOS:${user.email}`),
+      issuer: 'Synapse-OS',
       encoding: 'base32',
     });
 

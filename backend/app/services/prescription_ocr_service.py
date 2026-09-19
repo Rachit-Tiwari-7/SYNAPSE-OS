@@ -911,7 +911,7 @@ def format_prescription_for_whatsapp(
     - Key Precautions & Course Rules
     - Seek Emergency Care / Call 108 If
     - Quick Shortcuts
-    - Powered by Sanjeevni-OS Multi-Agent Swarm
+    - Powered by Synapse-OS Multi-Agent Swarm
     Supports native localization for Hindi and regional languages.
     """
     from backend.app.services.i18n_service import detect_text_language
@@ -1052,7 +1052,7 @@ def format_prescription_for_whatsapp(
             "• Reply sos for 108 Ambulance",
             "• Reply menu for Main Menu",
             "",
-            "🌿 Powered by Sanjeevni-OS Multi-Agent Swarm"
+            "🌿 Powered by Synapse-OS Multi-Agent Swarm"
         ])
 
     raw_text = "\n".join(lines)

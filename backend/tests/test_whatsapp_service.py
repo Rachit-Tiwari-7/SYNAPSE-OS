@@ -370,7 +370,7 @@ Seek immediate medical attention if you experience rash, breathing difficulty, o
     assert "Reply sos" not in output
 
     # Must include clean footer
-    assert "🌿 Powered by Sanjeevni-OS Multi-Agent Swarm" in output
+    assert "🌿 Powered by Synapse-OS Multi-Agent Swarm" in output
 
 
 @pytest.mark.asyncio

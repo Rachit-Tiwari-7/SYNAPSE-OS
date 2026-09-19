@@ -7,7 +7,7 @@ import {
 } from '@/lib/resend-mailer';
 
 function getSessionFromRequest(req: NextRequest) {
-  const sessionId = req.cookies.get('sanjeevni_session_id')?.value ||
+  const sessionId = req.cookies.get('synapse_session_id')?.value ||
     req.headers.get('authorization')?.replace('Bearer ', '');
   if (!sessionId) return null;
   return AuthStore.findSessionById(sessionId);
@@ -62,7 +62,7 @@ export async function POST(
         emailSent: emailResult.success,
       }, { status: 201 });
 
-      res.cookies.set('sanjeevni_session_id', session.id, {
+      res.cookies.set('synapse_session_id', session.id, {
         httpOnly: true,
         secure: process.env.NODE_ENV === 'production',
         sameSite: 'lax',
@@ -90,12 +90,12 @@ export async function POST(
       // Establish session
       const session = AuthStore.createSession(verifyResult.user.id, userAgent, ipAddress);
       const res = NextResponse.json({
-        message: 'Email verified successfully! Welcome to Sanjeevni OS.',
+        message: 'Email verified successfully! Welcome to Synapse-OS.',
         user: AuthStore.sanitizeUser(verifyResult.user),
         sessionId: session.id,
       });
 
-      res.cookies.set('sanjeevni_session_id', session.id, {
+      res.cookies.set('synapse_session_id', session.id, {
         httpOnly: true,
         secure: process.env.NODE_ENV === 'production',
         sameSite: 'lax',
@@ -190,7 +190,7 @@ export async function POST(
         sessionId: session.id,
       });
 
-      res.cookies.set('sanjeevni_session_id', session.id, {
+      res.cookies.set('synapse_session_id', session.id, {
         httpOnly: true,
         secure: process.env.NODE_ENV === 'production',
         sameSite: 'lax',
@@ -234,7 +234,7 @@ export async function POST(
         sessionId: session.id,
       });
 
-      res.cookies.set('sanjeevni_session_id', session.id, {
+      res.cookies.set('synapse_session_id', session.id, {
         httpOnly: true,
         secure: process.env.NODE_ENV === 'production',
         sameSite: 'lax',
@@ -253,7 +253,7 @@ export async function POST(
       }
 
       const res = NextResponse.json({ message: 'Logged out successfully' });
-      res.cookies.set('sanjeevni_session_id', '', {
+      res.cookies.set('synapse_session_id', '', {
         httpOnly: true,
         path: '/',
         maxAge: 0,

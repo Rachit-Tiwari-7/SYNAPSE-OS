@@ -122,7 +122,7 @@ export default function VoiceModeOverlay({
     if (voiceState === 'speaking')   return (aiResponseText.slice(0, 160) + (aiResponseText.length > 160 ? '…' : '')) || 'Speaking…';
     if (voiceState === 'muted')      return 'Mic muted — tap orb to resume.';
     if (voiceState === 'connecting') return 'Initialising secure voice session…';
-    return 'Sanjeevni Voice ready.';
+    return 'Synapse Voice ready.';
   };
 
   return (
@@ -148,12 +148,12 @@ export default function VoiceModeOverlay({
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
           <img
             src="/synapseos-icon.svg"
-            alt="Sanjeevni"
+            alt="Synapse"
             style={{ width: '28px', height: '28px', borderRadius: '7px', objectFit: 'contain', flexShrink: 0 }}
           />
           <div>
             <div style={{ fontSize: '13px', fontWeight: 700, color: '#0f172a', lineHeight: 1.2, letterSpacing: '-0.2px' }}>
-              Sanjeevni Voice
+              Synapse Voice
             </div>
             <div style={{ fontSize: '10px', color: '#94a3b8', fontWeight: 500 }}>
               Vapi · Groq LLaMA 3.3

@@ -88,7 +88,7 @@ LOCALIZED_MENUS: Dict[str, str] = {
         "भाषा बदलने के लिए 'lang' लिखें।"
     ),
     "bn": (
-        "🌿 সঞ্জীবনী-ওএস (Sanjeevni-OS) — গ্রামীণ ও জনস্বাস্থ্য এআই 🌿\n"
+        "🌿 সঞ্জীবনী-ওএস (Synapse-OS) — গ্রামীণ ও জনস্বাস্থ্য এআই 🌿\n"
         "বহুভাষিক স্বাস্থ্য পরিষেবা ও টিকাদান নির্দেশিকা\n\n"
         "স্বাগতম! আমি আপনাকে কীভাবে সাহায্য করতে পারি? একটি নম্বর লিখুন:\n\n"
         "1 লক্ষণ পরীক্ষা — 1 লিখে আপনার লক্ষণ জানান\n"
@@ -103,7 +103,7 @@ LOCALIZED_MENUS: Dict[str, str] = {
         "sos জরুরি সহায়তা — তৎক্ষণাৎ SOS পাঠান"
     ),
     "ta": (
-        "🌿 சஞ்சீவனி-ஓஎஸ் (Sanjeevni-OS) — கிராமப்புற சுகாதார ஏஐ 🌿\n"
+        "🌿 சஞ்சீவனி-ஓஎஸ் (Synapse-OS) — கிராமப்புற சுகாதார ஏஐ 🌿\n"
         "பன்மொழி சுகாதார பராமரிப்பு & தடுப்பூசி வழிகாட்டி\n\n"
         "வணக்கம்! நான் உங்களுக்கு எப்படி உதவ முடியும்? எண்ணைத் தேர்ந்தெடுக்கவும்:\n\n"
         "1 அறிகுறி பரிசோதனை — 1 எழுதி அறிகுறிகளை அனுப்பவும்\n"
@@ -118,7 +118,7 @@ LOCALIZED_MENUS: Dict[str, str] = {
         "sos அவசர உதவி — SOS அனுப்பவும்"
     ),
     "te": (
-        "🌿 సంజీవని-ఓఎస్ (Sanjeevni-OS) — గ్రామీణ ప్రజారోగ్య ఏఐ 🌿\n"
+        "🌿 సంజీవని-ఓఎస్ (Synapse-OS) — గ్రామీణ ప్రజారోగ్య ఏఐ 🌿\n"
         "బహుభాషా ఆరోగ్య సంరక్షణ & వ్యాక్సినేషన్ ఇంటెలిజెన్స్\n\n"
         "నమస్కారం! నేను మీకు ఎలా సహాయపడగలను? నంబర్ ఎంచుకోండి:\n\n"
         "1 లక్షణాల నిర్ధారణ — 1 మరియు లక్షణాలను టైప్ చేయండి\n"
@@ -133,7 +133,7 @@ LOCALIZED_MENUS: Dict[str, str] = {
         "sos అత్యవసర సహాయం — SOS టైప్ చేయండి"
     ),
     "mr": (
-        "🌿 संजीवनी-ओएस (Sanjeevni-OS) — ग्रामीण व सार्वजनिक आरोग्य एआय 🌿\n"
+        "🌿 संजीवनी-ओएस (Synapse-OS) — ग्रामीण व सार्वजनिक आरोग्य एआय 🌿\n"
         "बहुभाषिक आरोग्य सेवा आणि लसीकरण मार्गदर्शक\n\n"
         "नमस्कार! मी आपली काय मदत करू शकतो? खालील पर्याय निवडा:\n\n"
         "1 लक्षणे तपासणी — 1 लिहून लक्षणे सांगा\n"
@@ -148,7 +148,7 @@ LOCALIZED_MENUS: Dict[str, str] = {
         "sos तातडीची मदत — SOS पाठवा"
     ),
     "gu": (
-        "🌿 સંજીવની-ઓએસ (Sanjeevni-OS) — ગ્રામીણ આરોગ્ય એઆઈ 🌿\n"
+        "🌿 સંજીવની-ઓએસ (Synapse-OS) — ગ્રામીણ આરોગ્ય એઆઈ 🌿\n"
         "બહુભાષી આરોગ્ય સેવા અને રસીકરણ માર્ગદર્શિકા\n\n"
         "નમસ્તે! હું તમારી શું મદદ કરી શકું? નંબર પસંદ કરો:\n\n"
         "1 લક્ષણો તપાસ — 1 લખીને લક્ષણો જણાવો\n"
@@ -163,7 +163,7 @@ LOCALIZED_MENUS: Dict[str, str] = {
         "sos ઇમરજન્સી સહાય — SOS મોકલો"
     ),
     "kn": (
-        "🌿 ಸಂಜೀವನಿ-ಓಎಸ್ (Sanjeevni-OS) — ಗ್ರಾಮೀಣ ಆರೋಗ್ಯ ಎಐ 🌿\n"
+        "🌿 ಸಂಜೀವನಿ-ಓಎಸ್ (Synapse-OS) — ಗ್ರಾಮೀಣ ಆರೋಗ್ಯ ಎಐ 🌿\n"
         "ಬಹುಭಾಷಾ ಆರೋಗ್ಯ ಸೇವೆ ಮತ್ತು ಲಸಿಕೆ ಮಾರ್ಗದರ್ಶಿ\n\n"
         "ನಮಸ್ಕಾರ! ನಾನು ನಿಮಗೆ ಹೇಗೆ ಸಹಾಯ ಮಾಡಲಿ? ಸಂಖ್ಯೆಯನ್ನು ಆರಿಸಿ:\n\n"
         "1 ರೋಗಲಕ್ಷಣ ಪರೀಕ್ಷೆ — 1 ಬರೆದು ಕಳುಹಿಸಿ\n"
@@ -178,7 +178,7 @@ LOCALIZED_MENUS: Dict[str, str] = {
         "sos ತುರ್ತು ಸೇವೆ — SOS ಕಳುಹಿಸಿ"
     ),
     "ml": (
-        "🌿 സഞ്ജീവനി-ഒഎസ് (Sanjeevni-OS) — ആരോഗ്യ എഐ 🌿\n"
+        "🌿 സഞ്ജീവനി-ഒഎസ് (Synapse-OS) — ആരോഗ്യ എഐ 🌿\n"
         "ബഹുഭാഷാ ആരോഗ്യ പരിപാലനം & പ്രതിരോധ കുത്തിവയ്പ്പ്\n\n"
         "നമസ്കാരം! ഞാൻ നിങ്ങളെ എങ്ങനെ സഹായിക്കണം? നമ്പർ തിരഞ്ഞെടുക്കുക:\n\n"
         "1 രോഗലക്ഷണ പരിശോധന — 1 ടൈപ്പ് ചെയ്യുക\n"
@@ -193,7 +193,7 @@ LOCALIZED_MENUS: Dict[str, str] = {
         "sos അടിയന്തര സഹായം — SOS ടൈപ്പ് ചെയ്യുക"
     ),
     "pa": (
-        "🌿 ਸੰਜੀਵਨੀ-ਓਐਸ (Sanjeevni-OS) — ਸਿਹਤ ਏਆਈ 🌿\n"
+        "🌿 ਸੰਜੀਵਨੀ-ਓਐਸ (Synapse-OS) — ਸਿਹਤ ਏਆਈ 🌿\n"
         "ਬਹੁ-ਭਾਸ਼ਾਈ ਸਿਹਤ ਸੰਭਾਲ ਅਤੇ ਟੀਕਾਕਰਨ ਗਾਈਡ\n\n"
         "ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ! ਮੈਂ ਤੁਹਾਡੀ ਕੀ ਮਦਦ ਕਰ ਸਕਦਾ ਹਾਂ? ਨੰਬਰ ਚੁਣੋ:\n\n"
         "1 ਲੱਛਣ ਜਾਂਚ — 1 ਲਿਖ ਕੇ ਲੱਛਣ ਦੱਸੋ\n"
@@ -208,7 +208,7 @@ LOCALIZED_MENUS: Dict[str, str] = {
         "sos ਐਮਰਜੈਂਸੀ ਸਹਾਇਤਾ — SOS ਭੇਜੋ"
     ),
     "or": (
-        "🌿 ସଞ୍ଜୀବନୀ-ଓଏସ୍ (Sanjeevni-OS) — ସ୍ୱାସ୍ଥ୍ୟ ଏଆଇ 🌿\n"
+        "🌿 ସଞ୍ଜୀବନୀ-ଓଏସ୍ (Synapse-OS) — ସ୍ୱାସ୍ଥ୍ୟ ଏଆଇ 🌿\n"
         "ବହୁଭାଷୀ ସ୍ୱାସ୍ଥ୍ୟ ସେବା ଏବଂ ଟୀକାକରଣ ନିର୍ଦ୍ଦେଶିକା\n\n"
         "ନମସ୍କାର! ମୁଁ ଆପଣଙ୍କୁ କିପରି ସାହାଯ୍ୟ କରିପାରିବି? ନମ୍ବର ବାଛନ୍ତୁ:\n\n"
         "1 ଲକ୍ଷଣ ପରୀକ୍ଷା — 1 ଲେଖି ଲକ୍ଷଣ ଜଣାନ୍ତୁ\n"
@@ -285,7 +285,7 @@ def format_compact_whatsapp_card(triage_data: Dict[str, Any], lang: str = "en") 
     - Medications & Relief (India)
     - Seek Emergency Care / Call 108 If
     - Quick Shortcuts
-    - Powered by Sanjeevni-OS (Google Gemini Engine)
+    - Powered by Synapse-OS (Google Gemini Engine)
     """
     is_hindi = (lang == "hi")
     category = triage_data.get("triage_category", "DOCTOR_CONSULT").upper()
@@ -345,7 +345,7 @@ def format_compact_whatsapp_card(triage_data: Dict[str, Any], lang: str = "en") 
             f"• Reply 5 to Find Empanelled PM-JAY Doctor\n"
             f"• Reply sos for Instant Ambulance Guide\n"
             f"• Reply lang to Switch Language\n\n"
-            f"🌿 Powered by Sanjeevni-OS Multi-Agent Swarm (Google Gemini Engine)"
+            f"🌿 Powered by Synapse-OS Multi-Agent Swarm (Google Gemini Engine)"
         )
 
     return strip_markdown_to_plain_text(card)
@@ -481,7 +481,7 @@ async def process_whatsapp_inbound_webhook(payload: Dict[str, Any]) -> Dict[str,
                     rx_lines.append(f"\n⚠️ Safety Notes: {alerts[0]}")
 
                 rx_lines.append(f"\n💡 Summary: {parsed_rx.get('summary', 'Prescription reviewed.')}")
-                rx_lines.append("\n━━━━━━━━━━━━━━━━━━━━\n🌿 Powered by Sanjeevni-OS (Gemini Vision)")
+                rx_lines.append("\n━━━━━━━━━━━━━━━━━━━━\n🌿 Powered by Synapse-OS (Gemini Vision)")
                 reply_text = "\n".join(rx_lines)
 
                 dispatch_res = await send_whatsapp_message(to_phone=sender_phone, text=reply_text)
@@ -499,7 +499,7 @@ async def process_whatsapp_inbound_webhook(payload: Dict[str, Any]) -> Dict[str,
             "📄 SYNAPSE PRESCRIPTION VISION AI\n"
             "━━━━━━━━━━━━━━━━━━━━\n"
             "Medical image received. Please ensure the prescription photo is sharp, well-lit, and unblurred.\n\n"
-            "🌿 Powered by Sanjeevni-OS (Google Gemini)"
+            "🌿 Powered by Synapse-OS (Google Gemini)"
         )
         dispatch_res = await send_whatsapp_message(to_phone=sender_phone, text=fallback_msg)
         return {"status": "processed", "type": "prescription_fallback", "dispatch": dispatch_res}
@@ -551,7 +551,7 @@ async def process_whatsapp_inbound_webhook(payload: Dict[str, Any]) -> Dict[str,
             session_manager.reset_flow(sender_phone)
 
     # 7. Greeting / Main Menu Trigger
-    if text_lower in ("hi", "hello", "hey", "menu", "help", "start", "guide", "sanjeevni", "options"):
+    if text_lower in ("hi", "hello", "hey", "menu", "help", "start", "guide", "synapse", "options"):
         chosen_lang = session["context"].get("lang", "en")
         active_menu = LOCALIZED_MENUS.get(chosen_lang, LOCALIZED_MENUS["en"])
         dispatch_res = await send_whatsapp_message(to_phone=sender_phone, text=active_menu)
@@ -620,7 +620,7 @@ async def process_whatsapp_inbound_webhook(payload: Dict[str, Any]) -> Dict[str,
             if drug_res.get("administration_guidance"):
                 reply_parts.append(f"⏱️ Guidance: {drug_res.get('administration_guidance')}")
 
-            reply_parts.append("\n━━━━━━━━━━━━━━━━━━━━\n🌿 Powered by Sanjeevni-OS (Google Gemini)")
+            reply_parts.append("\n━━━━━━━━━━━━━━━━━━━━\n🌿 Powered by Synapse-OS (Google Gemini)")
             reply_text = "\n".join(reply_parts)
 
         dispatch_res = await send_whatsapp_message(to_phone=sender_phone, text=reply_text)
@@ -646,7 +646,7 @@ async def process_whatsapp_inbound_webhook(payload: Dict[str, Any]) -> Dict[str,
             "   🏥 Community Health Centre (CHC)",
             "   💳 Fee: ₹0 (Free under Ayushman Bharat PM-JAY) | Slot: Today 02:00 PM\n",
             "👉 Reply with doctor name to confirm appointment.",
-            "━━━━━━━━━━━━━━━━━━━━\n🌿 Powered by Sanjeevni-OS"
+            "━━━━━━━━━━━━━━━━━━━━\n🌿 Powered by Synapse-OS"
         ]
         dispatch_res = await send_whatsapp_message(to_phone=sender_phone, text="\n".join(reply_parts))
         return {"status": "processed", "type": "doctor_lookup", "dispatch": dispatch_res}
@@ -657,13 +657,13 @@ async def process_whatsapp_inbound_webhook(payload: Dict[str, Any]) -> Dict[str,
             "🪪 AYUSHMAN BHARAT DIGITAL MISSION (ABDM)",
             "━━━━━━━━━━━━━━━━━━━━",
             "• ABHA Number: 91-8472-9102-4821",
-            "• ABHA Address: sanjeevni.user@abdm",
+            "• ABHA Address: synapse.user@abdm",
             "• PM-JAY Coverage: ₹5,00,000 / Family / Year (Free Hospitalization)",
             "• Status: ACTIVE & VERIFIED\n",
             "📜 Active National Schemes:",
             "• PM-JAY: Free secondary and tertiary hospital care across 27,000+ hospitals",
             "• Jan Aushadhi (PMBJP): Quality generic medicines at 50-90% savings",
-            "━━━━━━━━━━━━━━━━━━━━\n🌿 Powered by Sanjeevni-OS"
+            "━━━━━━━━━━━━━━━━━━━━\n🌿 Powered by Synapse-OS"
         ]
         dispatch_res = await send_whatsapp_message(to_phone=sender_phone, text="\n".join(reply_parts))
         return {"status": "processed", "type": "abha_info", "dispatch": dispatch_res}
@@ -678,7 +678,7 @@ async def process_whatsapp_inbound_webhook(payload: Dict[str, Any]) -> Dict[str,
             "• At 10 Weeks: Pentavalent-2, Rotavirus-2, OPV-2",
             "• At 14 Weeks: Pentavalent-3, Rotavirus-3, fIPV-2, PCV-2, OPV-3\n",
             "🏥 Free of cost at all Anganwadis, Sub-Centres & PHCs.",
-            "━━━━━━━━━━━━━━━━━━━━\n🌿 Powered by Sanjeevni-OS"
+            "━━━━━━━━━━━━━━━━━━━━\n🌿 Powered by Synapse-OS"
         ]
         dispatch_res = await send_whatsapp_message(to_phone=sender_phone, text="\n".join(reply_parts))
         return {"status": "processed", "type": "vaccination_schedule", "dispatch": dispatch_res}
@@ -693,7 +693,7 @@ async def process_whatsapp_inbound_webhook(payload: Dict[str, Any]) -> Dict[str,
             "• Risk Level: 🟡 MODERATE SURVEILLANCE",
             "• Advisory: Drink boiled water, eliminate standing water, use mosquito nets",
             "• District Helpline: 104 (National Health Helpline)",
-            "━━━━━━━━━━━━━━━━━━━━\n🌿 Powered by Sanjeevni-OS"
+            "━━━━━━━━━━━━━━━━━━━━\n🌿 Powered by Synapse-OS"
         ]
         dispatch_res = await send_whatsapp_message(to_phone=sender_phone, text="\n".join(reply_parts))
         return {"status": "processed", "type": "outbreak_alert", "dispatch": dispatch_res}
@@ -707,7 +707,7 @@ async def process_whatsapp_inbound_webhook(payload: Dict[str, Any]) -> Dict[str,
             "2. 🤱 Poshan Nutrition: Daily IFA iron tablets + 6 months exclusive breastfeeding.",
             "3. 🦟 Dengue Control: Empty water coolers every Sunday; sleep under mosquito nets.",
             "4. 🧼 Safe Water: Boil water for 2 mins; 20-second handwashing before food.",
-            "━━━━━━━━━━━━━━━━━━━━\n🌿 Powered by Sanjeevni-OS"
+            "━━━━━━━━━━━━━━━━━━━━\n🌿 Powered by Synapse-OS"
         ]
         dispatch_res = await send_whatsapp_message(to_phone=sender_phone, text="\n".join(reply_parts))
         return {"status": "processed", "type": "preventive_education", "dispatch": dispatch_res}

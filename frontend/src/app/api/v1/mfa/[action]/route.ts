@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { AuthStore } from '@/lib/auth-store';
 
 function getSessionFromRequest(req: NextRequest) {
-  const sessionId = req.cookies.get('sanjeevni_session_id')?.value ||
+  const sessionId = req.cookies.get('synapse_session_id')?.value ||
     req.headers.get('authorization')?.replace('Bearer ', '');
   if (!sessionId) return null;
   return AuthStore.findSessionById(sessionId);
@@ -121,7 +121,7 @@ export async function POST(
         sessionId: session.id,
       });
 
-      res.cookies.set('sanjeevni_session_id', session.id, {
+      res.cookies.set('synapse_session_id', session.id, {
         httpOnly: true,
         secure: process.env.NODE_ENV === 'production',
         sameSite: 'lax',

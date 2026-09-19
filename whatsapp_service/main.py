@@ -27,7 +27,7 @@ logging.basicConfig(
 logger = logging.getLogger("whatsapp_service")
 
 app = FastAPI(
-    title="Sanjeevni-OS WhatsApp Service (Gemini Powered)",
+    title="Synapse-OS WhatsApp Service (Gemini Powered)",
     description="Standalone Meta WhatsApp Cloud API Service integrated directly with Google Gemini for Multilingual Clinical Triage, Drug Safety, and Medical Vision OCR.",
     version="2.0.0"
 )
@@ -44,7 +44,7 @@ app.add_middleware(
 @app.get("/")
 async def root():
     return {
-        "service": "Sanjeevni-OS WhatsApp Service",
+        "service": "Synapse-OS WhatsApp Service",
         "engine": "Google Gemini API",
         "model": settings.GEMINI_MODEL,
         "vision_model": settings.GEMINI_VISION_MODEL,
@@ -85,7 +85,7 @@ async def whatsapp_webhook_verification(
     Official Meta WhatsApp Cloud API Webhook Handshake Verification.
     Validates hub.verify_token against configured secret and returns hub.challenge.
     """
-    expected_token = settings.WHATSAPP_WEBHOOK_VERIFY_TOKEN or "sanjeevni_secret_token_123"
+    expected_token = settings.WHATSAPP_WEBHOOK_VERIFY_TOKEN or "synapse_secret_token_123"
 
     if hub_mode == "subscribe" and hub_verify_token == expected_token:
         logger.info("[Meta Webhook Verification] Successfully verified webhook handshake.")
@@ -176,7 +176,7 @@ async def whatsapp_simulate_endpoint(req: WhatsAppSimulateRequest):
 
 class WhatsAppSendRequest(BaseModel):
     to_phone: str = Field(example="919876543210")
-    message: str = Field(example="Hello from Sanjeevni-OS!")
+    message: str = Field(example="Hello from Synapse-OS!")
 
 
 @app.post("/whatsapp/send", tags=["WhatsApp Outbound"])

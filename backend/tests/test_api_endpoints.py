@@ -17,7 +17,7 @@ def test_root_endpoint():
     assert response.status_code == 200
     data = response.json()
     assert data["status"] == "ONLINE"
-    assert data["platform"] in ("Sanjeevni-OS", "SynapseOS")
+    assert data["platform"] in ("Synapse-OS", "SynapseOS")
     assert "agents_active" in data
     assert len(data["agents_active"]) > 5
 
@@ -177,7 +177,7 @@ def test_whatsapp_endpoints():
         params={
             "hub.mode": "subscribe",
             "hub.challenge": "1158201444",
-            "hub.verify_token": "sanjeevni_secret_token_123"
+            "hub.verify_token": "synapse_secret_token_123"
         }
     )
     assert resp_verify.status_code == 200
@@ -192,7 +192,7 @@ def test_whatsapp_endpoints():
                 "value": {
                     "messaging_product": "whatsapp",
                     "metadata": {"display_phone_number": "15550234567", "phone_number_id": "100000000000000"},
-                    "contacts": [{"profile": {"name": "Sanjeevni User"}, "wa_id": "919876543210"}],
+                    "contacts": [{"profile": {"name": "Synapse User"}, "wa_id": "919876543210"}],
                     "messages": [{
                         "from": "919876543210",
                         "id": "wamid.TEST_META_ID",

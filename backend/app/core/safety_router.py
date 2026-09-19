@@ -53,7 +53,7 @@ def _build_emergency_response(country: str = "IN") -> str:
         "The symptoms or situation you described require immediate professional in-person medical attention.\n\n"
         f"• **Call Emergency Services immediately:** **{h['emergency']}**\n"
         "• Proceed to the nearest hospital emergency room (ER) or urgent care facility.\n\n"
-        "Sanjeevni AI cannot safely diagnose or treat acute emergencies. Please seek immediate help."
+        "Synapse AI cannot safely diagnose or treat acute emergencies. Please seek immediate help."
     )
 
 

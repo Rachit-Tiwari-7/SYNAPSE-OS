@@ -1,5 +1,5 @@
 # ==============================================================================
-# SynapseOS / Sanjeevni-OS Backend Dockerfile (FastAPI + ML + Vision Services)
+# Synapse-OS-OS Backend Dockerfile (FastAPI + ML + Vision Services)
 # Python 3.11 Slim Production Multi-Worker Runtime
 # ==============================================================================
 

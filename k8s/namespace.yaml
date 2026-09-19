@@ -4,4 +4,4 @@ metadata:
   name: synapseos-system
   labels:
     app.kubernetes.io/name: synapseos
-    app.kubernetes.io/part-of: sanjeevni-health-stack
+    app.kubernetes.io/part-of: synapse-health-stack

@@ -30,7 +30,7 @@ export default async function proxy(req: NextRequest) {
     pathname === route || pathname.startsWith(route + '/')
   );
 
-  const sessionId = req.cookies.get('sanjeevni_session_id')?.value;
+  const sessionId = req.cookies.get('synapse_session_id')?.value;
 
   // Unauthenticated user trying to access protected healthcare workspace
   if (isProtected && !sessionId) {

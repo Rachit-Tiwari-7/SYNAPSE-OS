@@ -1,7 +1,7 @@
-# 🔐 Two-Factor Authentication (2FA) — Sanjeevni OS
+# 🔐 Two-Factor Authentication (2FA) — Synapse-OS
 
 > **Audience:** Developers, security reviewers, and platform contributors  
-> **System:** Sanjeevni OS (Synapse-OS) · Next.js 16 App Router  
+> **System:** Synapse-OS (Synapse-OS) · Next.js 16 App Router  
 > **Auth Layer:** Custom JWT-based auth store (`frontend/src/lib/auth-store.ts`)
 
 ---
@@ -27,13 +27,13 @@
 
 ## 1. Overview
 
-Sanjeevni OS implements a **full production-grade multi-factor authentication system** entirely within the Next.js App Router — no third-party auth provider required. The system supports:
+Synapse-OS implements a **full production-grade multi-factor authentication system** entirely within the Next.js App Router — no third-party auth provider required. The system supports:
 
 | Capability | Implementation |
 |---|---|
 | **Email + Password registration** | bcrypt hashed, persisted to `auth-store.json` |
 | **Email verification** (OTP) | 6-digit code delivered via **Resend** transactional email |
-| **JWT session cookies** | `sanjeevni_session_id` httpOnly cookie |
+| **JWT session cookies** | `synapse_session_id` httpOnly cookie |
 | **TOTP-based 2FA** | RFC 6238 compliant, compatible with Google Authenticator / Authy |
 | **QR code enrollment** | `otpauth://` URI rendered as base64 PNG |
 | **MFA-protected login** | Second factor challenge issued on login when 2FA is enabled |
@@ -111,7 +111,7 @@ flowchart TD
     P4 -->|"POST /mfa/login"| A2
     A2 -->|"Verify TOTP"| M2
     A2 -->|"Upgrade session → full auth"| S2
-    S2 -->|"Set sanjeevni_session_id cookie"| P7
+    S2 -->|"Set synapse_session_id cookie"| P7
 
     U --> P5
     P5 -->|"POST forgot"| A4
@@ -158,7 +158,7 @@ sequenceDiagram
     FE->>API: POST /auth/verify-email { email, code }
     API->>Store: Validate OTP + TTL, mark isEmailVerified=true
     API->>Store: Create full session (JWT cookie)
-    API-->>FE: Set-Cookie: sanjeevni_session_id=...
+    API-->>FE: Set-Cookie: synapse_session_id=...
     FE->>U: Redirect → /orchestrator-agent
 
     Note over U,Email: ── LOGIN (no 2FA) ─────────────────────────────────────────
@@ -167,7 +167,7 @@ sequenceDiagram
     FE->>API: POST /auth/login
     API->>Store: Verify bcrypt hash
     API->>Store: Create session
-    API-->>FE: Set-Cookie: sanjeevni_session_id=...
+    API-->>FE: Set-Cookie: synapse_session_id=...
     FE->>U: Redirect → /orchestrator-agent
 
     Note over U,Email: ── LOGIN (2FA enabled) ────────────────────────────────────
@@ -183,7 +183,7 @@ sequenceDiagram
     FE->>API: POST /mfa/login { code, mfaPendingSessionId }
     API->>Store: Verify TOTP (±1 window, 30s period)
     API->>Store: Upgrade session to fully authenticated
-    API-->>FE: Set-Cookie: sanjeevni_session_id=... (full auth)
+    API-->>FE: Set-Cookie: synapse_session_id=... (full auth)
     FE->>U: Redirect → /orchestrator-agent
 ```
 
@@ -203,7 +203,7 @@ sequenceDiagram
 
     U->>FE: Click "Enable Two-Factor Authentication"
     FE->>API: GET /api/v1/mfa/setup
-    Note over API: Auth: sanjeevni_session_id cookie
+    Note over API: Auth: synapse_session_id cookie
     API->>Store: speakeasy.generateSecret({ length: 20 })
     Store-->>API: { base32Secret, otpauthUrl }
     API->>API: Generate QR PNG (base64) from otpauth:// URI
@@ -234,7 +234,7 @@ flowchart TD
     B -->|Yes| C{Email verified?}
     C -->|No| ERR2[Redirect /confirm-account]
     C -->|Yes| D{isTwoFactorEnabled?}
-    D -->|No| E[Create full session\nSet sanjeevni_session_id cookie]
+    D -->|No| E[Create full session\nSet synapse_session_id cookie]
     E --> DASH([Redirect /orchestrator-agent])
     D -->|Yes| F[Create MFA-pending session\nmfaRequired: true\nmfaPendingToken issued]
     F --> G([Redirect /verify-mfa?email=...])
@@ -242,7 +242,7 @@ flowchart TD
     H --> I{POST /mfa/login\nVerify TOTP token}
     I -->|Invalid / expired| ERR3[400 Invalid code]
     I -->|Valid| J[Upgrade session:\nmfaRequired → false\nfull auth granted]
-    J --> K[Set sanjeevni_session_id cookie\n(httpOnly, SameSite=Lax)]
+    J --> K[Set synapse_session_id cookie\n(httpOnly, SameSite=Lax)]
     K --> DASH2([Redirect /orchestrator-agent])
 ```
 
@@ -276,7 +276,7 @@ All routes are under `/api/v1/` and served by Next.js Route Handlers.
 // Request
 { "email": "string", "password": "string" }
 
-// Response (2FA off) — sets sanjeevni_session_id cookie
+// Response (2FA off) — sets synapse_session_id cookie
 { "success": true, "user": { "id": "...", "name": "...", "email": "...", "isEmailVerified": true } }
 
 // Response (2FA on)
@@ -288,7 +288,7 @@ All routes are under `/api/v1/` and served by Next.js Route Handlers.
 // Request
 { "email": "string", "code": "123456" }
 
-// Response — sets sanjeevni_session_id cookie
+// Response — sets synapse_session_id cookie
 { "success": true, "user": { ... } }
 ```
 
@@ -327,7 +327,7 @@ All routes are under `/api/v1/` and served by Next.js Route Handlers.
 // Request
 { "code": "123456", "mfaPendingSessionId": "mfa-pending-uuid" }
 
-// Response — sets full sanjeevni_session_id cookie
+// Response — sets full synapse_session_id cookie
 { "success": true, "user": { ... } }
 ```
 
@@ -379,7 +379,7 @@ All routes are under `/api/v1/` and served by Next.js Route Handlers.
 
 ## 7. Email Verification — Resend Integration
 
-Sanjeevni OS uses **[Resend](https://resend.com)** for transactional emails.
+Synapse-OS uses **[Resend](https://resend.com)** for transactional emails.
 
 ### Email Types
 
@@ -404,7 +404,7 @@ Sanjeevni OS uses **[Resend](https://resend.com)** for transactional emails.
 | Variable | Description |
 |---|---|
 | `RESEND_API_KEY` | Resend API key (`re_xxx...`) |
-| `RESEND_FROM_EMAIL` | Sender address (e.g. `noreply@sanjeevni.ai`) |
+| `RESEND_FROM_EMAIL` | Sender address (e.g. `noreply@synapse.ai`) |
 
 ---
 
@@ -438,7 +438,7 @@ interface UserRecord {
 
 ```typescript
 interface SessionRecord {
-  id: string;                  // UUID v4 → sanjeevni_session_id cookie value
+  id: string;                  // UUID v4 → synapse_session_id cookie value
   userId: string;
   createdAt: number;
   expiresAt: number;          // 7-day TTL
@@ -556,10 +556,10 @@ Go to `/forgot-password` → enter email → check inbox for reset link.
 | Time step | 30 seconds |
 | Clock drift tolerance | ±1 step (±30s) |
 | Secret encoding | Base32 |
-| QR format | `otpauth://totp/Sanjeevni OS:<email>?secret=<base32>&issuer=Sanjeevni OS` |
+| QR format | `otpauth://totp/Synapse-OS:<email>?secret=<base32>&issuer=Synapse-OS` |
 | Library | `speakeasy` (Node.js) |
 | Compatible apps | Google Authenticator, Authy, 1Password, Microsoft Authenticator |
 
 ---
 
-*Part of [Sanjeevni OS](../README.md) — Autonomous AI Health for Every Indian*
+*Part of [Synapse-OS](../README.md) — Autonomous AI Health for Every Indian*

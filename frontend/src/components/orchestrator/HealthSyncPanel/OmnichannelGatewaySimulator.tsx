@@ -349,7 +349,7 @@ export default function OmnichannelGatewaySimulator() {
               </div>
               <div>
                 <div style={{ fontSize: '13.5px', fontWeight: 800 }}>
-                  {t('wa_bot_title', 'Sanjeevni-OS WhatsApp Bot')}
+                  {t('wa_bot_title', 'Synapse-OS WhatsApp Bot')}
                 </div>
                 <div style={{ fontSize: '10.5px', color: '#e0f2fe' }}>
                   {t('wa_gateway_online', 'OpenWA Gateway • Online')}

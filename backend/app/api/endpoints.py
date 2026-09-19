@@ -405,7 +405,7 @@ async def whatsapp_webhook_verification(
     Official Meta WhatsApp Cloud API Webhook Handshake Verification.
     Validates hub.verify_token against configured secret and returns hub.challenge.
     """
-    expected_token = settings.WHATSAPP_WEBHOOK_VERIFY_TOKEN or "sanjeevni_secret_token_123"
+    expected_token = settings.WHATSAPP_WEBHOOK_VERIFY_TOKEN or "synapse_secret_token_123"
     
     if hub_mode == "subscribe" and hub_verify_token == expected_token:
         # Return hub.challenge directly as plain text HTTP 200
@@ -451,7 +451,7 @@ async def whatsapp_simulate_endpoint(req: WhatsAppSimulateRequest):
                     "value": {
                         "messaging_product": "whatsapp",
                         "metadata": {"display_phone_number": "15550234567", "phone_number_id": "100000000000000"},
-                        "contacts": [{"profile": {"name": "Sanjeevni User"}, "wa_id": clean_phone}],
+                        "contacts": [{"profile": {"name": "Synapse User"}, "wa_id": clean_phone}],
                         "messages": [{
                             "from": clean_phone,
                             "id": "wamid.SIMULATED_IMG_ID",
@@ -474,7 +474,7 @@ async def whatsapp_simulate_endpoint(req: WhatsAppSimulateRequest):
                     "value": {
                         "messaging_product": "whatsapp",
                         "metadata": {"display_phone_number": "15550234567", "phone_number_id": "100000000000000"},
-                        "contacts": [{"profile": {"name": "Sanjeevni User"}, "wa_id": clean_phone}],
+                        "contacts": [{"profile": {"name": "Synapse User"}, "wa_id": clean_phone}],
                         "messages": [{
                             "from": clean_phone,
                             "id": "wamid.SIMULATED_TXT_ID",
@@ -1071,7 +1071,7 @@ async def get_preventive_topics_endpoint():
     (ORS preparation, Poshan Abhiyaan maternal nutrition, Vector control, Safe water, NCD prevention).
     """
     return {
-        "program": "National Health Mission / Sanjeevni-OS Rural Health Literacy Initiative",
+        "program": "National Health Mission / Synapse-OS Rural Health Literacy Initiative",
         "total_modules": len(get_preventive_topics()),
         "modules": get_preventive_topics()
     }
@@ -1156,7 +1156,7 @@ class SMSInboundRequest(BaseModel):
 
 class SMSSendRequest(BaseModel):
     to_number: str = Field(..., json_schema_extra={"example": "+919876543210"})
-    message: str = Field(..., json_schema_extra={"example": "Your Sanjeevni PHC appointment is confirmed for today at 3:30 PM."})
+    message: str = Field(..., json_schema_extra={"example": "Your Synapse PHC appointment is confirmed for today at 3:30 PM."})
 
 
 class IPFSPinJSONRequest(BaseModel):
@@ -1277,7 +1277,7 @@ async def get_clinical_accuracy_benchmark():
     Proves >90% clinical decision accuracy and safety adherence.
     """
     return {
-        "model_architecture": "Sanjeevni-OS Multi-Agent Clinical Swarm + AI Council Consensus",
+        "model_architecture": "Synapse-OS Multi-Agent Clinical Swarm + AI Council Consensus",
         "target_problem_statement_metric": ">= 80.0% Accuracy in answering health queries",
         "measured_clinical_accuracy": {
             "overall_clinical_concordance": "91.4%",

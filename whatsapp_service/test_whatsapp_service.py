@@ -58,7 +58,7 @@ def test_compact_card_protocol():
     assert "👉 Quick Shortcuts:" in card
     assert "Reply 5 to Find Empanelled PM-JAY Doctor" in card
     assert "Reply sos for Instant Ambulance Guide" in card
-    assert "🌿 Powered by Sanjeevni-OS" in card
+    assert "🌿 Powered by Synapse-OS" in card
 
 
 @pytest.mark.asyncio

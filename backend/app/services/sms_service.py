@@ -21,7 +21,7 @@ from backend.app.services.pinata_service import upload_json_to_ipfs
 logger = logging.getLogger("synapseos.sms")
 
 SMS_MAIN_MENU = (
-    "Sanjeevni AI Health Assistant:\n"
+    "Synapse AI Health Assistant:\n"
     "1. Symptom Triage & Diagnosis\n"
     "2. Drug Interaction & Safety Check\n"
     "3. Disease & Outbreak Alert\n"

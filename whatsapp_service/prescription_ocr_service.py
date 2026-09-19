@@ -15,7 +15,7 @@ from .config import settings
 logger = logging.getLogger(__name__)
 
 PRESCRIPTION_OCR_SYSTEM_PROMPT = """
-You are Sanjeevni-OS's board-certified clinical pharmacist and medical document vision specialist.
+You are Synapse-OS's board-certified clinical pharmacist and medical document vision specialist.
 Analyze this medical prescription or diagnostic report image with meticulous clinical precision.
 Extract every medication, dosage, administration timing (e.g. before meals, after meals), duration, and doctor instructions.
 Pay extreme attention to Indian commercial brand names (e.g. Dolo 650, Augmentin 625, Pan-D, Combiflam, Azithral 500, Shelcal 500).
@@ -44,7 +44,7 @@ You MUST output structured JSON matching this schema:
 """
 
 SCAN_ANALYSIS_SYSTEM_PROMPT = """
-You are Sanjeevni-OS's expert radiologist AI assistant.
+You are Synapse-OS's expert radiologist AI assistant.
 Analyze this diagnostic medical scan (X-ray, CT, MRI, Ultrasound, ECG, or Lab Report).
 Provide an objective, non-definitive clinical description in clear language.
 Highlight key radiological findings, standard physiological landmarks, and recommended follow-up tests.

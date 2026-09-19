@@ -16,7 +16,7 @@ Official high-level system diagrams and flowcharts outlining the **SynapseOS Aut
 | `Architecture Diagram Light.png` | Image | High-level system architecture (Light Theme). |
 | `Flowchart dark.png` | Image | User journey and data pipeline flowchart (Dark Theme). |
 | `Flowchart Light.png` | Image | User journey and data pipeline flowchart (Light Theme). |
-| `sanjeevni_executive_presentation.pdf` | PDF | Comprehensive presentation slide deck detailing the project scope, clinical validity, and urban health operating grid. |
+| `synapse_executive_presentation.pdf` | PDF | Comprehensive presentation slide deck detailing the project scope, clinical validity, and urban health operating grid. |
 
 ---
 

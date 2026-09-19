@@ -26,10 +26,10 @@ export async function sendVerificationEmail(
       return { success: true, id: `mock_${Date.now()}` };
     }
     const data = await resendClient.emails.send({
-      from: `Sanjeevni OS <${MAILER_SENDER}>`,
+      from: `Synapse-OS <${MAILER_SENDER}>`,
       to: [toEmail],
-      subject: `🩺 Confirm your Sanjeevni OS Clinical Account — Verification Code ${verificationCode}`,
-      text: `Hello ${name},\n\nThank you for registering for Sanjeevni OS (Autonomous Clinical Intelligence).\n\nYour 6-digit confirmation code is: ${verificationCode}\n\nOr verify directly by opening this link: ${verificationUrl}\n\nThis verification code expires in 45 minutes.\n\n— Sanjeevni OS Care Team`,
+      subject: `🩺 Confirm your Synapse-OS Clinical Account — Verification Code ${verificationCode}`,
+      text: `Hello ${name},\n\nThank you for registering for Synapse-OS (Autonomous Clinical Intelligence).\n\nYour 6-digit confirmation code is: ${verificationCode}\n\nOr verify directly by opening this link: ${verificationUrl}\n\nThis verification code expires in 45 minutes.\n\n— Synapse-OS Care Team`,
       html: `
         <!DOCTYPE html>
         <html>
@@ -57,7 +57,7 @@ export async function sendVerificationEmail(
             <div class="content">
               <h2 style="font-size: 18px; margin-top: 0; color: #0f172a;">Confirm your Clinical Account</h2>
               <p style="font-size: 14px; color: #334155; line-height: 1.6;">
-                Hello <strong>${name}</strong>, thank you for joining the Sanjeevni OS healthcare network. Please enter your 6-digit confirmation code below or click the button to verify your account.
+                Hello <strong>${name}</strong>, thank you for joining the Synapse-OS healthcare network. Please enter your 6-digit confirmation code below or click the button to verify your account.
               </p>
               <div class="code-box">
                 <div style="font-size: 11px; font-weight: 700; color: #0284c7; text-transform: uppercase; margin-bottom: 6px;">Your 6-Digit Verification Code</div>
@@ -71,7 +71,7 @@ export async function sendVerificationEmail(
               </p>
             </div>
             <div class="footer">
-              <p style="margin: 0;">Sanjeevni OS • National Health Stack & ABDM Telemetry Consensus</p>
+              <p style="margin: 0;">Synapse-OS • National Health Stack & ABDM Telemetry Consensus</p>
               <p style="margin: 4px 0 0 0;">AIIMS Clinical Standard • Dual-Repository Node</p>
             </div>
           </div>
@@ -107,10 +107,10 @@ export async function sendPasswordResetEmail(
       return { success: true, id: `mock_${Date.now()}` };
     }
     const data = await resendClient.emails.send({
-      from: `Sanjeevni OS Security <${MAILER_SENDER}>`,
+      from: `Synapse-OS Security <${MAILER_SENDER}>`,
       to: [toEmail],
-      subject: `🔒 Reset your Sanjeevni OS password (Code: ${resetCode})`,
-      text: `Hello ${name},\n\nA password reset request was received for your Sanjeevni OS account.\n\nYour reset code is: ${resetCode}\n\nOr click here to reset your password: ${resetUrl}\n\nThis link expires in 30 minutes.\n\nIf you did not request this, your account may be compromised. Please secure your account immediately.\n\n— Sanjeevni OS Security Team`,
+      subject: `🔒 Reset your Synapse-OS password (Code: ${resetCode})`,
+      text: `Hello ${name},\n\nA password reset request was received for your Synapse-OS account.\n\nYour reset code is: ${resetCode}\n\nOr click here to reset your password: ${resetUrl}\n\nThis link expires in 30 minutes.\n\nIf you did not request this, your account may be compromised. Please secure your account immediately.\n\n— Synapse-OS Security Team`,
       html: `
         <!DOCTYPE html>
         <html>
@@ -150,7 +150,7 @@ export async function sendPasswordResetEmail(
               </p>
             </div>
             <div class="footer">
-              <p style="margin: 0;">Sanjeevni OS Security Protocol • 256-Bit Encrypted</p>
+              <p style="margin: 0;">Synapse-OS Security Protocol • 256-Bit Encrypted</p>
             </div>
           </div>
         </body>
@@ -184,10 +184,10 @@ export async function sendTwoFactorOtpEmail(
       return { success: true, id: `mock_${Date.now()}` };
     }
     const data = await resendClient.emails.send({
-      from: `Sanjeevni OS 2FA <${MAILER_SENDER}>`,
+      from: `Synapse-OS 2FA <${MAILER_SENDER}>`,
       to: [toEmail],
-      subject: `🔑 ${otpCode} is your Sanjeevni OS Two-Factor Security Code`,
-      text: `Hello ${name},\n\nYour Sanjeevni OS 2FA login verification code is: ${otpCode}\n\nThis one-time passcode expires in 10 minutes. Do not share this code with anyone.\n\n— Sanjeevni OS Security`,
+      subject: `🔑 ${otpCode} is your Synapse-OS Two-Factor Security Code`,
+      text: `Hello ${name},\n\nYour Synapse-OS 2FA login verification code is: ${otpCode}\n\nThis one-time passcode expires in 10 minutes. Do not share this code with anyone.\n\n— Synapse-OS Security`,
       html: `
         <!DOCTYPE html>
         <html>

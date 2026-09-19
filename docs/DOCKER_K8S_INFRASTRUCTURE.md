@@ -3,7 +3,7 @@
 [![Docker](https://img.shields.io/badge/Docker-Compose-2496ED?style=flat-square&logo=docker)](https://docker.com)
 [![Kubernetes](https://img.shields.io/badge/Kubernetes-Manifests-326CE5?style=flat-square&logo=kubernetes)](https://kubernetes.io)
 
-This document provides a comprehensive technical blueprint for containerizing, orchestrating, and scaling the **SynapseOS / Sanjeevni AI Health Operating System** across Docker, Docker Compose, Kubernetes (K8s), and cloud-native infrastructure.
+This document provides a comprehensive technical blueprint for containerizing, orchestrating, and scaling the **Synapse-OS AI Health Operating System** across Docker, Docker Compose, Kubernetes (K8s), and cloud-native infrastructure.
 
 ---
 

@@ -63,7 +63,7 @@ async def upload_json_to_ipfs(data: Dict[str, Any], record_name: str = "medical_
     payload = {
         "pinataMetadata": {
             "name": record_name,
-            "keyvalues": {"type": "medical-json", "service": "Sanjeevni-OS"}
+            "keyvalues": {"type": "medical-json", "service": "Synapse-OS"}
         },
         "pinataContent": data
     }
@@ -136,7 +136,7 @@ async def upload_file_to_ipfs(file_bytes: bytes, filename: str, content_type: st
     headers = {"Authorization": f"Bearer {jwt}"}
     files = {
         "file": (filename, file_bytes, content_type),
-        "pinataMetadata": (None, json.dumps({"name": filename, "keyvalues": {"service": "Sanjeevni-OS"}}))
+        "pinataMetadata": (None, json.dumps({"name": filename, "keyvalues": {"service": "Synapse-OS"}}))
     }
 
     try:

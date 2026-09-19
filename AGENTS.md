@@ -1,4 +1,4 @@
-# Synapse-OS / Sanjeevni — Agent Guidelines & Push Rules
+# Synapse-OS — Agent Guidelines & Push Rules
 
 ## 1. Dual-Repository Push Protocol
 When pushing updates:
@@ -23,4 +23,4 @@ When pushing updates:
     - In home care / mild illness: Include Indian brands/generics (Dolo 650, Electral ORS, Pan-40, Cetirizine) with explicit administration timing (e.g., after food, before breakfast on empty stomach).
   - `🚨 Seek Emergency Care / Call 108 If:` Red flag symptoms.
   - `👉 Quick Shortcuts:` (Reply 5, Reply sos, Reply full).
-  - `🌿 Powered by Sanjeevni-OS Multi-Agent Swarm`
+  - `🌿 Powered by Synapse-OS Multi-Agent Swarm`

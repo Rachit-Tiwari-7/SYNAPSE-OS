@@ -579,7 +579,7 @@ def test_format_prescription_for_whatsapp_clean_protocol():
     assert "💊 Medications & Relief (India):" in text
     assert "🚨 Seek Emergency Care / Call 108 If:" in text
     assert "👉 Quick Shortcuts:" in text
-    assert "🌿 Powered by Sanjeevni-OS Multi-Agent Swarm" in text
+    assert "🌿 Powered by Synapse-OS Multi-Agent Swarm" in text
 
     # 2. Check strict absence of markdown formatting per AGENTS.md
     assert "**" not in text

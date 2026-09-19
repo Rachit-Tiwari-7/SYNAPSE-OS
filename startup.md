@@ -1,6 +1,6 @@
-# 🚀 Sanjeevni / SynapseOS — Master Startup & Live WhatsApp Guide
+# 🚀 Synapse-OS — Master Startup & Live WhatsApp Guide
 
-This document contains **every single configuration, active credential, tunnel command, and setup step** to run Sanjeevni, its multi-agent clinical swarm, and the live WhatsApp bot.
+This document contains **every single configuration, active credential, tunnel command, and setup step** to run Synapse, its multi-agent clinical swarm, and the live WhatsApp bot.
 
 ---
 
@@ -18,7 +18,7 @@ This document contains **every single configuration, active credential, tunnel c
 
 ## 1. Active Credentials & Environment Config
 
-These values are already configured in `d:\Sanjeevni\.env` and `backend/.env`:
+These values are already configured in `d:\Synapse\.env` and `backend/.env`:
 
 ```env
 # ============================================================
@@ -27,7 +27,7 @@ These values are already configured in `d:\Sanjeevni\.env` and `backend/.env`:
 WHATSAPP_CLOUD_API_TOKEN="<STORED_SECURELY_IN_LOCAL_ENV>"
 WHATSAPP_PHONE_NUMBER_ID="1242016799005737"
 WHATSAPP_BUSINESS_ACCOUNT_ID="1055542317181096"
-WHATSAPP_WEBHOOK_VERIFY_TOKEN="sanjeevni_secret_token_123"
+WHATSAPP_WEBHOOK_VERIFY_TOKEN="synapse_secret_token_123"
 WHATSAPP_API_VERSION="v20.0"
 
 # ============================================================
@@ -82,7 +82,7 @@ Follow these exact steps if setting up from scratch on Meta Developer Portal:
 1. Go to [developers.facebook.com](https://developers.facebook.com/) -> **My Apps** -> **Create App**.
 2. Select **Other** -> App Type: **Business**.
 3. App Name: `SYNAPSE`, Contact Email: your email.
-4. If asked to select a Business Portfolio, choose or create one (e.g. `Sanjeevni`). **No official business registration or GST documents are required.**
+4. If asked to select a Business Portfolio, choose or create one (e.g. `Synapse`). **No official business registration or GST documents are required.**
 5. Click **Create App**.
 
 ### Step 3.2: Add WhatsApp & Whitelist Phone Numbers
@@ -102,7 +102,7 @@ Follow these exact steps if setting up from scratch on Meta Developer Portal:
 1. In Meta Developer Portal, go to **WhatsApp > Configuration**.
 2. Under **Webhook**, click **Edit**:
    - **Callback URL**: `https://<YOUR_TUNNEL_DOMAIN>/api/whatsapp/webhook`
-   - **Verify Token**: `sanjeevni_secret_token_123`
+   - **Verify Token**: `synapse_secret_token_123`
 3. Click **Verify and Save** (requires your FastAPI backend to be running on port 8000).
 4. Under **Webhook fields**, click **Manage**:
    - Find **`messages`** and toggle it to **Subscribed**.
@@ -148,7 +148,7 @@ Meta requires a public HTTPS URL to reach your local FastAPI server.
 ### Option B: Ngrok with Permanent Static Domain
 - **Registered Domain**: `pauper-pedicure-traps.ngrok-free.dev`
 - **AuthToken**: `<YOUR_NGROK_AUTHTOKEN_FROM_DASHBOARD>`
-- **Note on Windows Defender**: If Windows Defender blocks `ngrok.exe`, add `d:\Sanjeevni` as a folder exclusion in **Windows Security > Virus & threat protection > Manage settings > Exclusions**.
+- **Note on Windows Defender**: If Windows Defender blocks `ngrok.exe`, add `d:\Synapse` as a folder exclusion in **Windows Security > Virus & threat protection > Manage settings > Exclusions**.
 - **Command**:
   ```powershell
   ngrok http --domain=pauper-pedicure-traps.ngrok-free.dev 8000
@@ -210,7 +210,7 @@ Patients can switch languages anytime directly inside WhatsApp:
 
 To guarantee that a patient is never left without guidance in an emergency:
 
-- Located in: [`backend/app/services/meta_whatsapp_service.py`](file:///d:/Sanjeevni/backend/app/services/meta_whatsapp_service.py#L783)
+- Located in: [`backend/app/services/meta_whatsapp_service.py`](file:///d:/Synapse/backend/app/services/meta_whatsapp_service.py#L783)
 - If Groq AI, network connections, or external services experience a delay or error:
   1. The error is safely caught and logged.
   2. The bot immediately sends an emergency protocol message:
@@ -235,6 +235,6 @@ To guarantee that a patient is never left without guidance in an emergency:
 | :--- | :--- | :--- |
 | `(#131030) Recipient phone number not in allowed list` | The recipient number has not been whitelisted in sandbox mode. | Go to **Step 1. Try it out > To > Manage phone number list**, add the number, and verify with 6-digit OTP. |
 | Messages sent on phone do not hit backend | WABA is not linked to your App ID. | Run `POST https://graph.facebook.com/v20.0/{waba_id}/subscribed_apps` (see Section 4). |
-| `Operation did not complete... virus or potentially unwanted software` | Windows Defender heuristic on tunneling software (`ngrok.exe`). | Use **Cloudflare Tunnel (`cloudflared`)** or add `d:\Sanjeevni` to Windows Security Exclusions. |
+| `Operation did not complete... virus or potentially unwanted software` | Windows Defender heuristic on tunneling software (`ngrok.exe`). | Use **Cloudflare Tunnel (`cloudflared`)** or add `d:\Synapse` to Windows Security Exclusions. |
 | Groq returns `404: model does not exist` | Deprecated model string. | Use `qwen/qwen3.8-27b` which is active and tested with your key. |
 | Temporary token expired | Meta sandbox tokens expire every 24 hours. | Click **Copy** next to Temporary Access Token in **Step 1. Try it out** and update `WHATSAPP_CLOUD_API_TOKEN` in `.env`. |

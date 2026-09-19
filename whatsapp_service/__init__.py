@@ -1,5 +1,5 @@
 """
-SynapseOS / Sanjeevni — WhatsApp Service (Gemini Powered)
+Synapse-OS — WhatsApp Service (Gemini Powered)
 Standalone, high-performance WhatsApp Omni-channel conversational intelligence service
 integrated directly with the Google Gemini API.
 """

@@ -56,7 +56,7 @@ export default function ChatStream({
             {m.sender === 'assistant' && (
               <img 
                 src="/synapseos-icon.svg" 
-                alt="Sanjeevni AI" 
+                alt="Synapse AI" 
                 style={{
                   width: '28px',
                   height: '28px',
@@ -198,7 +198,7 @@ export default function ChatStream({
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px', justifyContent: 'flex-start' }}>
           <img 
             src="/synapseos-icon.svg" 
-            alt="Sanjeevni AI" 
+            alt="Synapse AI" 
             style={{
               width: '28px',
               height: '28px',

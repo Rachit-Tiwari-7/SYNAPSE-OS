@@ -150,7 +150,7 @@ async def orchestrate_health_request(
         language_rule = "4. Language: Respond in clear, accessible English."
 
     system_prompt = (
-        "You are Sanjeevni / SynapseOS AI, an intelligent, empathetic, direct medical assistant for Indian healthcare powered by Google Gemini.\n\n"
+        "You are Synapse-OS AI, an intelligent, empathetic, direct medical assistant for Indian healthcare powered by Google Gemini.\n\n"
         "STRICT CLINICAL SAFETY RULES FOR YOUR RESPONSE:\n"
         "1. BE SHORT, SIMPLE, AND TO THE POINT (under 130-160 words). Never use corporate filler or robotic preamble.\n"
         "2. PEDIATRIC DOSAGE GUARD: If the query involves a child, toddler, or infant, NEVER recommend adult tablets (such as Dolo 650 or adult NSAIDs). Mandate in-person pediatrician review for weight-based syrup. If Aspirin is asked for a child with fever, strictly warn of Reye's syndrome.\n"
@@ -211,7 +211,7 @@ AI Council Verification: {state.verification}
                     parts.append("\n**🚨 डॉक्टर को दिखाएं / 108 पर कॉल करें यदि:** बुखार 103°F से अधिक हो, सांस फूलने लगे या गर्दन में अकड़न हो।")
                 parts.append("\n⚠️ *एआई सूचना:* यह केवल शैक्षिक मार्गदर्शन है। किसी भी दवा से पहले डॉक्टर से परामर्श अवश्य लें।")
             else:
-                parts.append("संजीवनी एआई द्वारा आपके स्वास्थ्य का विश्लेषण किया गया है। कृपया आराम करें और आवश्यकता पड़ने पर चिकित्सक से परामर्श लें।\n\n⚠️ *एआई सूचना:* यह केवल मार्गदर्शन है।")
+                parts.append("सिनैप्स ओएस एआई द्वारा आपके स्वास्थ्य का विश्लेषण किया गया है। कृपया आराम करें और आवश्यकता पड़ने पर चिकित्सक से परामर्श लें।\n\n⚠️ *एआई सूचना:* यह केवल मार्गदर्शन है।")
         else:
             if state.vaccination_data:
                 v_data = state.vaccination_data

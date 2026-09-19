@@ -1,6 +1,6 @@
 # Supabase Health Data Schema & Seeds
 
-This directory contains the database migration and seed data for **Sanjeevni-OS / ABDM**.
+This directory contains the database migration and seed data for **Synapse-OS / ABDM**.
 
 ## Files
 - **`mock_health_data.sql`**: Complete, self-contained SQL script that:

@@ -98,7 +98,7 @@ async def test_pinata_json_and_file_upload_simulation():
     assert stored["data"]["patient_id"] == "TEST-PAT-01"
 
     # 2. Upload File Bytes (PDF simulation)
-    dummy_pdf_bytes = b"%PDF-1.4 Mock PDF clinical content for Sanjeevni"
+    dummy_pdf_bytes = b"%PDF-1.4 Mock PDF clinical content for Synapse"
     res_file = await upload_file_to_ipfs(dummy_pdf_bytes, filename="report.pdf")
     assert res_file["status"] in ("pinned", "pinned_fallback")
     assert res_file["cid"].startswith("Qm")
@@ -109,7 +109,7 @@ async def test_outbound_sms_dispatch():
     """Tests outbound SMS dispatch with fallback/simulation handling."""
     res = await send_outbound_sms(
         to_number="+919876543210",
-        message="Your Sanjeevni test results are ready."
+        message="Your Synapse test results are ready."
     )
     assert res["status"] == "sent"
     assert res["to"] == "+919876543210"

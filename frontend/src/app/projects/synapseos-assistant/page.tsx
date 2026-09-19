@@ -140,7 +140,7 @@ export default function SynapseOSAssistantPage() {
           if (volumeInterval.current) clearInterval(volumeInterval.current);
         });
 
-        const voiceSystemPrompt = `You are Sanjeevni-OS Clinical Voice AI, the real-time voice intelligence for India's Next-Generation Multi-Agent Health Operating System.
+        const voiceSystemPrompt = `You are Synapse-OS Clinical Voice AI, the real-time voice intelligence for India's Next-Generation Multi-Agent Health Operating System.
 You are having an interactive voice conversation with the patient in real time.
 Speak in a warm, authoritative, calm, and reassuring clinical tone.
 Keep each response concise (1 to 3 natural spoken sentences).
@@ -148,7 +148,7 @@ Support both Hindi and English fluently.
 Provide evidence-based health guidance and reference patient vitals when relevant.`;
 
         await vapiInstance.start(vapiAssistantId, {
-          firstMessage: 'Namaste! Hello! I am Sanjeevni OS Clinical Voice Assistant. How can I help you today?',
+          firstMessage: 'Namaste! Hello! I am Synapse-OS Clinical Voice Assistant. How can I help you today?',
           model: {
             provider: 'groq',
             model: 'llama-3.3-70b-versatile',

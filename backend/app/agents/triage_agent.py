@@ -139,7 +139,7 @@ async def analyze_symptoms(text: str, lang: Optional[str] = None) -> Dict[str, A
         )
 
     system_prompt = (
-        "You are a senior clinical triage AI for Sanjeevni / SynapseOS, an Indian public healthcare platform.\n"
+        "You are a senior clinical triage AI for Synapse-OS, an Indian public healthcare platform.\n"
         "Analyze the patient's reported symptoms and produce a structured JSON triage assessment.\n\n"
         "Return ONLY a valid JSON object with exactly these keys:\n"
         "{\n"

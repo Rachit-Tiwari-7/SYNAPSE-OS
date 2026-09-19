@@ -2,20 +2,20 @@ import { AuthStore } from '../src/lib/auth-store';
 import speakeasy from 'speakeasy';
 
 async function runTests() {
-  console.log('🧪 Starting Sanjeevni OS Auth & 2FA Test Suite...');
+  console.log('🧪 Starting Synapse-OS Auth & 2FA Test Suite...');
 
   // 1. Check Demo User
-  const demoUser = AuthStore.findUserByEmail('mausam@sanjeevni.ai');
+  const demoUser = AuthStore.findUserByEmail('mausam@synapse.ai');
   console.assert(demoUser !== null, 'Demo user should exist');
   console.log('✅ Demo user loaded:', demoUser?.name, demoUser?.email);
 
   // 2. Validate Password
-  const valid = AuthStore.validateCredentials('mausam@sanjeevni.ai', 'Sanjeevni@2026');
+  const valid = AuthStore.validateCredentials('mausam@synapse.ai', 'Synapse@2026');
   console.assert(valid !== null, 'Password validation failed for demo user');
   console.log('✅ Credential validation passed');
 
   // 3. Create a New User
-  const testEmail = `dr.test_${Date.now()}@sanjeevni.ai`;
+  const testEmail = `dr.test_${Date.now()}@synapse.ai`;
   const newUser = AuthStore.createUser('Dr. Test Surgeon', testEmail, 'StrongPass@123');
   console.assert(newUser.email === testEmail, 'New user email mismatch');
   console.log('✅ User registration passed:', newUser.name, newUser.email);

@@ -55,7 +55,7 @@ export default function WhatsAppBridgeModal({
           marginBottom: '8px'
         }}>
           <span style={{ width: '7px', height: '7px', borderRadius: '50%', background: '#22c55e', display: 'inline-block' }} />
-          <span>Sanjeevni WhatsApp Copilot</span>
+          <span>Synapse WhatsApp Copilot</span>
         </div>
         <h3 style={{ fontSize: '18px', fontWeight: 800, color: '#0f172a', letterSpacing: '-0.2px', margin: '0 0 4px 0' }}>
           Scan to Chat on WhatsApp
