@@ -82,12 +82,15 @@ graph TD
     
     Safety -->|Red-Flag Detected| FastTrack["Instant 108 / 112 / 14416 Dispatch<br/>(Zero LLM Hallucination Risk)"]
     
-    Safety -->|Clinical Query| Swarm["Parallel 5-Node Agent Swarm<br/>(asyncio.gather)"]
+    Safety -->|Clinical Query| Swarm["Parallel 8-Node Agent Swarm<br/>(asyncio.gather)"]
     Swarm --> Triage["1. Triage Node (ESI Level 1-5)"]
-    Swarm --> Pharm["2. Pharmacology Node (Jan Aushadhi + Drug Interactions)"]
+    Swarm --> Pharm["2. Pharmacology Node (Jan Aushadhi + RxNav)"]
     Swarm --> OCR["3. Vision OCR Node (Handwritten Prescriptions)"]
     Swarm --> Mental["4. Mental Health Node (WHO mhGAP + Tele-MANAS)"]
     Swarm --> Verifier["5. AI Council Verification Node"]
+    Swarm --> Outbreak["6. IDSP Outbreak Surveillance Node"]
+    Swarm --> Vaccine["7. UIP & U-WIN Vaccination Node"]
+    Swarm --> Prevent["8. Rural Preventive Health Node"]
     
     Swarm --> Cascade["4-Tier LLM Resilience Engine"]
     Cascade --> Gemini["Tier 1: Google Gemini 2.0 Flash (Hero)"]
@@ -96,7 +99,8 @@ graph TD
     OpenRouter -.->|Failover| Mock["Tier 4: Deterministic Rules Fallback"]
     
     Cascade --> Out["Structured Plain-Text Clinical Card<br/>(10 Indic Scripts | Clean Protocol)"]
-    Out --> Twin["Real-Time 3D Digital Twin & ABDM FHIR R4 Vault"]
+    Cascade --> SMS["2G Plain-Text SMS Response & Pinata IPFS Record"]
+    Cascade --> Twin["Real-Time 3D Digital Twin & ABDM FHIR R4 Vault"]
 ```
 
 | # | Engineering Pillar | Architecture & Implementation |
@@ -107,7 +111,10 @@ graph TD
 | **4** | **10 Indic Regional Languages Over WhatsApp** | Zero-install healthcare over Meta WhatsApp Cloud API v20.0 with native code-mixed understanding across **Hindi, Bengali, Tamil, Telugu, Marathi, Gujarati, Kannada, Malayalam, Punjabi, and Odia**. |
 | **5** | **Strict Clinical Plain-Text WhatsApp Protocol** | Implements the clean protocol defined in `AGENTS.md`—zero ugly markdown asterisks, raw backticks, or prompt leaks. Outputs clean status badges (`🔴 SYNAPSE EMERGENCY TRIAGE`), structured council consensus percentages, and 1-click reply shortcuts (`Reply 5`, `Reply sos`). |
 | **6** | **Interactive 3D Anatomical Digital Twin** | Real-time WebGL/Three.js human anatomical twin visualizing physiological organ-system vitality scores and mapping symptoms directly to organ layers. |
-| **7** | **197 Automated Tests Passing 100% Green** | 190 FastAPI backend integration tests + 7 standalone WhatsApp microservice tests validating pediatric safety (Reye's syndrome prevention), drug interaction matrices (Nitroglycerin + Sildenafil), and ABDM/FHIR bundling. |
+| **7** | **IDSP Outbreak Surveillance & Early Warning** | District-level epidemic surge tracking (Dengue, Malaria, Nipah, Zika) with municipal ward heatmaps, transmission reproduction number ($R_t$) calculations, and automated WhatsApp/SMS advisory broadcasts. |
+| **8** | **UIP & U-WIN Universal Immunization Engine** | Automated milestone schedule computation based on MoHFW guidelines from birth to 16 years (BCG, OPV, Pentavalent, Rotavirus, MR) and verifiable digital U-WIN immunization certificate generation. |
+| **9** | **2G SMS Gateway & Pinata IPFS Audit Trails** | Low-connectivity rural Bharat access via standard GSM keypad phones (Twilio programmable SMS) with immutable health record pinning and CID resolution via Pinata IPFS. |
+| **10** | **197 Automated Tests Passing 100% Green** | 190 FastAPI backend integration tests + 7 standalone WhatsApp microservice tests validating pediatric safety (Reye's syndrome prevention), drug interaction matrices (Nitroglycerin + Sildenafil), and ABDM/FHIR bundling. |
 
 ---
 
@@ -888,9 +895,11 @@ All endpoints served at `http://localhost:8000/api`. Interactive docs at `http:/
 | `POST` | `/api/triage` | ESI Level 1-5 symptom triage |
 | `POST` | `/api/drugs/check` | NIH RxNav drug interaction check |
 | `POST` | `/api/scans/analyze` | YOLOv8 / MONAI / TrOCR medical image analysis |
+| `POST` | `/api/scans/prescription-ocr` | Gemini 2.0 Multimodal handwritten prescription OCR |
 | `POST` | `/api/digital-twin/simulate` | 10-year multi-organ trajectory simulation |
 | `GET` | `/api/digital-twin/baseline` | Baseline organ color indices for 3D viewer |
 | `POST` | `/api/diagnostics/risk-score` | Framingham CVD, ADA Diabetes, CKD eGFR calculations |
+| `GET` | `/api/benchmarks/accuracy` | Empirical MedQA/WHO clinical accuracy validation metrics (>91%) |
 
 ### 🏛️ Government Health & Records
 

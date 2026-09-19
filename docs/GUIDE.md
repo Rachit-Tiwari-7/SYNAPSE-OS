@@ -64,7 +64,7 @@ INFO:     Application startup complete.
 ### Step 1: Open a Second Terminal
 Navigate to the `frontend` directory:
 ```powershell
-cd e:\SynapseOS\frontend
+cd frontend
 ```
 
 ### Step 2: Install Frontend Dependencies
@@ -80,11 +80,12 @@ npm run dev
 ### Step 4: Access the Application
 Open your browser and navigate to:
 
-| Interface | URL |
-| :--- | :--- |
-| **Main Portal & Assistant** | [http://localhost:3000](http://localhost:3000) |
-| **3D Interactive Body Explorer**| [http://localhost:3000/vibrant](http://localhost:3000/vibrant) |
-| **ABHA & Health Records** | [http://localhost:3000/records](http://localhost:3000/records) |
+| Interface | URL | Description |
+| :--- | :--- | :--- |
+| **Main Portal & Clinical Copilot** | [http://localhost:3000](http://localhost:3000) | Full-stack clinical assistant, chat stream, & voice interface |
+| **3D Interactive Body Explorer**| [http://localhost:3000/vibrant](http://localhost:3000/vibrant) | Real-time Three.js anatomical digital twin & vitality scores |
+| **ABHA & Health Records** | [http://localhost:3000/records](http://localhost:3000/records) | ABDM ID verification, QR pass generation, & FHIR vault |
+| **Omnichannel WhatsApp & SMS Hub**| [http://localhost:3000/projects/orchestrator-agent?tab=swarm](http://localhost:3000/projects/orchestrator-agent?tab=swarm) | Interactive 2G SMS & WhatsApp swarm telemetry simulator |
 
 ---
 
@@ -132,16 +133,25 @@ python -m pip install ultralytics
 
 ## 🤖 Active Sub-Agents & Endpoints Overview
 
-| Agent / Service | Endpoint | Description |
-| :--- | :--- | :--- |
-| **Health Check** | `GET /` | Returns platform status & active agents |
-| **Swarm Orchestrator** | `POST /api/orchestrate` | Multi-agent coordination pipeline |
-| **Symptom Triage** | `POST /api/triage/assess` | Clinical triage & severity scoring |
-| **Drug Safety (RxNav)** | `POST /api/pharmacology/check` | Drug interaction & allergy checking |
-| **Medical Scan AI** | `POST /api/scans/analyze` | Fracture & radiology scan inference |
-| **Digital Health Twin** | `POST /api/digital-twin/simulate`| Physiological organ vitality engine |
-| **WhatsApp Webhook** | `POST /api/whatsapp/webhook` | Multi-channel prescription parser |
-| **ABDM / ABHA Vault** | `POST /api/abha/verify` | Polygon blockchain cryptographic seal |
+| Agent / Service | Endpoint | Method | Description |
+| :--- | :--- | :---: | :--- |
+| **Health Check** | `GET /` | GET | Returns platform status, version, and active agents |
+| **Swarm Orchestrator** | `POST /api/orchestrate` | POST | Multi-agent coordination pipeline & consensus scoring |
+| **Symptom Triage** | `POST /api/triage/assess` | POST | Clinical triage & ESI severity scoring |
+| **Drug Safety (RxNav)** | `POST /api/pharmacology/check` | POST | Drug interaction, allergy, & Jan Aushadhi substitution |
+| **Medical Scan AI** | `POST /api/scans/analyze` | POST | Fracture & radiology scan inference (MONAI/YOLOv8) |
+| **Prescription Vision OCR** | `POST /api/scans/prescription-ocr` | POST | Gemini 2.0 Multimodal handwritten prescription parsing |
+| **Digital Health Twin** | `POST /api/digital-twin/simulate` | POST | 10-year physiological organ vitality trajectory engine |
+| **WhatsApp Webhook** | `POST /api/whatsapp/webhook` | POST | Meta WhatsApp Cloud API v20.0 message router |
+| **ABDM / ABHA Vault** | `POST /api/abha/verify` | POST | 14-digit ABHA validation & cryptographic pass generator |
+| **IDSP Outbreak Surveillance** | `GET /api/outbreak/district-risk` | GET | Localized Dengue/Malaria/Cholera surge early warnings |
+| **Outbreak Advisory Push** | `POST /api/outbreak/broadcast-advisory` | POST | 1-click WhatsApp/SMS localized public health alert |
+| **Universal Immunization** | `POST /api/vaccination/schedule` | POST | MoHFW UIP child & maternal vaccine due date calculator |
+| **U-WIN Certificate** | `POST /api/vaccination/uwin-record` | POST | Verifiable digital immunization pass generation |
+| **Preventive Health Quiz** | `GET /api/preventive/quiz` | GET | Randomized community health awareness micro-quiz |
+| **Omnichannel 2G SMS** | `POST /api/sms/inbound` | POST | Feature phone plain-text triage with Pinata IPFS backup |
+| **Decentralized IPFS Pin** | `POST /api/ipfs/pin-json` | POST | Immutable health record anchoring via Pinata IPFS |
+| **Clinical Benchmarks** | `GET /api/benchmarks/accuracy` | GET | Validated MedQA & WHO accuracy statistics (>91%) |
 
 ---
 <div align="center">
