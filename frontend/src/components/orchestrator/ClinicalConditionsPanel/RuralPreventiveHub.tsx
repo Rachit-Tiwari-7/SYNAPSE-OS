@@ -179,8 +179,7 @@ export default function RuralPreventiveHub() {
       boxShadow: '0 2px 12px rgba(0, 0, 0, 0.03)',
       display: 'flex',
       flexDirection: 'column',
-      gap: '20px',
-      fontFamily: '"Times New Roman", Times, serif'
+      gap: '20px'
     }}>
       
       {/* Header & Mode Switcher */}

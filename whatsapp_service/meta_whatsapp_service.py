@@ -36,7 +36,7 @@ logger = logging.getLogger(__name__)
 # =========================================================
 
 LANGUAGE_SELECTION_MENU = (
-    "🌿 Welcome to SANJEEVNI-OS AI Health Assistant 🌿\n"
+    "🌿 Welcome to SYNAPSE-OS AI Health Assistant 🌿\n"
     "Multi-Agent Clinical Intelligence & Public Health Platform (Powered by Google Gemini)\n\n"
     "🌐 Please select your preferred language / अपनी भाषा चुनें:\n\n"
     "1. English (Default)\n"
@@ -56,7 +56,7 @@ LANGUAGE_SELECTION_MENU = (
 
 LOCALIZED_MENUS: Dict[str, str] = {
     "en": (
-        "🌿 SANJEEVNI-OS — Rural & Public Health AI\n"
+        "🌿 SYNAPSE-OS — Rural & Public Health AI\n"
         "Multilingual Healthcare, Vaccination & Outbreak Assistant\n\n"
         "Reply with a number or simply text your question:\n\n"
         "1 🩺 Symptom Triage — Type symptoms or ask any health question\n"
@@ -292,11 +292,11 @@ def format_compact_whatsapp_card(triage_data: Dict[str, Any], lang: str = "en") 
 
     # 1. Badge selection
     if category == "EMERGENCY":
-        badge = "🔴 संजीवनी आपातकालीन ट्राइएज — अति गंभीर" if is_hindi else "🔴 SANJEEVNI EMERGENCY TRIAGE — CRITICAL"
+        badge = "🔴 संजीवनी आपातकालीन ट्राइएज — अति गंभीर" if is_hindi else "🔴 SYNAPSE EMERGENCY TRIAGE — CRITICAL"
     elif category == "HOME_CARE":
-        badge = "🟢 संजीवनी घरेलू देखभाल एवं निगरानी" if is_hindi else "🟢 SANJEEVNI HOME CARE & ACTIVE MONITORING"
+        badge = "🟢 संजीवनी घरेलू देखभाल एवं निगरानी" if is_hindi else "🟢 SYNAPSE HOME CARE & ACTIVE MONITORING"
     else:
-        badge = "🟡 संजीवनी डॉक्टर परामर्श आवश्यक" if is_hindi else "🟡 SANJEEVNI CLINICAL CONSULT REQUIRED"
+        badge = "🟡 संजीवनी डॉक्टर परामर्श आवश्यक" if is_hindi else "🟡 SYNAPSE CLINICAL CONSULT REQUIRED"
 
     diagnosis = triage_data.get("suspected_diagnosis", "Clinical assessment completed")
     consensus = triage_data.get("consensus_percentage", 92)
@@ -459,7 +459,7 @@ async def process_whatsapp_inbound_webhook(payload: Dict[str, Any]) -> Dict[str,
                 meds = parsed_rx.get("medications", [])
                 
                 rx_lines = [
-                    "📄 SANJEEVNI PRESCRIPTION VISION AI (Google Gemini)",
+                    "📄 SYNAPSE PRESCRIPTION VISION AI (Google Gemini)",
                     "━━━━━━━━━━━━━━━━━━━━"
                 ]
                 if parsed_rx.get("doctor_name"):
@@ -496,7 +496,7 @@ async def process_whatsapp_inbound_webhook(payload: Dict[str, Any]) -> Dict[str,
             logger.error(f"[WhatsApp Prescription Gemini Vision Error] {e}", exc_info=True)
 
         fallback_msg = (
-            "📄 SANJEEVNI PRESCRIPTION VISION AI\n"
+            "📄 SYNAPSE PRESCRIPTION VISION AI\n"
             "━━━━━━━━━━━━━━━━━━━━\n"
             "Medical image received. Please ensure the prescription photo is sharp, well-lit, and unblurred.\n\n"
             "🌿 Powered by Sanjeevni-OS (Google Gemini)"
@@ -566,7 +566,7 @@ async def process_whatsapp_inbound_webhook(payload: Dict[str, Any]) -> Dict[str,
     # 8. Emergency SOS Trigger
     if text_lower in ("sos", "emergency", "112", "108", "save me", "help me"):
         sos_res = (
-            "🔴 SANJEEVNI EMERGENCY DISPATCH\n"
+            "🔴 SYNAPSE EMERGENCY DISPATCH\n"
             "━━━━━━━━━━━━━━━━━━━━\n"
             "🚨 Immediate Emergency Call:\n"
             "• Ambulance: 108 (Direct Emergency)\n"
@@ -602,7 +602,7 @@ async def process_whatsapp_inbound_webhook(payload: Dict[str, Any]) -> Dict[str,
             status = drug_res.get("status", "MODERATE_RISK")
             badge_icon = "🔴" if "risk" in status.lower() or "contraindicated" in status.lower() else "🟢"
             reply_parts = [
-                "⚠️ SANJEEVNI DRUG SAFETY CHECK (Google Gemini)",
+                "⚠️ SYNAPSE DRUG SAFETY CHECK (Google Gemini)",
                 "━━━━━━━━━━━━━━━━━━━━",
                 f"💊 Query: {query}",
                 f"{badge_icon} Safety Status: {status}\n",
@@ -722,7 +722,7 @@ async def process_whatsapp_inbound_webhook(payload: Dict[str, Any]) -> Dict[str,
     except Exception as exc:
         logger.error(f"[Gemini Triage Error] {exc}", exc_info=True)
         card_text = (
-            "⚠️ SANJEEVNI CLINICAL ADVISORY\n"
+            "⚠️ SYNAPSE CLINICAL ADVISORY\n"
             "━━━━━━━━━━━━━━━━━━━━\n"
             "Your symptom inquiry has been recorded.\n\n"
             "🚨 In case of high fever, breathlessness, or severe chest pain, immediately call 108 (Ambulance) or 112.\n"
@@ -748,7 +748,7 @@ async def trigger_emergency_sos_whatsapp(
 ) -> Dict[str, Any]:
     """Dispatches 1-click Emergency SOS alert to pre-set emergency contact via WhatsApp."""
     sos_message = (
-        f"🚨 SANJEEVNI EMERGENCY SOS ALERT 🚨\n\n"
+        f"🚨 SYNAPSE EMERGENCY SOS ALERT 🚨\n\n"
         f"Patient {patient_name} has triggered an urgent emergency medical alert.\n\n"
         f"• Reported Condition: {critical_symptoms}\n"
         f"• Blood Group: {blood_group}\n"

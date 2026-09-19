@@ -4,7 +4,7 @@ export const projects: Project[] = [
   {
     id: 'orchestrator-agent',
     slug: 'orchestrator-agent',
-    title: 'Sanjeevni-OS Orchestrator',
+    title: 'Synapse-OS Orchestrator',
     subtitle: 'The Central Brain of the Health Platform',
     tagline: 'Understands intent, plans multi-step tasks, and delegates',
     location: 'Core Infrastructure',
@@ -26,7 +26,7 @@ export const projects: Project[] = [
       '/images/medical/orchestrator_director_review.jpg',
     ],
     description:
-      'The Orchestrator Agent (Sanjeevni-OS) is the central brain of the platform. Powered by Google Gemini 3.5 Flash, it normalizes every channel\'s message format, understands user intent, plans complex multi-step tasks, and delegates them to the appropriate specialized agents without losing context.',
+      'The Orchestrator Agent (Synapse-OS) is the central brain of the platform. Powered by Google Gemini 3.5 Flash, it normalizes every channel\'s message format, understands user intent, plans complex multi-step tasks, and delegates them to the appropriate specialized agents without losing context.',
     chapters: [
       {
         number: '01',
@@ -216,9 +216,9 @@ export const projects: Project[] = [
   {
     id: 'synapseos-assistant',
     slug: 'synapseos-assistant',
-    title: 'Sanjeevni AI Assistant',
+    title: 'Synapse AI Assistant',
     subtitle: 'Global Voice & Text Automation Layer',
-    tagline: 'Talk to Sanjeevni for hands-free health task automation',
+    tagline: 'Talk to Synapse for hands-free health task automation',
     location: 'Interaction Cluster',
     status: 'Available',
     statusText: 'Vapi.ai Voice SDK · Active',
@@ -232,7 +232,7 @@ export const projects: Project[] = [
     heroImage: '/images/medical/records_abha_tablet.jpg',
     thumbnailImage: '/images/medical/agent_swarm_doctors.jpg',
     galleryImages: [],
-    description: 'Sanjeevni AI Assistant is a voice and text conversational autopilot integrated directly into the OS. Utilizing Google Gemini 3.5 Flash and Vapi.ai, it handles hands-free patient intake, query routing, and schedules multi-agent tasks seamlessly.',
+    description: 'Synapse AI Assistant is a voice and text conversational autopilot integrated directly into the OS. Utilizing Google Gemini 3.5 Flash and Vapi.ai, it handles hands-free patient intake, query routing, and schedules multi-agent tasks seamlessly.',
     chapters: [],
   },
   {

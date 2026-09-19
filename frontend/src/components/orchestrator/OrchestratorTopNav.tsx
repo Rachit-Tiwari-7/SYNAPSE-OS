@@ -2,7 +2,6 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { 
-  HeartPulse, 
   Search, 
   Download, 
   Bell, 
@@ -19,6 +18,7 @@ import {
   ChevronRight,
   Check,
   ShieldCheck,
+  MessageCircle,
   LogOut
 } from 'lucide-react';
 import { PatientInfo } from './types';
@@ -27,8 +27,8 @@ import { useLanguage } from '@/context/LanguageContext';
 import { useAuth } from '@/context/AuthContext';
 
 interface TopNavProps {
-  activeTab: 'overview' | 'swarm' | 'analytics' | 'hospital' | 'scan' | 'records' | 'sync' | 'rural' | 'security';
-  onTabChange: (tab: 'overview' | 'swarm' | 'analytics' | 'hospital' | 'scan' | 'records' | 'sync' | 'rural' | 'security') => void;
+  activeTab: 'overview' | 'swarm' | 'analytics' | 'hospital' | 'scan' | 'records' | 'sync' | 'rural' | 'security' | 'whatsapp';
+  onTabChange: (tab: 'overview' | 'swarm' | 'analytics' | 'hospital' | 'scan' | 'records' | 'sync' | 'rural' | 'security' | 'whatsapp') => void;
   patient: PatientInfo;
   onOpenExportModal: () => void;
   searchQuery?: string;
@@ -57,16 +57,20 @@ export default function OrchestratorTopNav({
   );
 
   const tabs = [
-    { id: 'swarm', label: t('tab_swarm', 'Swarm Intelligence'), icon: Sparkles },
     { id: 'overview', label: t('tab_overview', 'My Condition'), icon: Layers },
+    { id: 'swarm', label: t('tab_swarm', 'Swarm Intelligence'), icon: Sparkles },
+    { id: 'whatsapp', label: t('tab_whatsapp', 'WhatsApp Bot'), icon: MessageCircle },
     { id: 'rural', label: t('tab_rural_health', 'Rural AI Healthcare'), icon: Smartphone },
     { id: 'analytics', label: t('tab_analytics', 'Visual Analytics'), icon: BarChart3 },
     { id: 'hospital', label: t('tab_hospital', 'WHO Surveillance & Map'), icon: WhoIcon },
-    { id: 'scan', label: t('tab_scan', 'Medical Scan AI'), icon: Search },
+    { id: 'scan', label: t('tab_scan', 'Prescription OCR & Vision'), icon: Search },
     { id: 'records', label: t('tab_records', 'ABHA & Records'), icon: Building2 },
     { id: 'sync', label: t('tab_health_sync', 'Google & Apple Health'), icon: Watch },
     { id: 'security', label: t('tab_security', '2FA & Sessions'), icon: ShieldCheck }
   ];
+
+  const currentTab = tabs.find(t => t.id === activeTab);
+  const activeTabLabel = currentTab ? currentTab.label : 'Overview';
 
   const checkScroll = () => {
     if (trackRef.current) {
@@ -115,43 +119,76 @@ export default function OrchestratorTopNav({
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'space-between',
-      padding: '10px 20px',
+      padding: '0 20px',
+      height: '56px',
       background: '#ffffff',
       borderBottom: '1px solid #e2e8f0',
       position: 'sticky',
       top: 0,
       zIndex: 100,
-      boxShadow: '0 1px 3px rgba(0,0,0,0.02), 0 4px 12px rgba(0,0,0,0.03)',
+      boxShadow: '0 1px 2px rgba(15, 23, 42, 0.03)',
       width: '100%',
       boxSizing: 'border-box',
       overflow: 'visible',
       fontFamily: 'inherit'
     }}>
 
-      {/* Center Navigation Segmented Control */}
+      {/* Left: Active Clinical Breadcrumb */}
+      <div style={{
+        display: 'flex',
+        alignItems: 'center',
+        gap: '8px',
+        flexShrink: 0,
+        marginRight: '16px'
+      }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '13px' }}>
+          <span style={{ 
+            color: '#64748b', 
+            fontWeight: 600,
+            fontSize: '12px',
+            letterSpacing: '-0.01em'
+          }}>
+            Hospital OS
+          </span>
+          <ChevronRight size={13} color="#94a3b8" />
+          <span style={{ 
+            color: '#0284c7', 
+            fontWeight: 700,
+            fontSize: '12px',
+            background: '#f0f9ff',
+            padding: '3px 8px',
+            borderRadius: '6px',
+            border: '1px solid #bae6fd',
+            whiteSpace: 'nowrap'
+          }}>
+            {activeTabLabel}
+          </span>
+        </div>
+      </div>
+
+      {/* Center: Segmented Workspace Tabs Track */}
       <div style={{
         display: 'flex',
         alignItems: 'center',
         background: '#f1f5f9',
         padding: '3px 4px',
-        borderRadius: '12px',
+        borderRadius: '10px',
         border: '1px solid #e2e8f0',
         gap: '2px',
         flex: '1 1 auto',
         minWidth: 0,
-        maxWidth: 'calc(100% - 460px)',
-        marginRight: '16px',
+        maxWidth: '720px',
         position: 'relative'
       }}>
         {/* Left Scroll Button */}
         {canScrollLeft && (
           <button
-            onClick={() => scrollBy(-150)}
+            onClick={() => scrollBy(-140)}
             title="Scroll left"
             style={{
-              width: '24px',
-              height: '24px',
-              borderRadius: '8px',
+              width: '22px',
+              height: '22px',
+              borderRadius: '6px',
               background: '#ffffff',
               border: '1px solid #cbd5e1',
               color: '#334155',
@@ -160,10 +197,10 @@ export default function OrchestratorTopNav({
               justifyContent: 'center',
               cursor: 'pointer',
               flexShrink: 0,
-              boxShadow: '0 1px 2px rgba(0,0,0,0.05)'
+              boxShadow: '0 1px 2px rgba(15, 23, 42, 0.04)'
             }}
           >
-            <ChevronLeft size={13} />
+            <ChevronLeft size={12} />
           </button>
         )}
 
@@ -199,24 +236,24 @@ export default function OrchestratorTopNav({
                 style={{
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '6px',
-                  padding: '6px 12px',
-                  borderRadius: '9px',
+                  gap: '5px',
+                  padding: '5px 10px',
+                  borderRadius: '7px',
                   border: 'none',
-                  fontSize: '11.5px',
+                  fontSize: '11px',
                   whiteSpace: 'nowrap',
-                  fontWeight: isActive ? 600 : 500,
+                  fontWeight: isActive ? 700 : 500,
                   background: isActive ? '#ffffff' : 'transparent',
-                  color: isActive ? '#0f172a' : '#64748b',
+                  color: isActive ? '#0284c7' : '#64748b',
                   cursor: 'pointer',
-                  boxShadow: isActive ? '0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04)' : 'none',
+                  boxShadow: isActive ? '0 1px 3px rgba(15, 23, 42, 0.08)' : 'none',
                   transition: 'all 0.15s ease',
                   flexShrink: 0
                 }}
                 onMouseEnter={(e) => {
                   if (!isActive) {
                     e.currentTarget.style.color = '#0f172a';
-                    e.currentTarget.style.background = 'rgba(255,255,255,0.6)';
+                    e.currentTarget.style.background = 'rgba(255,255,255,0.7)';
                   }
                 }}
                 onMouseLeave={(e) => {
@@ -226,7 +263,7 @@ export default function OrchestratorTopNav({
                   }
                 }}
               >
-                <Icon size={13} color={isActive ? '#0284c7' : '#94a3b8'} />
+                <Icon size={12} color={isActive ? '#0284c7' : '#94a3b8'} />
                 <span>{tab.label}</span>
               </button>
             );
@@ -236,12 +273,12 @@ export default function OrchestratorTopNav({
         {/* Right Scroll Button */}
         {canScrollRight && (
           <button
-            onClick={() => scrollBy(150)}
+            onClick={() => scrollBy(140)}
             title="Scroll right"
             style={{
-              width: '24px',
-              height: '24px',
-              borderRadius: '8px',
+              width: '22px',
+              height: '22px',
+              borderRadius: '6px',
               background: '#ffffff',
               border: '1px solid #cbd5e1',
               color: '#334155',
@@ -250,14 +287,14 @@ export default function OrchestratorTopNav({
               justifyContent: 'center',
               cursor: 'pointer',
               flexShrink: 0,
-              boxShadow: '0 1px 2px rgba(0,0,0,0.05)'
+              boxShadow: '0 1px 2px rgba(15, 23, 42, 0.04)'
             }}
           >
-            <ChevronRight size={13} />
+            <ChevronRight size={12} />
           </button>
         )}
 
-        {/* Arrow Dropdown Menu Button for Quick Selection */}
+        {/* Arrow Dropdown Menu Button */}
         <div ref={moreMenuRef} style={{ position: 'relative', flexShrink: 0 }}>
           <button
             onClick={() => setIsMoreOpen(!isMoreOpen)}
@@ -266,19 +303,19 @@ export default function OrchestratorTopNav({
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              width: '24px',
-              height: '24px',
-              borderRadius: '8px',
+              width: '22px',
+              height: '22px',
+              borderRadius: '6px',
               background: isMoreOpen ? '#ffffff' : 'transparent',
               border: isMoreOpen ? '1px solid #cbd5e1' : '1px solid transparent',
               color: '#64748b',
               cursor: 'pointer',
-              boxShadow: isMoreOpen ? '0 1px 3px rgba(0,0,0,0.08)' : 'none',
+              boxShadow: isMoreOpen ? '0 1px 2px rgba(15, 23, 42, 0.06)' : 'none',
               transition: 'all 0.15s ease'
             }}
           >
             <ChevronDown 
-              size={13} 
+              size={12} 
               style={{ 
                 transform: isMoreOpen ? 'rotate(180deg)' : 'rotate(0deg)',
                 transition: 'transform 0.2s ease'
@@ -292,11 +329,11 @@ export default function OrchestratorTopNav({
               position: 'absolute',
               top: 'calc(100% + 8px)',
               right: 0,
-              width: '230px',
+              width: '220px',
               background: '#ffffff',
-              borderRadius: '14px',
+              borderRadius: '12px',
               border: '1px solid #e2e8f0',
-              boxShadow: '0 10px 30px rgba(0,0,0,0.1), 0 4px 12px rgba(0,0,0,0.05)',
+              boxShadow: '0 10px 25px rgba(15, 23, 42, 0.1)',
               zIndex: 9999,
               padding: '6px',
               display: 'flex',
@@ -304,15 +341,15 @@ export default function OrchestratorTopNav({
               gap: '2px'
             }}>
               <div style={{
-                padding: '6px 10px',
-                fontSize: '10px',
+                padding: '6px 8px',
+                fontSize: '9.5px',
                 fontWeight: 700,
                 color: '#94a3b8',
                 textTransform: 'uppercase',
                 letterSpacing: '0.04em',
                 borderBottom: '1px solid #f1f5f9'
               }}>
-                Orchestrator Workspaces
+                Workspaces Navigation
               </div>
               {tabs.map((tab) => {
                 const Icon = tab.icon;
@@ -328,13 +365,13 @@ export default function OrchestratorTopNav({
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'space-between',
-                      padding: '8px 10px',
+                      padding: '7px 9px',
                       borderRadius: '8px',
                       cursor: 'pointer',
                       background: isActive ? '#f0f9ff' : 'transparent',
                       color: isActive ? '#0284c7' : '#0f172a',
-                      fontSize: '12px',
-                      fontWeight: isActive ? 600 : 500,
+                      fontSize: '11.5px',
+                      fontWeight: isActive ? 700 : 500,
                       transition: 'all 0.1s ease'
                     }}
                     onMouseEnter={(e) => {
@@ -345,10 +382,10 @@ export default function OrchestratorTopNav({
                     }}
                   >
                     <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                      <Icon size={14} color={isActive ? '#0284c7' : '#64748b'} />
+                      <Icon size={13} color={isActive ? '#0284c7' : '#64748b'} />
                       <span>{tab.label}</span>
                     </div>
-                    {isActive && <Check size={14} color="#0284c7" />}
+                    {isActive && <Check size={13} color="#0284c7" />}
                   </div>
                 );
               })}
@@ -363,7 +400,7 @@ export default function OrchestratorTopNav({
         alignItems: 'center', 
         gap: '10px', 
         flexShrink: 0,
-        marginLeft: 'auto'
+        marginLeft: '16px'
       }}>
         {/* Language Selector */}
         <div style={{ flexShrink: 0 }}>
@@ -378,18 +415,18 @@ export default function OrchestratorTopNav({
             display: 'flex',
             alignItems: 'center',
             gap: '6px',
-            padding: '6px 13px',
-            height: '34px',
+            padding: '5px 11px',
+            height: '32px',
             background: '#ffffff',
             border: '1px solid #e2e8f0',
-            borderRadius: '10px',
+            borderRadius: '8px',
             fontSize: '11.5px',
             fontWeight: 600,
             color: '#0f172a',
             cursor: 'pointer',
             whiteSpace: 'nowrap',
             flexShrink: 0,
-            boxShadow: '0 1px 2px rgba(0,0,0,0.04)',
+            boxShadow: '0 1px 2px rgba(15, 23, 42, 0.03)',
             transition: 'all 0.15s ease'
           }}
           onMouseEnter={(e) => {
@@ -406,41 +443,52 @@ export default function OrchestratorTopNav({
         </button>
 
         {/* Notification Bell */}
-        <div style={{
-          width: '34px',
-          minWidth: '34px',
-          height: '34px',
-          minHeight: '34px',
-          borderRadius: '10px',
-          background: '#f8fafc',
-          border: '1px solid #e2e8f0',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          color: '#64748b',
-          cursor: 'pointer',
-          position: 'relative',
-          flexShrink: 0,
-          boxSizing: 'border-box',
-          transition: 'all 0.15s ease'
-        }}>
-          <Bell size={15} />
+        <div 
+          title="Clinical Alerts & Notifications"
+          style={{
+            width: '32px',
+            minWidth: '32px',
+            height: '32px',
+            minHeight: '32px',
+            borderRadius: '8px',
+            background: '#f8fafc',
+            border: '1px solid #e2e8f0',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            color: '#64748b',
+            cursor: 'pointer',
+            position: 'relative',
+            flexShrink: 0,
+            boxSizing: 'border-box',
+            transition: 'all 0.15s ease'
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.background = '#f1f5f9';
+            e.currentTarget.style.borderColor = '#cbd5e1';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.background = '#f8fafc';
+            e.currentTarget.style.borderColor = '#e2e8f0';
+          }}
+        >
+          <Bell size={14} />
           <span style={{
             position: 'absolute',
-            top: '7px',
-            right: '7px',
+            top: '6px',
+            right: '6px',
             width: '6px',
             height: '6px',
             borderRadius: '50%',
-            background: '#ef4444'
+            background: '#dc2626'
           }} />
         </div>
 
-        {/* Patient Profile Widget */}
+        {/* Patient Profile / Doctor Badge */}
         <div style={{
           display: 'flex',
           alignItems: 'center',
-          gap: '9px',
+          gap: '8px',
           paddingLeft: '10px',
           borderLeft: '1px solid #e2e8f0',
           flexShrink: 0
@@ -450,20 +498,20 @@ export default function OrchestratorTopNav({
               src={patient.avatarUrl}
               alt={patient.name}
               style={{
-                width: '32px',
-                height: '32px',
-                borderRadius: '50%',
+                width: '30px',
+                height: '30px',
+                borderRadius: '8px',
                 objectFit: 'cover',
-                border: '1.5px solid #e2e8f0',
+                border: '1px solid #e2e8f0',
                 flexShrink: 0
               }}
             />
           ) : (
             <div
               style={{
-                width: '32px',
-                height: '32px',
-                borderRadius: '50%',
+                width: '30px',
+                height: '30px',
+                borderRadius: '8px',
                 background: 'linear-gradient(135deg, #0284c7 0%, #0369a1 100%)',
                 color: '#ffffff',
                 display: 'flex',
@@ -471,7 +519,7 @@ export default function OrchestratorTopNav({
                 justifyContent: 'center',
                 fontSize: '11px',
                 fontWeight: 700,
-                border: '1.5px solid #bae6fd',
+                border: '1px solid #bae6fd',
                 flexShrink: 0
               }}
             >
@@ -479,38 +527,60 @@ export default function OrchestratorTopNav({
             </div>
           )}
           <div style={{ whiteSpace: 'nowrap' }}>
-            <div style={{ fontSize: '12px', fontWeight: 600, color: '#0f172a', lineHeight: 1.2 }}>
-              {user?.name || patient.name}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '5px', fontSize: '11.5px', fontWeight: 700, color: '#0f172a', lineHeight: 1.2 }}>
+              <span>{user?.name || patient.name}</span>
+              {(user?.isAdmin || user?.role === 'admin' || user?.email?.includes('admin')) ? (
+                <span style={{
+                  background: '#fee2e2',
+                  color: '#b91c1c',
+                  fontSize: '8.5px',
+                  fontWeight: 800,
+                  padding: '1px 4px',
+                  borderRadius: '3px',
+                  border: '1px solid #fca5a5',
+                  letterSpacing: '0.03em',
+                }}>
+                  ADMIN
+                </span>
+              ) : (
+                <span style={{
+                  background: '#ecfdf5',
+                  color: '#059669',
+                  fontSize: '8.5px',
+                  fontWeight: 800,
+                  padding: '1px 4px',
+                  borderRadius: '3px',
+                  border: '1px solid #a7f3d0',
+                  letterSpacing: '0.03em',
+                }}>
+                  ABDM
+                </span>
+              )}
             </div>
-            <div style={{ fontSize: '10px', color: '#64748b', lineHeight: 1.2 }}>
-              ABHA: <span style={{ fontWeight: 600, color: '#0284c7' }}>{patient.abhaId}</span>
+            <div style={{ fontSize: '9.5px', color: '#64748b', lineHeight: 1.2, marginTop: '1px' }}>
+              ABHA: <span style={{ fontWeight: 600, color: '#0284c7', fontVariantNumeric: 'tabular-nums' }}>{patient.abhaId}</span>
             </div>
           </div>
         </div>
 
-        {/* Sign Out Action Button */}
+        {/* Sleek Logout Action Button */}
         <button
           onClick={handleLogout}
           disabled={isLoggingOut}
-          title="Sign out of Sanjeevni OS"
+          title="Sign Out of Synapse OS"
           style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '5px',
-            padding: '6px 12px',
-            height: '34px',
+            width: '32px',
+            height: '32px',
+            borderRadius: '8px',
             background: '#fef2f2',
             border: '1px solid #fecaca',
-            borderRadius: '10px',
-            fontSize: '11.5px',
-            fontWeight: 600,
             color: '#dc2626',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
             cursor: isLoggingOut ? 'not-allowed' : 'pointer',
-            whiteSpace: 'nowrap',
             flexShrink: 0,
-            boxShadow: '0 1px 2px rgba(220, 38, 38, 0.04)',
-            transition: 'all 0.15s ease',
-            marginLeft: '2px'
+            transition: 'all 0.15s ease'
           }}
           onMouseEnter={(e) => {
             if (!isLoggingOut) {
@@ -526,7 +596,6 @@ export default function OrchestratorTopNav({
           }}
         >
           <LogOut size={13} color="#dc2626" />
-          <span>{isLoggingOut ? 'Signing Out...' : 'Sign Out'}</span>
         </button>
       </div>
     </header>

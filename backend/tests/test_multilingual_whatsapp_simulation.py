@@ -122,7 +122,7 @@ async def test_simulate_hindi_symptom_triage_flow():
             input_text="मुझे 3 दिन से तेज बुखार, खांसी और बदन में तेज दर्द है",
             language="hi",
             final_response=(
-                "🟡 SANJEEVNI CLINICAL ASSESSMENT\n"
+                "🟡 SYNAPSE CLINICAL ASSESSMENT\n"
                 "━━━━━━━━━━━━━━━━━━━━\n"
                 "Suspected Diagnosis: वायरल बुखार एवं ऊपरी श्वसन संक्रमण (Viral Pyrexia & URTI)\n"
                 "Council Consensus: 92% Consensus\n\n"
@@ -173,7 +173,7 @@ async def test_simulate_hinglish_symptom_triage_flow():
             input_text="mujhe 2 din se tez bukhar aur sar dard hai, kya karu?",
             language="hi",
             final_response=(
-                "🟡 SANJEEVNI CLINICAL ASSESSMENT\n"
+                "🟡 SYNAPSE CLINICAL ASSESSMENT\n"
                 "━━━━━━━━━━━━━━━━━━━━\n"
                 "Suspected Diagnosis: वायरल बुखार एवं सिरदर्द (Viral Pyrexia)\n"
                 "Council Consensus: 90% Consensus\n\n"

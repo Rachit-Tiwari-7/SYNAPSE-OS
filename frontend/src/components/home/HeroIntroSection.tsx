@@ -335,9 +335,9 @@ export function HeroIntroSection() {
             Synapse
           </div>
           <div className="logo__group">
-            <div className="logo__is"></div>
+            <div className="logo__is">O</div>
             <div className="logo__boring">
-              <div className="reg"></div>
+              S<div className="reg">®</div>
             </div>
           </div>
         </div>

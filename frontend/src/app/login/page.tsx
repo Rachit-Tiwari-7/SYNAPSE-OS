@@ -150,11 +150,11 @@ function LoginContent() {
 
         <div className="absolute inset-0 bg-black/40 z-10 pointer-events-none" />
 
-        {/* Logo/Top Bar - Pure Clean Sanjeevni Branding */}
+        {/* Logo/Top Bar - Pure Clean Synapse Branding */}
         <div className="relative z-20 flex items-center w-full">
           <div className="flex items-center gap-2 text-white">
             <span className="font-bold text-xl tracking-widest text-white" style={{ color: '#ffffff' }}>
-              SANJEEVNI
+              SYNAPSE
             </span>
           </div>
         </div>
@@ -261,9 +261,11 @@ function LoginContent() {
               <form onSubmit={handleSubmit} style={{ opacity: 1, visibility: 'visible' }}>
                 <div className="mb-4">
                   <input
-                    type="email"
+                    type="text"
                     required
-                    placeholder="Email"
+                    autoCapitalize="none"
+                    autoCorrect="off"
+                    placeholder="Email or Username (e.g. admin)"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     className="w-full bg-gray-100 border border-gray-200 text-gray-900 placeholder:text-gray-400 h-12 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#7e57c2] transition-all"
@@ -319,8 +321,8 @@ function LoginContent() {
                 <button
                   type="button"
                   onClick={() => {
-                    setEmail('mausam@sanjeevni.ai');
-                    setPassword('Sanjeevni@2026');
+                    setEmail('admin@synapse.ai');
+                    setPassword('Admin@2026');
                   }}
                   className="btn-secondary social-btn w-1/2 h-12 bg-transparent border border-gray-300 text-gray-700 hover:bg-gray-50 hover:text-gray-900 rounded-lg font-medium transition-colors cursor-pointer"
                   style={{ display: 'flex', width: '50%', height: '48px', minHeight: '48px', alignItems: 'center', justifyContent: 'center', backgroundColor: '#ffffff', color: '#374151', borderColor: '#d1d5db', fontSize: '14px', fontWeight: 500, borderRadius: '8px', borderWidth: '1px', boxSizing: 'border-box', cursor: 'pointer' }}
@@ -330,8 +332,8 @@ function LoginContent() {
                 <button
                   type="button"
                   onClick={() => {
-                    setEmail('mausam@sanjeevni.ai');
-                    setPassword('Sanjeevni@2026');
+                    setEmail('admin@synapse.ai');
+                    setPassword('Admin@2026');
                   }}
                   className="btn-secondary social-btn w-1/2 h-12 bg-transparent border border-gray-300 text-gray-700 hover:bg-gray-50 hover:text-gray-900 rounded-lg font-medium transition-colors cursor-pointer"
                   style={{ display: 'flex', width: '50%', height: '48px', minHeight: '48px', alignItems: 'center', justifyContent: 'center', backgroundColor: '#ffffff', color: '#374151', borderColor: '#d1d5db', fontSize: '14px', fontWeight: 500, borderRadius: '8px', borderWidth: '1px', boxSizing: 'border-box', cursor: 'pointer' }}
@@ -340,23 +342,39 @@ function LoginContent() {
                 </button>
               </div>
 
-              {/* Demo Quick Test Pill */}
+              {/* Admin & Clinical Demo Quick Test Pills */}
               <div 
-                className="mt-6 p-3 rounded-lg border flex items-center justify-between text-xs"
-                style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '12px 16px', width: '100%', borderRadius: '8px', border: '1px solid #ddd6fe', backgroundColor: '#f5f3ff', color: '#4c1d95', fontSize: '13px', marginTop: '24px', boxSizing: 'border-box' }}
+                className="mt-6 flex flex-col gap-2.5 p-3.5 rounded-xl border text-xs"
+                style={{ display: 'flex', flexDirection: 'column', gap: '10px', padding: '14px 16px', width: '100%', borderRadius: '12px', border: '1px solid #ddd6fe', backgroundColor: '#f5f3ff', color: '#4c1d95', fontSize: '13px', marginTop: '20px', boxSizing: 'border-box' }}
               >
-                <span>Demo: <strong style={{ color: '#6d28d9' }}>mausam@sanjeevni.ai</strong></span>
-                <button
-                  type="button"
-                  onClick={() => {
-                    setEmail('mausam@sanjeevni.ai');
-                    setPassword('Sanjeevni@2026');
-                  }}
-                  className="font-semibold underline cursor-pointer"
-                  style={{ all: 'revert', background: 'none', border: 'none', color: '#7e57c2', cursor: 'pointer', fontWeight: 700, padding: 0 }}
-                >
-                  Autofill
-                </button>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderBottom: '1px solid #ede9fe', paddingBottom: '8px' }}>
+                  <span>🛡️ <strong>Admin Login:</strong> <code style={{ background: '#ede9fe', padding: '2px 6px', borderRadius: '4px', fontSize: '12px' }}>admin@synapse.ai</code></span>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setEmail('admin@synapse.ai');
+                      setPassword('Admin@2026');
+                    }}
+                    className="font-semibold underline cursor-pointer"
+                    style={{ all: 'revert', background: 'none', border: 'none', color: '#7e57c2', cursor: 'pointer', fontWeight: 700, padding: 0 }}
+                  >
+                    Autofill Admin
+                  </button>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                  <span>🩺 <strong>Clinical Lead:</strong> <code style={{ background: '#ede9fe', padding: '2px 6px', borderRadius: '4px', fontSize: '12px' }}>mausam@synapse.ai</code></span>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setEmail('mausam@synapse.ai');
+                      setPassword('Synapse@2026');
+                    }}
+                    className="font-semibold underline cursor-pointer"
+                    style={{ all: 'revert', background: 'none', border: 'none', color: '#7e57c2', cursor: 'pointer', fontWeight: 700, padding: 0 }}
+                  >
+                    Autofill Clinical
+                  </button>
+                </div>
               </div>
 
               <p 

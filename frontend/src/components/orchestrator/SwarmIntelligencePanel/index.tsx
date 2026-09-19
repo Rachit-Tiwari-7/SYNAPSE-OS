@@ -283,8 +283,7 @@ export default function SwarmIntelligencePanel({
       gap: '20px',
       width: '100%',
       maxWidth: '1600px',
-      margin: '0 auto',
-      fontFamily: '"Times New Roman", Times, serif'
+      margin: '0 auto'
     }}>
       {/* 1 & 2. Merged Top Hero & DAG StateGraph Pipeline View with Background */}
       <div style={{
@@ -369,8 +368,8 @@ export default function SwarmIntelligencePanel({
         {/* 5-Node Interactive DAG Flow Strip */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(5, 1fr)',
-          gap: '12px',
+          gridTemplateColumns: 'repeat(5, minmax(0, 1fr))',
+          gap: '14px',
           position: 'relative'
         }}>
           {dagNodes.map((node) => {
@@ -383,65 +382,87 @@ export default function SwarmIntelligencePanel({
               <div
                 key={node.id}
                 style={{
-                  background: isCompleted ? 'rgba(240, 253, 244, 0.9)' : isRunning ? 'rgba(240, 249, 255, 0.9)' : isWarning ? 'rgba(255, 251, 235, 0.9)' : 'rgba(248, 250, 252, 0.9)',
-                  backdropFilter: 'blur(8px)',
+                  background: isCompleted ? '#ffffff' : isRunning ? '#f0f9ff' : isWarning ? '#fffbeb' : '#ffffff',
                   border: '1.5px solid',
-                  borderColor: isCompleted ? '#86efac' : isRunning ? '#bae6fd' : isWarning ? '#fde68a' : '#e2e8f0',
+                  borderColor: isCompleted ? '#86efac' : isRunning ? '#38bdf8' : isWarning ? '#fde68a' : '#e2e8f0',
                   borderRadius: '16px',
-                  padding: '14px',
+                  padding: '16px',
+                  minHeight: '148px',
                   display: 'flex',
                   flexDirection: 'column',
-                  gap: '8px',
+                  justifyContent: 'space-between',
                   position: 'relative',
-                  transition: 'all 0.2s ease',
-                  boxShadow: isRunning ? '0 0 16px rgba(2, 132, 199, 0.15)' : 'none'
+                  transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
+                  boxShadow: isRunning ? '0 0 16px rgba(2, 132, 199, 0.16)' : '0 2px 8px -2px rgba(15, 23, 42, 0.04)',
+                  cursor: 'pointer'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.borderColor = '#93c5fd';
+                  e.currentTarget.style.transform = 'translateY(-2px)';
+                  e.currentTarget.style.boxShadow = '0 8px 20px -4px rgba(2, 132, 199, 0.12)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.borderColor = isCompleted ? '#86efac' : isRunning ? '#38bdf8' : isWarning ? '#fde68a' : '#e2e8f0';
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = isRunning ? '0 0 16px rgba(2, 132, 199, 0.16)' : '0 2px 8px -2px rgba(15, 23, 42, 0.04)';
                 }}
               >
+                {/* Top: Rounded Icon Container + Standardized Status Chip */}
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   <div style={{
-                    width: '32px',
-                    height: '32px',
+                    width: '34px',
+                    height: '34px',
                     borderRadius: '10px',
-                    background: isCompleted ? '#16a34a' : isRunning ? '#0284c7' : isWarning ? '#f59e0b' : '#cbd5e1',
-                    color: '#ffffff',
+                    background: isCompleted ? '#ecfdf5' : isRunning ? '#e0f2fe' : isWarning ? '#fef3c7' : '#f1f5f9',
+                    color: isCompleted ? '#059669' : isRunning ? '#0284c7' : isWarning ? '#d97706' : '#64748b',
+                    border: '1px solid',
+                    borderColor: isCompleted ? '#a7f3d0' : isRunning ? '#bae6fd' : isWarning ? '#fde68a' : '#e2e8f0',
                     display: 'flex',
                     alignItems: 'center',
-                    justifyContent: 'center'
+                    justifyContent: 'center',
+                    flexShrink: 0
                   }}>
-                    <Icon size={16} />
+                    <Icon size={17} />
                   </div>
                   <span style={{
                     fontSize: '9.5px',
                     fontWeight: 800,
-                    padding: '2px 6px',
-                    borderRadius: '4px',
-                    background: isCompleted ? '#dcfce7' : isRunning ? '#e0f2fe' : isWarning ? '#fef3c7' : '#e2e8f0',
-                    color: isCompleted ? '#15803d' : isRunning ? '#0369a1' : isWarning ? '#b45309' : '#64748b'
+                    padding: '2.5px 7px',
+                    borderRadius: '5px',
+                    border: '1px solid',
+                    borderColor: isCompleted ? '#a7f3d0' : isRunning ? '#bae6fd' : isWarning ? '#fde68a' : '#e2e8f0',
+                    background: isCompleted ? '#ecfdf5' : isRunning ? '#e0f2fe' : isWarning ? '#fef3c7' : '#f8fafc',
+                    color: isCompleted ? '#059669' : isRunning ? '#0284c7' : isWarning ? '#b45309' : '#64748b'
                   }}>
-                    {isCompleted ? `✓ ${translateText('200 OK')}` : isRunning ? `⚡ ${translateText('Running')}` : isWarning ? `⚠ ${translateText('Alert')}` : translateText('Standby')}
+                    {isCompleted ? `✓ ${translateText('Verified')}` : isRunning ? `⚡ ${translateText('Running')}` : isWarning ? `⚠ ${translateText('Alert')}` : translateText('Standby')}
                   </span>
                 </div>
 
-                <div>
-                  <div style={{ fontSize: '13px', fontWeight: 800, color: '#0f172a' }}>
+                {/* Middle: Clean Typography Hierarchy */}
+                <div style={{ margin: '8px 0' }}>
+                  <div style={{ fontSize: '14px', fontWeight: 800, color: '#0f172a', letterSpacing: '-0.01em' }}>
                     {translateText(node.name)}
                   </div>
-                  <div style={{ fontSize: '10.5px', color: '#64748b', marginTop: '2px' }}>
+                  <div style={{ fontSize: '11px', color: '#64748b', marginTop: '2px', lineHeight: 1.3 }}>
                     {translateText(node.role)}
                   </div>
                 </div>
 
+                {/* Bottom: Latency with Tabular Numbers */}
                 <div style={{
-                  fontSize: '10.5px',
-                  fontWeight: 700,
-                  color: isCompleted ? '#16a34a' : '#94a3b8',
-                  borderTop: '1px solid rgba(0,0,0,0.06)',
+                  fontSize: '11px',
+                  fontWeight: 600,
+                  color: isCompleted ? '#059669' : '#94a3b8',
+                  borderTop: '1px solid #f1f5f9',
                   paddingTop: '6px',
                   display: 'flex',
-                  justifyContent: 'space-between'
+                  justifyContent: 'space-between',
+                  alignItems: 'center'
                 }}>
-                  <span>{translateText('Latency:')}</span>
-                  <span>{isCompleted ? `${node.latencyMs} ms` : '--'}</span>
+                  <span style={{ color: '#94a3b8' }}>{translateText('Latency')}</span>
+                  <span style={{ fontVariantNumeric: 'tabular-nums', fontWeight: 700 }}>
+                    {isCompleted ? `${node.latencyMs} ms` : '--'}
+                  </span>
                 </div>
               </div>
             );
@@ -452,14 +473,14 @@ export default function SwarmIntelligencePanel({
       {/* 3. Clinical Presets & Query Input Console */}
       <div style={{
         background: '#ffffff',
-        borderRadius: '24px',
+        borderRadius: '20px',
         border: '1px solid #e2e8f0',
-        padding: '22px 26px',
-        boxShadow: '0 4px 16px rgba(0,0,0,0.02)'
+        padding: '20px 24px',
+        boxShadow: '0 2px 8px -2px rgba(15, 23, 42, 0.04)'
       }}>
         {/* Scenario Chips */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '14px', flexWrap: 'wrap' }}>
-          <span style={{ fontSize: '11px', fontWeight: 800, color: '#64748b', textTransform: 'uppercase', marginRight: '4px' }}>
+          <span style={{ fontSize: '11px', fontWeight: 800, color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.04em', marginRight: '4px' }}>
             {translateText('CLINICAL SCENARIOS:')}
           </span>
           {presets.map((p, idx) => (
@@ -471,22 +492,30 @@ export default function SwarmIntelligencePanel({
               }}
               style={{
                 padding: '6px 12px',
-                borderRadius: '10px',
+                borderRadius: '8px',
                 border: '1px solid #e2e8f0',
                 background: '#f8fafc',
-                fontSize: '11px',
-                fontWeight: 700,
+                fontSize: '11.5px',
+                fontWeight: 600,
                 color: '#334155',
                 cursor: 'pointer',
-                display: 'flex',
+                display: 'inline-flex',
                 alignItems: 'center',
                 gap: '6px',
                 transition: 'all 0.15s ease'
               }}
-              onMouseEnter={(e) => { e.currentTarget.style.background = '#fdf2f8'; e.currentTarget.style.borderColor = '#fbcfe8'; e.currentTarget.style.color = '#db2777'; }}
-              onMouseLeave={(e) => { e.currentTarget.style.background = '#f8fafc'; e.currentTarget.style.borderColor = '#e2e8f0'; e.currentTarget.style.color = '#334155'; }}
+              onMouseEnter={(e) => { 
+                e.currentTarget.style.background = '#f0f9ff'; 
+                e.currentTarget.style.borderColor = '#bae6fd'; 
+                e.currentTarget.style.color = '#0284c7'; 
+              }}
+              onMouseLeave={(e) => { 
+                e.currentTarget.style.background = '#f8fafc'; 
+                e.currentTarget.style.borderColor = '#e2e8f0'; 
+                e.currentTarget.style.color = '#334155'; 
+              }}
             >
-              <Sparkles size={12} color="#db2777" />
+              <Sparkles size={12} color="#0284c7" />
               <span>{translateText(p.title)}</span>
             </button>
           ))}
@@ -494,45 +523,58 @@ export default function SwarmIntelligencePanel({
 
         {/* Clinical Accuracy & Benchmark Verification Banner */}
         <div style={{
-          background: 'linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)',
-          borderRadius: '16px',
-          border: '1px solid #a7f3d0',
+          background: '#f0fdf4',
+          borderRadius: '14px',
+          border: '1px solid #bbf7d0',
           padding: '14px 18px',
-          marginBottom: '14px',
+          marginBottom: '16px',
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
           flexWrap: 'wrap',
-          gap: '12px'
+          gap: '14px'
         }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <span style={{ fontSize: '20px' }}>🏆</span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flex: '1 1 500px' }}>
+            <div style={{
+              width: '38px',
+              height: '38px',
+              borderRadius: '10px',
+              background: '#dcfce7',
+              border: '1px solid #86efac',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: '18px',
+              flexShrink: 0
+            }}>
+              🏆
+            </div>
             <div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <span style={{ fontSize: '13px', fontWeight: 900, color: '#065f46' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+                <span style={{ fontSize: '13px', fontWeight: 800, color: '#065f46' }}>
                   {translateText('Clinical Accuracy & Safety Verification Benchmark')}
                 </span>
-                <span style={{ fontSize: '10px', fontWeight: 800, padding: '2px 7px', borderRadius: '4px', background: '#dcfce7', color: '#15803d' }}>
+                <span style={{ fontSize: '10.5px', fontWeight: 700, padding: '2px 7px', borderRadius: '5px', background: '#dcfce7', color: '#15803d', border: '1px solid #86efac', fontVariantNumeric: 'tabular-nums' }}>
                   91.4% Concordance (Target: ≥80%)
                 </span>
-                <span style={{ fontSize: '10px', fontWeight: 800, padding: '2px 7px', borderRadius: '4px', background: '#e0e7ff', color: '#4338ca' }}>
+                <span style={{ fontSize: '10.5px', fontWeight: 700, padding: '2px 7px', borderRadius: '5px', background: '#e0e7ff', color: '#4338ca', border: '1px solid #c7d2fe', fontVariantNumeric: 'tabular-nums' }}>
                   +25.4% Awareness Gain (Target: ≥20%)
                 </span>
               </div>
-              <span style={{ fontSize: '11px', color: '#047857' }}>
+              <div style={{ fontSize: '11px', color: '#047857', marginTop: '2px' }}>
                 {translateText('Grounded in 23 WHO/ICMR Guidelines, NIH RxNav, MoHFW UIP Immunization & IDSP Outbreak Surveillance.')}
-              </span>
+              </div>
             </div>
           </div>
 
-          <div style={{ display: 'flex', gap: '8px' }}>
-            <div style={{ textAlign: 'center', background: '#ffffff', padding: '6px 12px', borderRadius: '8px', border: '1px solid #bbf7d0' }}>
-              <div style={{ fontSize: '10px', color: '#64748b' }}>{translateText('Emergency Recall')}</div>
-              <div style={{ fontSize: '13px', fontWeight: 900, color: '#059669' }}>99.2%</div>
+          <div style={{ display: 'flex', gap: '8px', flexShrink: 0 }}>
+            <div style={{ textAlign: 'center', background: '#ffffff', padding: '6px 14px', borderRadius: '8px', border: '1px solid #bbf7d0', minWidth: '95px' }}>
+              <div style={{ fontSize: '10px', color: '#64748b', fontWeight: 600 }}>{translateText('Emergency Recall')}</div>
+              <div style={{ fontSize: '14px', fontWeight: 900, color: '#059669', fontVariantNumeric: 'tabular-nums', marginTop: '2px' }}>99.2%</div>
             </div>
-            <div style={{ textAlign: 'center', background: '#ffffff', padding: '6px 12px', borderRadius: '8px', border: '1px solid #bbf7d0' }}>
-              <div style={{ fontSize: '10px', color: '#64748b' }}>{translateText('RxNav Sensitivity')}</div>
-              <div style={{ fontSize: '13px', fontWeight: 900, color: '#059669' }}>96.8%</div>
+            <div style={{ textAlign: 'center', background: '#ffffff', padding: '6px 14px', borderRadius: '8px', border: '1px solid #bbf7d0', minWidth: '95px' }}>
+              <div style={{ fontSize: '10px', color: '#64748b', fontWeight: 600 }}>{translateText('RxNav Sensitivity')}</div>
+              <div style={{ fontSize: '14px', fontWeight: 900, color: '#059669', fontVariantNumeric: 'tabular-nums', marginTop: '2px' }}>96.8%</div>
             </div>
           </div>
         </div>
@@ -548,33 +590,48 @@ export default function SwarmIntelligencePanel({
             style={{
               flex: 1,
               minWidth: '320px',
-              padding: '14px 18px',
-              borderRadius: '14px',
+              padding: '12px 18px',
+              borderRadius: '12px',
               border: '1.5px solid #cbd5e1',
               background: '#f8fafc',
               fontSize: '13px',
               color: '#0f172a',
               outline: 'none',
-              fontFamily: 'inherit'
+              fontFamily: 'inherit',
+              transition: 'border-color 0.15s ease, box-shadow 0.15s ease'
+            }}
+            onFocus={(e) => {
+              e.currentTarget.style.borderColor = '#0284c7';
+              e.currentTarget.style.boxShadow = '0 0 0 3px rgba(2, 132, 199, 0.12)';
+            }}
+            onBlur={(e) => {
+              e.currentTarget.style.borderColor = '#cbd5e1';
+              e.currentTarget.style.boxShadow = 'none';
             }}
           />
           <button
             onClick={() => handleExecuteSwarm()}
             disabled={loading}
             style={{
-              padding: '14px 28px',
-              borderRadius: '14px',
+              padding: '12px 24px',
+              borderRadius: '12px',
               border: 'none',
-              background: 'linear-gradient(135deg, #db2777 0%, #be185d 100%)',
+              background: 'linear-gradient(135deg, #0284c7 0%, #0369a1 100%)',
               color: '#ffffff',
               fontSize: '13px',
-              fontWeight: 800,
+              fontWeight: 700,
               cursor: loading ? 'not-allowed' : 'pointer',
               display: 'flex',
               alignItems: 'center',
               gap: '8px',
-              boxShadow: '0 4px 14px rgba(219, 39, 119,0.3)',
+              boxShadow: '0 4px 14px rgba(2, 132, 199, 0.25)',
               transition: 'all 0.15s ease'
+            }}
+            onMouseEnter={(e) => {
+              if (!loading) e.currentTarget.style.opacity = '0.92';
+            }}
+            onMouseLeave={(e) => {
+              if (!loading) e.currentTarget.style.opacity = '1';
             }}
           >
             <Send size={15} />

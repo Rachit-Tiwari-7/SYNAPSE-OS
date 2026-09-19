@@ -26,11 +26,16 @@ export default function ForgotPasswordPage() {
         body: JSON.stringify({ email: email.trim() }),
       });
 
-      const data = await res.json();
+      let data: any = null;
+      try {
+        data = await res.json();
+      } catch {
+        // Non-JSON response fallback
+      }
       setIsPending(false);
 
       if (!res.ok) {
-        setError(data.error || 'Failed to send reset email');
+        setError(data?.error || `Failed to send reset email (${res.status})`);
         return;
       }
 
@@ -53,7 +58,7 @@ export default function ForgotPasswordPage() {
       <div className="w-full max-w-[440px] bg-white p-8 rounded-2xl shadow-sm border border-gray-200">
         <div className="text-center mb-6">
           <span className="font-bold text-lg tracking-widest text-[#0284c7]">
-            SANJEEVNI OS
+            SYNAPSE OS
           </span>
           <h1 className="text-2xl font-bold text-gray-900 mt-2">
             Reset Password

@@ -240,7 +240,6 @@ export default function RuralHealthPanel() {
       display: 'grid',
       gridTemplateColumns: 'repeat(12, 1fr)',
       gap: '20px',
-      fontFamily: '"Times New Roman", Times, serif',
       color: '#0f172a'
     }}>
 

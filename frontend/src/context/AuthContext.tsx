@@ -12,6 +12,8 @@ export interface User {
   id: string;
   name: string;
   email: string;
+  role?: string;
+  isAdmin?: boolean;
   isEmailVerified: boolean;
   userPreferences: UserPreferences;
 }
@@ -53,6 +55,19 @@ interface AuthContextType {
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
+async function safeJson(res: Response): Promise<{ ok: boolean; data: any; error?: string }> {
+  try {
+    const contentType = res.headers.get('content-type') || '';
+    if (contentType.includes('application/json')) {
+      const data = await res.json();
+      return { ok: res.ok, data, error: !res.ok ? (data?.error || `Request failed (${res.status})`) : undefined };
+    }
+    return { ok: res.ok, data: null, error: !res.ok ? `Server error (${res.status})` : undefined };
+  } catch (err: any) {
+    return { ok: false, data: null, error: err?.message || 'Failed to process server response' };
+  }
+}
+
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [sessionId, setSessionId] = useState<string | null>(null);
@@ -70,15 +85,15 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         method: 'GET',
         headers: { 'Cache-Control': 'no-cache' },
       });
-      if (!res.ok) {
+      const parsed = await safeJson(res);
+      if (!parsed.ok || !parsed.data) {
         setUser(null);
         setSessionId(null);
         return;
       }
-      const data = await res.json();
-      if (data.authenticated && data.user) {
-        setUser(data.user);
-        setSessionId(data.sessionId || null);
+      if (parsed.data.authenticated && parsed.data.user) {
+        setUser(parsed.data.user);
+        setSessionId(parsed.data.sessionId || null);
       } else {
         setUser(null);
         setSessionId(null);
@@ -98,9 +113,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         method: 'GET',
         headers: { 'Cache-Control': 'no-cache' },
       });
-      if (res.ok) {
-        const data = await res.json();
-        setSessions(data.sessions || []);
+      const parsed = await safeJson(res);
+      if (parsed.ok && parsed.data) {
+        setSessions(parsed.data.sessions || []);
       }
     } catch (err) {
       console.warn('[AuthContext] refreshSessions error:', err);
@@ -140,9 +155,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
           return;
         }
 
-        if (res.ok) {
-          const data = await res.json();
-          setSessions(data.sessions || []);
+        const parsed = await safeJson(res);
+        if (parsed.ok && parsed.data) {
+          setSessions(parsed.data.sessions || []);
         }
       } catch (e) {
         // Polling network issue
@@ -170,12 +185,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, email, password }),
       });
-      const data = await res.json();
-      if (!res.ok) {
-        return { success: false, error: data.error || 'Failed to create account' };
+      const parsed = await safeJson(res);
+      if (!parsed.ok) {
+        return { success: false, error: parsed.error || 'Failed to create account' };
       }
-      // ✅ Do NOT setUser() here — email must be verified before granting access
-      // The signup page will show the OTP entry step on success: true
       return { success: true };
     } catch (err: any) {
       return { success: false, error: err.message || 'Registration request failed' };
@@ -193,12 +206,12 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ code: code.trim(), email: email?.trim() }),
       });
-      const data = await res.json();
-      if (!res.ok) {
-        return { success: false, error: data.error || 'Email verification failed' };
+      const parsed = await safeJson(res);
+      if (!parsed.ok) {
+        return { success: false, error: parsed.error || 'Email verification failed' };
       }
-      setUser(data.user);
-      setSessionId(data.sessionId);
+      setUser(parsed.data.user);
+      setSessionId(parsed.data.sessionId);
       await refreshSessions();
       return { success: true };
     } catch (err: any) {
@@ -217,18 +230,18 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
       });
-      const data = await res.json();
-      if (!res.ok) {
-        return { success: false, error: data.error || 'Login failed' };
+      const parsed = await safeJson(res);
+      if (!parsed.ok) {
+        return { success: false, error: parsed.error || 'Login failed' };
       }
 
       // If MFA is required
-      if (data.mfaRequired) {
+      if (parsed.data?.mfaRequired) {
         return { success: true, mfaRequired: true };
       }
 
-      setUser(data.user);
-      setSessionId(data.sessionId);
+      setUser(parsed.data.user);
+      setSessionId(parsed.data.sessionId);
       await refreshSessions();
       return { success: true, mfaRequired: false };
     } catch (err: any) {
@@ -247,12 +260,12 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, code }),
       });
-      const data = await res.json();
-      if (!res.ok) {
-        return { success: false, error: data.error || 'MFA verification failed' };
+      const parsed = await safeJson(res);
+      if (!parsed.ok) {
+        return { success: false, error: parsed.error || 'MFA verification failed' };
       }
-      setUser(data.user);
-      setSessionId(data.sessionId);
+      setUser(parsed.data.user);
+      setSessionId(parsed.data.sessionId);
       await refreshSessions();
       return { success: true };
     } catch (err: any) {
@@ -266,8 +279,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const setupMFA = async () => {
     try {
       const res = await fetch('/api/v1/mfa/setup');
-      if (!res.ok) return null;
-      return await res.json();
+      const parsed = await safeJson(res);
+      if (!parsed.ok) return null;
+      return parsed.data;
     } catch (err) {
       console.error('setupMFA error:', err);
       return null;
@@ -282,9 +296,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ code, secretKey }),
       });
-      const data = await res.json();
-      if (!res.ok) {
-        return { success: false, error: data.error || 'Invalid code' };
+      const parsed = await safeJson(res);
+      if (!parsed.ok) {
+        return { success: false, error: parsed.error || 'Invalid code' };
       }
       await checkAuth();
       return { success: true };
@@ -299,9 +313,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       const res = await fetch('/api/v1/mfa/revoke', {
         method: 'PUT',
       });
-      const data = await res.json();
-      if (!res.ok) {
-        return { success: false, error: data.error || 'Failed to revoke MFA' };
+      const parsed = await safeJson(res);
+      if (!parsed.ok) {
+        return { success: false, error: parsed.error || 'Failed to revoke MFA' };
       }
       await checkAuth();
       return { success: true };
@@ -316,11 +330,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       const res = await fetch(`/api/v1/session/${targetSessionId}`, {
         method: 'DELETE',
       });
-      const data = await res.json();
-      if (!res.ok) {
-        return { success: false, error: data.error || 'Failed to terminate session' };
+      const parsed = await safeJson(res);
+      if (!parsed.ok) {
+        return { success: false, error: parsed.error || 'Failed to terminate session' };
       }
-      if (data.loggedOut) {
+      if (parsed.data?.loggedOut) {
         setUser(null);
         setSessionId(null);
         setSessions([]);
@@ -340,12 +354,12 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       const res = await fetch('/api/v1/session/all-others', {
         method: 'DELETE',
       });
-      const data = await res.json();
-      if (!res.ok) {
-        return { success: false, error: data.error || 'Failed to terminate other sessions' };
+      const parsed = await safeJson(res);
+      if (!parsed.ok) {
+        return { success: false, error: parsed.error || 'Failed to terminate other sessions' };
       }
       await refreshSessions();
-      return { success: true, revokedCount: data.revokedCount };
+      return { success: true, revokedCount: parsed.data?.revokedCount };
     } catch (err: any) {
       return { success: false, error: err.message || 'Revoke other sessions error' };
     }

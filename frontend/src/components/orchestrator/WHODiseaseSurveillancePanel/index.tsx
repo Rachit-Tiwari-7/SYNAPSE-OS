@@ -41,8 +41,7 @@ export default function WHODiseaseSurveillancePanel() {
       gap: '24px',
       width: '100%',
       maxWidth: '1600px',
-      margin: '0 auto',
-      fontFamily: '"Times New Roman", Times, serif'
+      margin: '0 auto'
     }}>
       {/* 1. Unified WHO Header & Pathogen Outbreak Selector */}
       <DiseaseSelector

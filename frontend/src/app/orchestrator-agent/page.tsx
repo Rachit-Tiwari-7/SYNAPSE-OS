@@ -17,12 +17,13 @@ import HealthSyncPanel from '@/components/orchestrator/HealthSyncPanel';
 import RuralHealthPanel from '@/components/orchestrator/RuralHealthPanel';
 import SecuritySessionsPanel from '@/components/orchestrator/SecuritySessionsPanel';
 import ActionHubExportModal from '@/components/orchestrator/ActionHubExportModal';
+import WhatsAppChatbotPanel from '@/components/orchestrator/WhatsAppChatbotPanel';
 
 import { PatientInfo, VitalsData, DetectedCondition } from '@/components/orchestrator/types';
 import { MOCK_HEALTH_PROFILES, MockHealthProfile } from '@/data/mockHealthProfiles';
 
 export default function OrchestratorAgentPage() {
-  const [activeTab, setActiveTab] = useState<'overview' | 'swarm' | 'analytics' | 'hospital' | 'scan' | 'records' | 'sync' | 'rural' | 'security'>('overview');
+  const [activeTab, setActiveTab] = useState<'overview' | 'swarm' | 'analytics' | 'hospital' | 'scan' | 'records' | 'sync' | 'rural' | 'security' | 'whatsapp'>('overview');
   const [isExportModalOpen, setIsExportModalOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -30,6 +31,7 @@ export default function OrchestratorAgentPage() {
   const [isAbhaLinked, setIsAbhaLinked] = useState<boolean>(true);
   const [selectedProfileId, setSelectedProfileId] = useState<string>('mausam_kar_verified_abha');
   const [customProfile, setCustomProfile] = useState<MockHealthProfile | null>(null);
+  const [isSidebarExpanded, setIsSidebarExpanded] = useState<boolean>(false);
 
   // Dynamic Workspace Ref and Mouse Drag/Wheel scrolling state
   const workspaceRef = useRef<HTMLDivElement>(null);
@@ -44,17 +46,31 @@ export default function OrchestratorAgentPage() {
         if (storedProfile && MOCK_HEALTH_PROFILES.some(p => p.profileId === storedProfile)) {
           setSelectedProfileId(storedProfile);
         }
+        const storedSidebar = localStorage.getItem('synapseos_sidebar_expanded');
+        if (storedSidebar !== null) {
+          setIsSidebarExpanded(storedSidebar === 'true');
+        }
       } catch (err) {
         // localStorage not available
       }
 
       const params = new URLSearchParams(window.location.search);
       const tab = params.get('tab');
-      if (tab && ['overview', 'swarm', 'analytics', 'hospital', 'scan', 'records', 'sync', 'rural', 'security'].includes(tab)) {
+      if (tab && ['overview', 'swarm', 'analytics', 'hospital', 'scan', 'records', 'sync', 'rural', 'security', 'whatsapp'].includes(tab)) {
         setActiveTab(tab as any);
       }
     }
   }, []);
+
+  const handleToggleSidebar = () => {
+    setIsSidebarExpanded(prev => {
+      const next = !prev;
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('synapseos_sidebar_expanded', String(next));
+      }
+      return next;
+    });
+  };
 
   // Sync profile selection changes across components
   useEffect(() => {
@@ -346,12 +362,14 @@ export default function OrchestratorAgentPage() {
   return (
     <>
       {/* Main Orchestrator Workspace Root */}
-      <div className="orch-root" data-lenis-prevent="true" style={{ fontFamily: '"Times New Roman", Times, serif' }}>
+      <div className="orch-root" data-lenis-prevent="true">
         {/* 1. Left Navigation Sidebar */}
         <OrchestratorSidebar 
           onOpenSOS={() => setIsExportModalOpen(true)}
           activeTab={activeTab}
           onTabChange={setActiveTab}
+          isExpanded={isSidebarExpanded}
+          onToggleExpand={handleToggleSidebar}
         />
 
         {/* 2. Main Viewport Container */}
@@ -359,13 +377,14 @@ export default function OrchestratorAgentPage() {
           className="orch-viewport"
           style={{
             flex: 1,
-            marginLeft: '76px',
+            marginLeft: isSidebarExpanded ? '250px' : '76px',
             display: 'flex',
             flexDirection: 'column',
             height: '100vh',
-            width: 'calc(100vw - 76px)',
+            width: isSidebarExpanded ? 'calc(100vw - 250px)' : 'calc(100vw - 76px)',
             background: '#f8fafc',
-            overflow: 'hidden'
+            overflow: 'hidden',
+            transition: 'margin-left 0.25s cubic-bezier(0.16, 1, 0.3, 1), width 0.25s cubic-bezier(0.16, 1, 0.3, 1)'
           }}
         >
           {/* Top Navigation Bar */}
@@ -441,6 +460,11 @@ export default function OrchestratorAgentPage() {
             {/* TAB: Rural & Semi-Urban AI Healthcare Hub (WhatsApp + 2G SMS + Health Literacy) */}
             {activeTab === 'rural' && (
               <RuralHealthPanel />
+            )}
+
+            {/* TAB: Official WhatsApp Clinical Copilot & Interactive Sandbox */}
+            {activeTab === 'whatsapp' && (
+              <WhatsAppChatbotPanel patient={patient} />
             )}
 
             {/* TAB 2: Multi-Agent Swarm Intelligence & DAG Execution Console */}

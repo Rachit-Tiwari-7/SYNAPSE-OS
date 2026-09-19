@@ -221,7 +221,7 @@ async def process_sms_inbound_webhook(
         ipfs_res = await upload_json_to_ipfs(ipfs_record, record_name=f"sms_rx_{from_number}.json")
         ipfs_url = ipfs_res.get("gateway_url", "")
 
-        sms_reply = f"SANJEEVNI PRESCRIPTION AI: {summary}. Follow doctor's advice."
+        sms_reply = f"SYNAPSE PRESCRIPTION AI: {summary}. Follow doctor's advice."
         return {
             "status": "processed",
             "type": "prescription_analysis",
@@ -234,7 +234,7 @@ async def process_sms_inbound_webhook(
         }
 
     if not clean_body:
-        reply = "SANJEEVNI HEALTH SMS: Reply 1 <symptoms>, 2 <meds>, 7 <age> for Vaccine, 8 <district> for Outbreaks, 9 for ORS Tips, SOS for 112/108."
+        reply = "SYNAPSE HEALTH SMS: Reply 1 <symptoms>, 2 <meds>, 7 <age> for Vaccine, 8 <district> for Outbreaks, 9 for ORS Tips, SOS for 112/108."
         return {
             "status": "processed",
             "type": "empty_fallback",
@@ -245,7 +245,7 @@ async def process_sms_inbound_webhook(
     # 1. Emergency SOS check
     if any(k in lower_body for k in EMERGENCY_KEYWORDS) or lower_body == "sos":
         sos_reply = (
-            "SANJEEVNI RED ALERT: Call 108 / 112 immediately for Emergency Ambulance. "
+            "SYNAPSE RED ALERT: Call 108 / 112 immediately for Emergency Ambulance. "
             "Keep patient resting and calm. Nearest PHC notified."
         )
         return {
@@ -258,7 +258,7 @@ async def process_sms_inbound_webhook(
 
     # 2. Greeting / Menu dispatch
     if lower_body in {"hi", "hello", "namaste", "menu", "start", "help", "info"}:
-        menu_reply = "SANJEEVNI HEALTH SMS: Reply 1 <symptoms>, 2 <meds>, 7 <age> for Vaccine, 8 <district> for Outbreaks, 9 for ORS Tips, SOS for 112/108."
+        menu_reply = "SYNAPSE HEALTH SMS: Reply 1 <symptoms>, 2 <meds>, 7 <age> for Vaccine, 8 <district> for Outbreaks, 9 for ORS Tips, SOS for 112/108."
         return {
             "status": "processed",
             "type": "menu_dispatched",
@@ -300,9 +300,9 @@ async def process_sms_inbound_webhook(
             care = "Ensure rest & hydration" if not is_hi else "Aaram v paryapt paani piyein"
 
         if is_hi:
-            sms_reply = f"SANJEEVNI TRIAGE [{urgency}]: Dawa: {med}. Dekhbhal: {care}. 24-48h me Doctor ko dikhayein. AI Disclaimer: Doctor se consult karein. Emergency SOS: 108."
+            sms_reply = f"SYNAPSE TRIAGE [{urgency}]: Dawa: {med}. Dekhbhal: {care}. 24-48h me Doctor ko dikhayein. AI Disclaimer: Doctor se consult karein. Emergency SOS: 108."
         else:
-            sms_reply = f"SANJEEVNI TRIAGE [{urgency}]: Med: {med}. Care: {care}. Consult doctor if persists > 48h. AI Disclaimer: Educational advice only. Emergency: 108."
+            sms_reply = f"SYNAPSE TRIAGE [{urgency}]: Med: {med}. Care: {care}. Consult doctor if persists > 48h. AI Disclaimer: Educational advice only. Emergency: 108."
             
         return {
             "status": "processed",
@@ -322,7 +322,7 @@ async def process_sms_inbound_webhook(
         summary = safety_res.get("clinical_pharmacology_summary", "Standard drug safety review completed.")
         clean_summary = format_sms_text(str(summary), 220)
 
-        sms_reply = f"SANJEEVNI DRUG SAFETY [{safety_status}]: {clean_summary}. Consult doctor for proper dosing."
+        sms_reply = f"SYNAPSE DRUG SAFETY [{safety_status}]: {clean_summary}. Consult doctor for proper dosing."
         return {
             "status": "processed",
             "type": "drug_check",
@@ -353,7 +353,7 @@ async def process_sms_inbound_webhook(
         vax_res = calculate_vaccination_schedule(age_in_weeks=weeks, category="child")
         due_str = vax_res.get("next_vaccine_due", "Pentavalent-1, Rotavirus-1, fIPV-1, PCV-1")
         
-        sms_reply = f"SANJEEVNI UIP VACCINE ({age_label}): Due: {due_str}. Free at nearest Anganwadi/PHC. National Helpline: 1075."
+        sms_reply = f"SYNAPSE UIP VACCINE ({age_label}): Due: {due_str}. Free at nearest Anganwadi/PHC. National Helpline: 1075."
         return {
             "status": "processed",
             "type": "vaccination_schedule",
@@ -373,7 +373,7 @@ async def process_sms_inbound_webhook(
         helpline = o_data.get("helpline", "011-22307145")
         
         clean_advisory = format_sms_text(str(advisory), 120)
-        sms_reply = f"SANJEEVNI OUTBREAK ALERT ({district_query}): Risk: {risk}. Surge in {primary}. Advisory: {clean_advisory}. Helpline: {helpline}."
+        sms_reply = f"SYNAPSE OUTBREAK ALERT ({district_query}): Risk: {risk}. Surge in {primary}. Advisory: {clean_advisory}. Helpline: {helpline}."
         return {
             "status": "processed",
             "type": "outbreak_alert",
@@ -385,7 +385,7 @@ async def process_sms_inbound_webhook(
 
     # Option 9: Rural Preventive Health & ORS Tips (e.g. "9", "9 ORS", "diarrhea", "nutrition")
     if first_token == "9" or "ors" in lower_body or "diarrhea" in lower_body or "preventive" in lower_body or "nutrition" in lower_body:
-        sms_reply = "SANJEEVNI ORS GUIDE: Mix 1 WHO-ORS packet in 1L clean water. Give frequent sips after loose stool + Zinc 20mg daily for 14 days. If severe dehydration, visit PHC."
+        sms_reply = "SYNAPSE ORS GUIDE: Mix 1 WHO-ORS packet in 1L clean water. Give frequent sips after loose stool + Zinc 20mg daily for 14 days. If severe dehydration, visit PHC."
         return {
             "status": "processed",
             "type": "rural_preventive",
@@ -396,7 +396,7 @@ async def process_sms_inbound_webhook(
 
     # Option 5: Appointment / PHC
     if first_token == "5" or "appointment" in lower_body or "doctor" in lower_body or "phc" in lower_body:
-        sms_reply = "SANJEEVNI PHC: Dr. R. Sharma (General Medicine) available today at 3:30 PM. Reply CONFIRM to book."
+        sms_reply = "SYNAPSE PHC: Dr. R. Sharma (General Medicine) available today at 3:30 PM. Reply CONFIRM to book."
         return {
             "status": "processed",
             "type": "appointment_slot",
@@ -411,7 +411,7 @@ async def process_sms_inbound_webhook(
     detected_intent = getattr(orch_res, "detected_intent", "GENERAL_HEALTH")
     clean_summary = format_sms_text(final_text, 260)
 
-    sms_reply = f"SANJEEVNI HEALTH: {clean_summary} (Reply 1-9 for menus, SOS for emergency)."
+    sms_reply = f"SYNAPSE HEALTH: {clean_summary} (Reply 1-9 for menus, SOS for emergency)."
     
     return {
         "status": "processed",

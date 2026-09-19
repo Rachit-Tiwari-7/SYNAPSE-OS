@@ -235,7 +235,7 @@ Your reported symptoms—**fever, headache, and continuous vomiting**—constitu
     assert "###" not in card
     assert "*" not in card
     assert "_" not in card
-    assert "🔴 SANJEEVNI EMERGENCY TRIAGE — CRITICAL" in card
+    assert "🔴 SYNAPSE EMERGENCY TRIAGE — CRITICAL" in card
 
     # 2. Verify Diagnosis extraction (Normal plain text)
     assert "🩺 Suspected Diagnosis:" in card
@@ -287,7 +287,7 @@ Your reported symptoms of runny nose, mild sore throat, and low-grade fever are 
     # 1. Verify Status & Diagnosis in clean normal text (no markdown)
     assert "*" not in card
     assert "_" not in card
-    assert "🟢 SANJEEVNI HOME CARE & MONITORING" in card
+    assert "🟢 SYNAPSE HOME CARE & MONITORING" in card
     assert "🩺 Suspected Diagnosis: Acute Upper Respiratory Viral Infection" in card
 
     # 2. Verify Indian Medications & Administration (how to eat/take)
@@ -309,7 +309,7 @@ def test_compact_whatsapp_card_from_plain_unformatted_input():
     Verifies that format_compact_whatsapp_card gracefully parses normal plain text
     without any markdown formatting and outputs clean normal text.
     """
-    plain_input = """SANJEEVNI EMERGENCY CLINICAL ASSESSMENT
+    plain_input = """SYNAPSE EMERGENCY CLINICAL ASSESSMENT
 Patient Status: EMERGENCY CARE (IMMEDIATE)
 Council Confidence: 99% Consensus
 
@@ -326,7 +326,7 @@ Immediate Action Plan:
     assert "*" not in card
     assert "_" not in card
     assert "#" not in card
-    assert "🔴 SANJEEVNI EMERGENCY TRIAGE — CRITICAL" in card
+    assert "🔴 SYNAPSE EMERGENCY TRIAGE — CRITICAL" in card
     assert "🩺 Suspected Diagnosis:" in card
     assert any(term in card for term in ["Meningitis", "Neurological"])
     assert "💊 Medications & Relief (India):" in card
@@ -362,8 +362,8 @@ Seek immediate medical attention if you experience rash, breathing difficulty, o
     assert "How to take:" in output
 
     # MUST NOT contain robotic triage template slop
-    assert "SANJEEVNI HOME CARE & MONITORING" not in output
-    assert "SANJEEVNI CLINICAL ASSESSMENT" not in output
+    assert "SYNAPSE HOME CARE & MONITORING" not in output
+    assert "SYNAPSE CLINICAL ASSESSMENT" not in output
     assert "Suspected Diagnosis:" not in output
     assert "The primary clinical impression is that this is a general informational inquiry" not in output
     assert "Reply 5" not in output

@@ -571,7 +571,7 @@ def test_format_prescription_for_whatsapp_clean_protocol():
     text = format_prescription_for_whatsapp(mock_ocr, mock_interp)
 
     # 1. Check required headers & dividers
-    assert "📋 SANJEEVNI PRESCRIPTION & HEALTH SUMMARY" in text
+    assert "📋 SYNAPSE PRESCRIPTION & HEALTH SUMMARY" in text
     assert "━━━━━━━━━━━━━━━━━━━━" in text
     assert "🩺 Suspected Diagnosis: Acute Gastroenteritis & Dehydration" in text
     assert "📊 Council Consensus: 94% Concordance" in text
@@ -621,7 +621,7 @@ def test_api_prescription_interpret_endpoint():
         assert data["success"] is True
         assert data["interpretation"]["likely_condition"] == "Viral Pharyngitis (Sore Throat)"
         assert "whatsapp_formatted" in data
-        assert "SANJEEVNI PRESCRIPTION & HEALTH SUMMARY" in data["whatsapp_formatted"]
+        assert "SYNAPSE PRESCRIPTION & HEALTH SUMMARY" in data["whatsapp_formatted"]
 
 
 def test_hindi_prescription_whatsapp_formatting():

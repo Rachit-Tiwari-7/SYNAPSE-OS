@@ -54,11 +54,16 @@ function ConfirmAccountContent() {
         body: JSON.stringify({ code: code.trim(), email: email.trim() }),
       });
 
-      const data = await res.json();
+      let data: any = null;
+      try {
+        data = await res.json();
+      } catch {
+        // Non-JSON response fallback
+      }
       setIsPending(false);
 
       if (!res.ok) {
-        setError(data.error || 'Failed to confirm account.');
+        setError(data?.error || `Failed to confirm account (${res.status}).`);
         return;
       }
 
@@ -97,7 +102,7 @@ function ConfirmAccountContent() {
 
         <div className="relative z-20 flex justify-between items-center w-full">
           <span className="font-bold text-xl tracking-widest text-white" style={{ color: '#ffffff' }}>
-            SANJEEVNI
+            SYNAPSE
           </span>
           <Link
             href="/"
@@ -124,7 +129,7 @@ function ConfirmAccountContent() {
                 Account Confirmation
               </h1>
               <p className="mb-8 text-center sm:text-left text-sm text-gray-500 font-normal" style={{ color: '#6b7280', fontSize: '0.875rem' }}>
-                Enter the 6-digit confirmation code sent to your email by Sanjeevni OS.
+                Enter the 6-digit confirmation code sent to your email by Synapse OS.
               </p>
 
               {error && (
@@ -170,8 +175,8 @@ function ConfirmAccountContent() {
               <h2 className="text-2xl font-bold text-gray-900" style={{ color: '#111827' }}>
                 Account Verified!
               </h2>
-              <p className="text-sm text-gray-500 max-w-[320px]">
-                Your clinical account has been verified. Launching Sanjeevni OS Orchestrator...
+              <p className="text-gray-500 text-sm mb-6" style={{ color: '#6b7280', fontSize: '0.875rem' }}>
+                Your clinical account has been verified. Launching Synapse OS Orchestrator...
               </p>
               <div className="mt-4 flex items-center gap-2 text-sm font-semibold text-[#7e57c2]">
                 <Loader size={16} className="animate-spin" />

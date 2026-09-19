@@ -215,7 +215,7 @@ To guarantee that a patient is never left without guidance in an emergency:
   1. The error is safely caught and logged.
   2. The bot immediately sends an emergency protocol message:
      ```text
-     ⚠️ SANJEEVNI-OS — CLINICAL ASSISTANT NOTICE
+     ⚠️ SYNAPSE-OS — CLINICAL ASSISTANT NOTICE
      We encountered a temporary processing delay with our live clinical reasoning nodes.
      🚨 Immediate Emergency Guidance:
      • Call 112 (National Emergency) or 108 (Ambulance) immediately.

@@ -12,7 +12,7 @@ export type ModelChoice =
   | 'groq-llama-3.3-70b' 
   | 'groq-llama-3.1-8b' 
   | 'groq-mixtral';
-export type VoiceState = 'connecting' | 'listening' | 'thinking' | 'speaking' | 'muted';
+export type VoiceState = 'connecting' | 'listening' | 'thinking' | 'speaking' | 'muted' | 'idle';
 export type SupportedLanguage = 'en' | 'hi' | 'bn' | 'ta' | 'te' | 'mr' | 'gu' | 'kn' | 'ml' | 'pa' | 'or';
 
 export interface LanguageOption {

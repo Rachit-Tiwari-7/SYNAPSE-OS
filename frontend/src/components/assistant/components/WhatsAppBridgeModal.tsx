@@ -20,7 +20,7 @@ export default function WhatsAppBridgeModal({
   waConnected = true,
   onSimulateInbound
 }: WhatsAppBridgeModalProps) {
-  const whatsappUrl = "https://wa.me/15552028141?text=Hi%20Sanjeevni";
+  const whatsappUrl = "https://wa.me/15552028141?text=Hi";
 
   return (
     <div 
@@ -153,7 +153,7 @@ export default function WhatsAppBridgeModal({
 
       {/* Direct link label */}
       <span style={{ fontSize: '11px', color: '#64748b' }}>
-        Pre-filled message: <code style={{ background: '#f1f5f9', padding: '2px 6px', borderRadius: '4px', color: '#0f172a', fontWeight: 600 }}>Hi Sanjeevni</code>
+        Pre-filled message: <code style={{ background: '#f1f5f9', padding: '2px 6px', borderRadius: '4px', color: '#0f172a', fontWeight: 600 }}>Hi</code>
       </span>
 
       {/* 3 Steps Guide */}
@@ -177,7 +177,7 @@ export default function WhatsAppBridgeModal({
         </div>
         <div style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', fontSize: '11.5px', color: '#334155' }}>
           <span style={{ fontWeight: 800, color: '#16a34a' }}>2.</span>
-          <span>Send <b>&quot;Hi Sanjeevni&quot;</b> to start your triage consultation</span>
+          <span>Send <b>&quot;Hi&quot;</b> to start your triage consultation</span>
         </div>
         <div style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', fontSize: '11.5px', color: '#334155' }}>
           <span style={{ fontWeight: 800, color: '#16a34a' }}>3.</span>

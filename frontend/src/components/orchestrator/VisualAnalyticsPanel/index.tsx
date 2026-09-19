@@ -169,8 +169,7 @@ export default function VisualAnalyticsPanel({
       gap: '20px',
       width: '100%',
       maxWidth: '1600px',
-      margin: '0 auto',
-      fontFamily: '"Times New Roman", Times, serif'
+      margin: '0 auto'
     }}>
       {/* 0. Telemetry Dataset & JSON Sync Ribbon */}
       <div style={{

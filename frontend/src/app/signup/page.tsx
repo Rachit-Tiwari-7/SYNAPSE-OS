@@ -116,11 +116,16 @@ function SignUpContent() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email }),
       });
-      const data = await res.json();
+      let data: any = null;
+      try {
+        data = await res.json();
+      } catch {
+        // Non-JSON response fallback
+      }
       if (res.ok) {
         setResendStatus('A fresh confirmation code was dispatched to your email!');
       } else {
-        setResendStatus(data.error || 'Failed to resend code');
+        setResendStatus(data?.error || `Failed to resend code (${res.status})`);
       }
     } catch (err: any) {
       setResendStatus('Network error resending code');
@@ -150,11 +155,11 @@ function SignUpContent() {
 
         <div className="absolute inset-0 bg-black/40 z-10 pointer-events-none" />
 
-        {/* Logo/Top Bar - Pure Clean Sanjeevni Branding */}
+        {/* Logo/Top Bar - Pure Clean Synapse Branding */}
         <div className="relative z-20 flex items-center w-full">
           <div className="flex items-center gap-2 text-white">
             <span className="font-bold text-xl tracking-widest text-white" style={{ color: '#ffffff' }}>
-              SANJEEVNI
+              SYNAPSE
             </span>
           </div>
         </div>

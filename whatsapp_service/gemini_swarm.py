@@ -166,7 +166,7 @@ Keep response concise and formatted cleanly for WhatsApp plain text (no markdown
 
     if not reply:
         return (
-            "🧠 SANJEEVNI MENTAL HEALTH SUPPORT\n"
+            "🧠 SYNAPSE MENTAL HEALTH SUPPORT\n"
             "━━━━━━━━━━━━━━━━━━━━\n"
             "You are not alone. If you are feeling overwhelmed, anxious, or distressed, help is available 24x7:\n\n"
             "📞 Tele-MANAS (National Mental Health Helpline): 14416 (Toll-Free 24/7)\n"

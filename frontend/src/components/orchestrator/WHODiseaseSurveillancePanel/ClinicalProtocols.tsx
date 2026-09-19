@@ -16,8 +16,7 @@ export default function ClinicalProtocols({ activeDisease }: ClinicalProtocolsPr
       borderRadius: '20px',
       border: '1px solid #e2e8f0',
       padding: '24px 28px',
-      boxShadow: '0 2px 8px rgba(0,0,0,0.02)',
-      fontFamily: '"Times New Roman", Times, serif'
+      boxShadow: '0 2px 8px rgba(0,0,0,0.02)'
     }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '18px', borderBottom: '1px solid #f1f5f9', paddingBottom: '14px' }}>
         <div>

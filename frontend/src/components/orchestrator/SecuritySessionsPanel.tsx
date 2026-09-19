@@ -123,7 +123,6 @@ export default function SecuritySessionsPanel() {
       maxWidth: '1000px',
       margin: '0 auto',
       padding: '24px 16px',
-      fontFamily: '"Times New Roman", Times, serif',
       color: '#0f172a',
     }}>
       {/* Header matching MERN Auth Home */}
@@ -163,7 +162,7 @@ export default function SecuritySessionsPanel() {
             </button>
             <button
               onClick={() => logout()}
-              title="Sign out of Sanjeevni OS"
+              title="Sign out of Synapse OS"
               style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -199,7 +198,7 @@ export default function SecuritySessionsPanel() {
           marginTop: '6px',
           marginBottom: 0,
         }}>
-          Follow the steps to activate using Sanjeevni OS.
+          Follow the steps to activate using Synapse OS.
         </p>
       </div>
 
@@ -370,7 +369,7 @@ export default function SecuritySessionsPanel() {
               lineHeight: 1.5,
               maxWidth: '640px',
             }}>
-              Sessions are the devices you are using or that have used your Sanjeevni OS account. These are the sessions where your account is currently logged in. You can log out of each session.
+              Sessions are the devices you are using or that have used your Synapse OS account. These are the sessions where your account is currently logged in. You can log out of each session.
             </p>
 
             {isSessionsLoading && sessions.length === 0 ? (
@@ -385,7 +384,7 @@ export default function SecuritySessionsPanel() {
                     Current active session
                   </h5>
                   <p style={{ fontSize: '13px', color: '#0007149f', margin: 0 }}>
-                    You’re logged into this Sanjeevni OS account on this device and are currently using it.
+                    You’re logged into this Synapse OS account on this device and are currently using it.
                   </p>
                 </div>
 

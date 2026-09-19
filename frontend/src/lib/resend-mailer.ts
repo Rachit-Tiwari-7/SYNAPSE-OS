@@ -3,7 +3,7 @@ import { Resend } from 'resend';
 const RESEND_API_KEY = process.env.RESEND_API_KEY || '';
 const MAILER_SENDER = process.env.MAILER_SENDER || 'onboarding@resend.dev';
 
-export const resendClient = new Resend(RESEND_API_KEY);
+export const resendClient = RESEND_API_KEY ? new Resend(RESEND_API_KEY) : null;
 
 interface EmailResult {
   success: boolean;
@@ -21,6 +21,10 @@ export async function sendVerificationEmail(
   verificationUrl: string
 ): Promise<EmailResult> {
   try {
+    if (!resendClient) {
+      console.log(`[Resend Dev/Mock] No RESEND_API_KEY. Simulated email to ${toEmail}. Verification Code: ${verificationCode}`);
+      return { success: true, id: `mock_${Date.now()}` };
+    }
     const data = await resendClient.emails.send({
       from: `Sanjeevni OS <${MAILER_SENDER}>`,
       to: [toEmail],
@@ -47,7 +51,7 @@ export async function sendVerificationEmail(
         <body>
           <div class="container">
             <div class="header">
-              <h1>SANJEEVNI OS</h1>
+              <h1>SYNAPSE OS</h1>
               <p>Autonomous Clinical Intelligence & Swarm Care</p>
             </div>
             <div class="content">
@@ -98,6 +102,10 @@ export async function sendPasswordResetEmail(
   resetUrl: string
 ): Promise<EmailResult> {
   try {
+    if (!resendClient) {
+      console.log(`[Resend Dev/Mock] No RESEND_API_KEY. Simulated password reset email to ${toEmail}. Reset Code: ${resetCode}, Reset URL: ${resetUrl}`);
+      return { success: true, id: `mock_${Date.now()}` };
+    }
     const data = await resendClient.emails.send({
       from: `Sanjeevni OS Security <${MAILER_SENDER}>`,
       to: [toEmail],
@@ -122,7 +130,7 @@ export async function sendPasswordResetEmail(
         <body>
           <div class="container">
             <div class="header">
-              <h1 style="margin: 0; font-size: 22px; font-weight: 800;">SANJEEVNI OS</h1>
+              <h1 style="margin: 0; font-size: 22px; font-weight: 800;">SYNAPSE OS</h1>
               <p style="margin: 6px 0 0 0; font-size: 13px; opacity: 0.9;">Account Security & Credential Recovery</p>
             </div>
             <div class="content">
@@ -171,6 +179,10 @@ export async function sendTwoFactorOtpEmail(
   otpCode: string
 ): Promise<EmailResult> {
   try {
+    if (!resendClient) {
+      console.log(`[Resend Dev/Mock] No RESEND_API_KEY. Simulated 2FA OTP to ${toEmail}. Code: ${otpCode}`);
+      return { success: true, id: `mock_${Date.now()}` };
+    }
     const data = await resendClient.emails.send({
       from: `Sanjeevni OS 2FA <${MAILER_SENDER}>`,
       to: [toEmail],
@@ -181,7 +193,7 @@ export async function sendTwoFactorOtpEmail(
         <html>
         <body style="font-family: sans-serif; background-color: #f8fafc; padding: 24px; margin: 0;">
           <div style="max-width: 520px; margin: 0 auto; background: #ffffff; border-radius: 16px; border: 1px solid #e2e8f0; padding: 32px;">
-            <div style="font-size: 18px; font-weight: 800; color: #0284c7; margin-bottom: 8px;">SANJEEVNI OS 2FA</div>
+            <div style="font-size: 18px; font-weight: 800; color: #0284c7; margin-bottom: 8px;">SYNAPSE OS 2FA</div>
             <h2 style="font-size: 20px; margin: 0 0 16px 0; color: #0f172a;">Two-Factor Authentication Code</h2>
             <p style="font-size: 14px; color: #475569; line-height: 1.5;">
               Use the following 6-digit code to complete your login:

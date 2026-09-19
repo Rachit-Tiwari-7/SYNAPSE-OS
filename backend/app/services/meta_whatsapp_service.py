@@ -63,7 +63,7 @@ LANGUAGE_SELECTION_MENU = (
 
 LOCALIZED_MENUS: Dict[str, str] = {
     "en": (
-        "🌿 SANJEEVNI-OS — Rural & Public Health AI\n"
+        "🌿 SYNAPSE-OS — Rural & Public Health AI\n"
         "Multilingual Healthcare, Vaccination & Outbreak Assistant\n\n"
         "Reply with a number or simply text your question:\n\n"
         "1 🩺 Symptom Triage — Type symptoms or ask any health question\n"
@@ -565,7 +565,7 @@ def format_compact_generic_qa_card(text: str) -> str:
     main_ans = "\n\n".join(paragraphs[:2]) if paragraphs else cleaned
     
     lines = [
-        "🟢 SANJEEVNI HEALTH ADVISORY",
+        "🟢 SYNAPSE HEALTH ADVISORY",
         "━━━━━━━━━━━━━━━━━━━━",
         f"💡 Key Information:\n{main_ans}",
         "",
@@ -609,16 +609,16 @@ def format_compact_whatsapp_card(text: str, lang: str = "en") -> str:
             badge = "🔴 संजीवनी आपातकालीन ट्राइएज — अति गंभीर"
             is_emergency = True
     else:
-        badge = "🟡 SANJEEVNI CLINICAL ASSESSMENT"
+        badge = "🟡 SYNAPSE CLINICAL ASSESSMENT"
         if "🔴" in text or "patient status: emergency" in text_lower or "emergency care" in text_lower or "emergency triage" in text_lower:
-            badge = "🔴 SANJEEVNI EMERGENCY TRIAGE — CRITICAL"
+            badge = "🔴 SYNAPSE EMERGENCY TRIAGE — CRITICAL"
             is_emergency = True
         elif "🟢" in text or "patient status: home care" in text_lower or "home self-care" in text_lower or ("home care" in text_lower and "doctor consult" not in text_lower):
-            badge = "🟢 SANJEEVNI HOME CARE & MONITORING"
+            badge = "🟢 SYNAPSE HOME CARE & MONITORING"
         elif "🟡" in text or "doctor consult" in text_lower:
-            badge = "🟡 SANJEEVNI DOCTOR CONSULTATION RECOMMENDED"
+            badge = "🟡 SYNAPSE DOCTOR CONSULTATION RECOMMENDED"
         elif "emergency" in text_lower and any(k in text_lower for k in ["emergency room", "emergency department", "call 112", "call 108"]):
-            badge = "🔴 SANJEEVNI EMERGENCY TRIAGE — CRITICAL"
+            badge = "🔴 SYNAPSE EMERGENCY TRIAGE — CRITICAL"
             is_emergency = True
 
     lines = [f"{badge}\n━━━━━━━━━━━━━━━━━━━━"]
@@ -935,7 +935,7 @@ async def process_whatsapp_inbound_webhook(payload: Dict[str, Any]) -> Dict[str,
             logger.error(f"[WhatsApp Prescription OCR Error] {e}", exc_info=True)
 
         fallback_lines = [
-            "📄 SANJEEVNI PRESCRIPTION VISION AI",
+            "📄 SYNAPSE PRESCRIPTION VISION AI",
             "━━━━━━━━━━━━━━━━━━━━",
             "We received your medical document image.",
             "",
@@ -1081,7 +1081,7 @@ async def process_whatsapp_inbound_webhook(payload: Dict[str, Any]) -> Dict[str,
     # 8. Emergency SOS Trigger
     if text_lower in ("sos", "emergency", "112", "108", "save me", "help me"):
         sos_res = (
-            "🔴 SANJEEVNI EMERGENCY DISPATCH\n"
+            "🔴 SYNAPSE EMERGENCY DISPATCH\n"
             "━━━━━━━━━━━━━━━━━━━━\n"
             "🚨 Immediate Emergency Call:\n"
             "• Ambulance: 108 (Direct Emergency)\n"
@@ -1149,7 +1149,7 @@ async def process_whatsapp_inbound_webhook(payload: Dict[str, Any]) -> Dict[str,
             status = drug_res.get("overall_status", "Evaluated")
             badge_icon = "🔴" if "risk" in status.lower() or "danger" in status.lower() or "severe" in status.lower() else "🟢"
             reply_parts = [
-                "⚠️ SANJEEVNI DRUG SAFETY CHECK",
+                "⚠️ SYNAPSE DRUG SAFETY CHECK",
                 "━━━━━━━━━━━━━━━━━━━━",
                 f"💊 Query: {query}",
                 f"{badge_icon} Status: {status}"
@@ -1449,7 +1449,7 @@ async def process_whatsapp_inbound_webhook(payload: Dict[str, Any]) -> Dict[str,
             )
         else:
             response_text = (
-                "⚠️ SANJEEVNI CLINICAL ADVISORY\n"
+                "⚠️ SYNAPSE CLINICAL ADVISORY\n"
                 "━━━━━━━━━━━━━━━━━━━━\n"
                 "We encountered a temporary processing delay with our live clinical reasoning swarm. Your symptom query has been recorded.\n\n"
                 "🚨 Immediate Emergency Guidance:\n"

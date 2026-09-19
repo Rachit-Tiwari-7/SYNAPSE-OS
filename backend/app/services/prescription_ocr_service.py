@@ -1021,7 +1021,7 @@ def format_prescription_for_whatsapp(
         ])
     else:
         lines = [
-            "📋 SANJEEVNI PRESCRIPTION & HEALTH SUMMARY",
+            "📋 SYNAPSE PRESCRIPTION & HEALTH SUMMARY",
             "━━━━━━━━━━━━━━━━━━━━",
             f"🩺 Suspected Diagnosis: {condition}",
             "",

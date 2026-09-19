@@ -902,7 +902,7 @@ export default function SurveillanceMap({
                     textAnchor="middle"
                     y={bubbleRadius + 8}
                     style={{
-                      fontFamily: '"Times New Roman", Times, serif',
+                      fontFamily: 'inherit',
                       fontSize: isSelected ? '9.5px' : '8px',
                       fontWeight: 800,
                       fill: isSelected ? '#0284c7' : '#1e293b',

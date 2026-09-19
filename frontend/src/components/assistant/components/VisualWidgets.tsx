@@ -424,7 +424,7 @@ export function VaccinationVisualWidget({ visualData }: { visualData: any }) {
 /* 11. 2G GSM Cellular Triage Dispatch Widget (LIGHT THEME) */
 export function RuralSMSVisualWidget({ visualData }: { visualData: any }) {
   if (!visualData) return null;
-  const smsBody = visualData.smsBody || visualData.text || "SANJEEVNI SOS: High fever & dehydration alert in District. Visit nearest PHC for free ORS & Paracetamol. Avoid unboiled water.";
+  const smsBody = visualData.smsBody || visualData.text || "SYNAPSE SOS: High fever & dehydration alert in District. Visit nearest PHC for free ORS & Paracetamol. Avoid unboiled water.";
   const charCount = smsBody.length;
 
   return (

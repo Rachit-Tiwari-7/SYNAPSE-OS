@@ -83,8 +83,7 @@ export default function InteractiveBodyTwin({
         display: 'flex',
         flexDirection: 'column',
         gap: '20px',
-        height: 'calc(100vh - 130px)',
-        fontFamily: '"Times New Roman", Times, serif'
+        height: 'calc(100vh - 130px)'
       }}
     >
       {/* 1. Main 3D Anatomy Digital Twin Canvas Card */}

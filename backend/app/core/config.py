@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 load_dotenv(override=True)  # reloaded with Groq key
 
 class Settings(BaseModel):
-    PROJECT_NAME: str = "Sanjeevni-OS"
+    PROJECT_NAME: str = "Synapse-OS"
     VERSION: str = "1.0.0"
     API_PREFIX: str = "/api"
     

@@ -154,7 +154,7 @@ export const enTranslations: Record<string, string> = {
     tab_guides: 'Guides',
     tab_quiz: 'Awareness Quiz',
     multilingual_script_title: 'Multilingual Script Auto-Detection:',
-    wa_bot_title: 'Sanjeevni-OS WhatsApp Bot',
+    wa_bot_title: 'Synapse-OS WhatsApp Bot',
     wa_gateway_online: 'OpenWA Gateway • Online',
     wa_channel_badge: 'WhatsApp Channel',
     sms_bot_title: '2G Feature Phone SMS (160 Chars)',

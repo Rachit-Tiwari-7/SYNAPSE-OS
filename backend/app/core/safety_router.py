@@ -74,15 +74,16 @@ EMERGENCY_PATTERNS = [
     r"arm weakness", r"slurred speech", r"stroke symptoms", r"coughing up blood",
     r"vomiting blood", r"severe burn", r"deep wound", r"heavy bleeding",
     r"unconscious", r"passed out", r"won'?t wake up", r"seizure", r"convulsing",
-    r"anaphylaxis", r"throat closing", r"swollen airway", r"sudden severe headache",
-    r"thunderclap headache", r"poisoning", r"swallowed poison", r"overdosed",
+    r"anaphylaxis", r"throat closing", r"swollen airway", r"throat swell(ing)?", r"sudden severe headache",
+    r"thunderclap headache", r"poisoning", r"swallowed poison", r"overdosed", r"rat poison", r"pesticide",
+    r"swallowed.*cleaner",
 ]
 
 PEDIATRIC_AGE_PATTERNS = [
     r"\b(child|children|kid|kids|toddler|toddlers|infant|infants|baby|babies|newborn|neonate)\b",
     r"\b(\d+)\s*(-|\s)?(year|yr|month|mo|week|wk)s?\s*(old)?\b",
     r"\b(pediatric|paediatric)\b",
-    r"\b(baccha|bacche|chota baccha|shishu)\b"
+    r"\b(baccha|bacche|bachha|bachhe|chota baccha|shishu)\b"
 ]
 
 ASPIRIN_PATTERNS = [

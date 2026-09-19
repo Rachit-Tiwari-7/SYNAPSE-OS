@@ -28,7 +28,7 @@ async def test_sms_menu_and_greeting():
     res = await process_sms_inbound_webhook(from_number="+919876543210", body="hi")
     assert res["status"] == "processed"
     assert res["type"] == "menu_dispatched"
-    assert "SANJEEVNI" in res["reply"]
+    assert "SYNAPSE" in res["reply"]
     assert "<Response>" in res["twiml"]
     assert "<Body>" in res["twiml"]
 
@@ -53,7 +53,7 @@ async def test_sms_symptom_triage_with_pinata_ipfs():
     )
     assert res["status"] == "processed"
     assert res["type"] == "symptom_triage"
-    assert "SANJEEVNI" in res["reply"]
+    assert "SYNAPSE" in res["reply"]
     assert "<Response>" in res["twiml"]
     assert "<Body>" in res["twiml"]
 
@@ -173,7 +173,7 @@ async def test_sms_zero_mode_natural_intent_tracking():
     assert res_drug["status"] == "processed"
     assert res_drug["intent"] in ("DRUG_SAFETY", "SYMPTOM_TRIAGE")
     assert "<Response>" in res_drug["twiml"]
-    assert "SANJEEVNI" in res_drug["reply"]
+    assert "SYNAPSE" in res_drug["reply"]
 
     # 2. Natural Language Vaccine query without number
     res_vax = await process_sms_inbound_webhook(
@@ -192,4 +192,4 @@ async def test_sms_zero_mode_natural_intent_tracking():
     assert res_triage["status"] == "processed"
     assert res_triage["intent"] == "SYMPTOM_TRIAGE"
     assert "<Response>" in res_triage["twiml"]
-    assert "SANJEEVNI" in res_triage["reply"]
+    assert "SYNAPSE" in res_triage["reply"]

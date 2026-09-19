@@ -88,7 +88,7 @@ export default function OmnichannelGatewaySimulator() {
     {
       id: 'wa1',
       sender: 'bot',
-      text: "🌿 *SANJEEVNI-OS / SYNAPSEOS — Rural & Public Health AI* 🌿\n\nWelcome! Reply with a number:\n1️⃣ *Symptom Triage*\n2️⃣ *Drug Safety*\n7️⃣ *UIP Vaccine Schedule*\n8️⃣ *District Outbreak Alerts*\n9️⃣ *Rural Preventive Health*\n🚨 *SOS* for Emergency",
+      text: "🌿 *SYNAPSE-OS — Rural & Public Health AI* 🌿\n\nWelcome! Reply with a number:\n1️⃣ *Symptom Triage*\n2️⃣ *Drug Safety*\n7️⃣ *UIP Vaccine Schedule*\n8️⃣ *District Outbreak Alerts*\n9️⃣ *Rural Preventive Health*\n🚨 *SOS* for Emergency",
       timestamp: 'Just now',
       type: 'whatsapp'
     }
@@ -101,7 +101,7 @@ export default function OmnichannelGatewaySimulator() {
     {
       id: 'sms1',
       sender: 'bot',
-      text: "SANJEEVNI-OS HEALTH SMS: Reply 1 <symptoms>, 2 <meds>, 7 <age> for Vaccine, 8 <district> for Outbreaks, 9 for ORS Tips, SOS for 112/108.",
+      text: "SYNAPSE-OS HEALTH SMS: Reply 1 <symptoms>, 2 <meds>, 7 <age> for Vaccine, 8 <district> for Outbreaks, 9 for ORS Tips, SOS for 112/108.",
       timestamp: '12:00 PM',
       type: 'sms'
     }
@@ -160,7 +160,7 @@ export default function OmnichannelGatewaySimulator() {
             {
               id: 'wa_bot_' + Date.now(),
               sender: 'bot',
-              text: orchData.final_response || "Thank you for consulting Sanjeevni-OS.",
+              text: orchData.final_response || "Thank you for consulting Synapse-OS.",
               timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
               type: 'whatsapp'
             }
@@ -173,7 +173,7 @@ export default function OmnichannelGatewaySimulator() {
         {
           id: 'wa_bot_' + Date.now(),
           sender: 'bot',
-          text: "💉 *UNIVERSAL IMMUNIZATION PROGRAMME (UIP)*\n\n• *Next Due:* Pentavalent-1, Rotavirus-1, fIPV-1, PCV-1\n• *Status:* Due at 6 Weeks (1.5 Months)\n• *Facility:* Available FREE at nearest Anganwadi & Primary Health Centre (PHC).\n\n_🌿 Powered by Sanjeevni-OS Swarm_",
+          text: "💉 *UNIVERSAL IMMUNIZATION PROGRAMME (UIP)*\n\n• *Next Due:* Pentavalent-1, Rotavirus-1, fIPV-1, PCV-1\n• *Status:* Due at 6 Weeks (1.5 Months)\n• *Facility:* Available FREE at nearest Anganwadi & Primary Health Centre (PHC).\n\n_🌿 Powered by Synapse-OS Swarm_",
           timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
           type: 'whatsapp'
         }
@@ -214,7 +214,7 @@ export default function OmnichannelGatewaySimulator() {
           {
             id: 'sms_bot_' + Date.now(),
             sender: 'bot',
-            text: data.reply_text || "SANJEEVNI HEALTH SMS: Request processed. Reply 1-9 for menus, SOS for emergency.",
+            text: data.reply_text || "SYNAPSE HEALTH SMS: Request processed. Reply 1-9 for menus, SOS for emergency.",
             timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
             type: 'sms'
           }
@@ -226,7 +226,7 @@ export default function OmnichannelGatewaySimulator() {
         {
           id: 'sms_bot_' + Date.now(),
           sender: 'bot',
-          text: "SANJEEVNI OUTBREAK ALERT (Delhi): Risk: HIGH. Surge in Dengue & Chikungunya. Advisory: Clean coolers on Sunday Dry Day. Use mosquito repellent. Helpline: 011-22307145.",
+          text: "SYNAPSE OUTBREAK ALERT (Delhi): Risk: HIGH. Surge in Dengue & Chikungunya. Advisory: Clean coolers on Sunday Dry Day. Use mosquito repellent. Helpline: 011-22307145.",
           timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
           type: 'sms'
         }
@@ -240,8 +240,7 @@ export default function OmnichannelGatewaySimulator() {
     <div style={{
       display: 'flex',
       flexDirection: 'column',
-      gap: '20px',
-      fontFamily: '"Times New Roman", Times, serif'
+      gap: '20px'
     }}>
       
       {/* 1. Language / Script Selector Bar */}

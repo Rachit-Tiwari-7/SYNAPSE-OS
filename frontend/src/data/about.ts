@@ -3,7 +3,7 @@ export const aboutData = {
     subtitle: 'About Us',
     title: 'An Operating System for Global Health',
     intro:
-      'Sanjeevni-OS is an open-source health operating system powered by Google Gemini 3.5 Flash and a multi-agent swarm. It turns everyday smartphones and WhatsApp into an Autonomous City Immune System for India.',
+      'Synapse-OS is an open-source health operating system powered by Google Gemini 3.5 Flash and a multi-agent swarm. It turns everyday smartphones and WhatsApp into an Autonomous City Immune System for India.',
   },
   philosophy: {
     title: 'Our AI Architecture Philosophy',
@@ -12,7 +12,7 @@ export const aboutData = {
         keyword: 'MULTI-AGENT',
         title: 'Specialized Agent Swarm',
         description:
-          'Unlike simple chatbots, Sanjeevni-OS coordinates specialized agents led by Google Gemini 3.5 Flash. An Orchestrator plans multi-step tasks and delegates them seamlessly to clinical and lifestyle agents.',
+          'Unlike simple chatbots, Synapse-OS coordinates specialized agents led by Google Gemini 3.5 Flash. An Orchestrator plans multi-step tasks and delegates them seamlessly to clinical and lifestyle agents.',
       },
       {
         keyword: 'OPEN DATA',
@@ -32,7 +32,7 @@ export const aboutData = {
     title: 'Fund My Crazy 2026 (Google Gemini Initiative)',
     stat: '100% Open Sovereign Grid',
     description:
-      'Sanjeevni-OS was conceived to push the boundaries of AI health solutions in India by implementing robust multi-agent orchestration, native Google Gemini 3.5 Flash reasoning, and Jan Aushadhi generic affordability.',
+      'Synapse-OS was conceived to push the boundaries of AI health solutions in India by implementing robust multi-agent orchestration, native Google Gemini 3.5 Flash reasoning, and Jan Aushadhi generic affordability.',
   },
   values: [
     {

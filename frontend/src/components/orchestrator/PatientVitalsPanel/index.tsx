@@ -177,8 +177,7 @@ export default function PatientVitalsPanel({
         flexDirection: 'column',
         gap: '16px',
         width: '330px',
-        flexShrink: 0,
-        fontFamily: '"Times New Roman", Times, serif'
+        flexShrink: 0
       }}
     >
       {/* Hidden File Input for Custom JSON Upload */}
@@ -578,7 +577,7 @@ export default function PatientVitalsPanel({
               {translateText('Average:')} <strong>{isAbhaLinked ? `${vitals.avgHeartRate} bpm` : '---'}</strong> • {translateText('Max:')} <strong>{isAbhaLinked ? `${vitals.maxHeartRate} bpm` : '---'}</strong>
             </div>
           </div>
-          <span style={{ fontSize: '18px', fontWeight: 900, color: '#0f172a' }}>
+          <span style={{ fontSize: '18px', fontWeight: 900, color: '#0f172a', fontVariantNumeric: 'tabular-nums' }}>
             {isAbhaLinked ? vitals.heartRate : '---'} <span style={{ fontSize: '11px', fontWeight: 700, color: '#64748b' }}>BPM</span>
           </span>
         </div>
@@ -648,13 +647,13 @@ export default function PatientVitalsPanel({
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
           <div style={{ background: '#f8fafc', padding: '10px 12px', borderRadius: '12px', border: '1px solid #e2e8f0' }}>
             <div style={{ fontSize: '10px', color: '#64748b', fontWeight: 700 }}>{translateText('BLOOD PRESSURE')}</div>
-            <div style={{ fontSize: '13px', fontWeight: 800, color: '#0f172a', marginTop: '2px' }}>
+            <div style={{ fontSize: '13px', fontWeight: 800, color: '#0f172a', marginTop: '2px', fontVariantNumeric: 'tabular-nums' }}>
               {isAbhaLinked ? `${vitals.systolicBp}/${vitals.diastolicBp}` : '---/---'} <span style={{ fontSize: '10px', fontWeight: 600, color: '#64748b' }}>mmHg</span>
             </div>
           </div>
           <div style={{ background: '#f8fafc', padding: '10px 12px', borderRadius: '12px', border: '1px solid #e2e8f0' }}>
             <div style={{ fontSize: '10px', color: '#64748b', fontWeight: 700 }}>{translateText('O2 SATURATION')}</div>
-            <div style={{ fontSize: '13px', fontWeight: 800, color: '#059669', marginTop: '2px' }}>
+            <div style={{ fontSize: '13px', fontWeight: 800, color: '#059669', marginTop: '2px', fontVariantNumeric: 'tabular-nums' }}>
               {isAbhaLinked ? `${vitals.oxygenSaturation}%` : '---%'} <span style={{ fontSize: '10px', fontWeight: 600, color: '#64748b' }}>{isAbhaLinked ? translateText('Normal') : translateText('Pending')}</span>
             </div>
           </div>

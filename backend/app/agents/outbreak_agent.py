@@ -414,7 +414,7 @@ async def broadcast_outbreak_advisory(
     risk_info = get_district_outbreak_risk(district)["data"]
     
     advisory_msg = (
-        f"🚨 *SANJEEVNI-OS — LOCAL OUTBREAK ADVISORY* 🚨\n"
+        f"🚨 *SYNAPSE-OS — LOCAL OUTBREAK ADVISORY* 🚨\n"
         f"📍 *Region:* {risk_info['district']} ({risk_info['state']})\n"
         f"🦠 *Active Outbreak:* {risk_info['primary_outbreak']}\n"
         f"⚠️ *Risk Level:* {risk_info['risk_badge']} ({risk_info['velocity_pct']})\n\n"

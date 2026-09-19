@@ -124,7 +124,7 @@ export default function VaccinationTracker({ patientName = 'Aarav Sharma', abhaI
   };
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '24px', fontFamily: '"Times New Roman", Times, serif' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
       
       {/* Header Banner */}
       <div style={{

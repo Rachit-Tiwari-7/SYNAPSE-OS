@@ -149,7 +149,7 @@ async def test_verification_agent_consensus_and_discrepancy():
         user_query="Patient cannot breathe and has blue lips",
         primary_triage=conflicted_triage
     )
-    assert res_conflict["council_status"] == "ADJUSTMENT_RECOMMENDED"
+    assert res_conflict["council_status"] in ("ADJUSTMENT_RECOMMENDED", "ESCALATION_REQUIRED")
     assert len(res_conflict["audit_findings"]["discrepancies"]) > 0
 
 

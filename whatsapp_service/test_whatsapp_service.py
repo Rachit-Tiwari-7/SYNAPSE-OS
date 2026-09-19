@@ -48,7 +48,7 @@ def test_compact_card_protocol():
         "red_flag_warnings": ["High fever > 103 F", "Chest pain"],
     }
     card = format_compact_whatsapp_card(sample_triage, lang="en")
-    assert "🟡 SANJEEVNI CLINICAL CONSULT REQUIRED" in card
+    assert "🟡 SYNAPSE CLINICAL CONSULT REQUIRED" in card
     assert "━━━━━━━━━━━━━━━━━━━━" in card
     assert "🩺 Suspected Diagnosis: Viral Upper Respiratory Infection" in card
     assert "📊 Council Consensus: 92%" in card

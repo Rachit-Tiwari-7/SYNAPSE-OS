@@ -95,7 +95,7 @@ export default function SynapseLogo({
           isLightText ? 'text-white' : 'text-slate-900'
         }`}
       >
-        Sanjeevni-OS
+        Synapse-OS
       </span>
     </div>
   );

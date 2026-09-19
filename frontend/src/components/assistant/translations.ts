@@ -879,7 +879,7 @@ export function getLocalizedDefaultSessions(patient: MockHealthProfile, lang: Su
             visualData: {
               charCount: 154,
               recipient: 'क्षेत्रीय आशा कार्यकर्ता एवं प्राथमिक स्वास्थ्य केंद्र',
-              advisoryEnglish: 'SANJEEVNI ALERT: Avoid fever & dehydration. Visit nearest PHC for free ORS & treatment. Drink boiled water.',
+              advisoryEnglish: 'SYNAPSE ALERT: Avoid fever & dehydration. Visit nearest PHC for free ORS & treatment. Drink boiled water.',
               advisoryHindi: 'संजीवनी अलर्ट: बुखार और डिहाइड्रेशन से बचें। तुरंत नजदीकी प्राथमिक स्वास्थ्य केंद्र से मुफ्त ओआरएस और दवा लें।'
             },
             followUps: ['सेल ब्रॉडकास्ट टेस्ट करें', 'स्थानीय आशा कार्यकर्ता को अलर्ट भेजें', 'एसएमएस प्रेषण लॉग देखें']
@@ -1443,14 +1443,14 @@ export function getLocalizedDefaultSessions(patient: MockHealthProfile, lang: Su
         {
           id: 'msg-sms-ai',
           sender: 'assistant',
-          text: `### 2G GSM Zero-Bandwidth Emergency SMS Dispatch\n\n**Broadcast Channel:** Cell Broadcast GSM Network (Zero-Bandwidth Rural Telephony)\n\n\`\`\`text\nSANJEEVNI ALERT: Avoid fever & dehydration. Visit nearest PHC for free ORS & treatment. Drink boiled water. Dial 108 for emergency ambulance.\n\`\`\`\n\n• **Rural Telephony Specification**: Designed to transmit without internet across basic feature phones.`,
+          text: `### 2G GSM Zero-Bandwidth Emergency SMS Dispatch\n\n**Broadcast Channel:** Cell Broadcast GSM Network (Zero-Bandwidth Rural Telephony)\n\n\`\`\`text\nSYNAPSE ALERT: Avoid fever & dehydration. Visit nearest PHC for free ORS & treatment. Drink boiled water. Dial 108 for emergency ambulance.\n\`\`\`\n\n• **Rural Telephony Specification**: Designed to transmit without internet across basic feature phones.`,
           timestamp: nowTime,
           channel: 'web',
           visualType: 'rural_sms',
           visualData: {
             charCount: 154,
             recipient: 'Regional ASHA Workers & Rural Primary Health Centres (PHC)',
-            advisoryEnglish: 'SANJEEVNI ALERT: Avoid fever & dehydration. Visit nearest PHC for free ORS & treatment. Drink boiled water.',
+            advisoryEnglish: 'SYNAPSE ALERT: Avoid fever & dehydration. Visit nearest PHC for free ORS & treatment. Drink boiled water.',
             advisoryHindi: 'संजीवनी अलर्ट: बुखार और डिहाइड्रेशन से बचें। तुरंत नजदीकी प्राथमिक स्वास्थ्य केंद्र (PHC) से मुफ्त ओआरएस (ORS) और दवा लें। उबला पानी पिएं।'
           },
           followUps: ['Simulate Cell Broadcast Dispatch', 'Generate Regional Dialect SMS', 'Alert Local ASHA Worker']

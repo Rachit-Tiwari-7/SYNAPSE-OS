@@ -48,11 +48,16 @@ function ResetPasswordContent() {
         body: JSON.stringify({ code: code.trim(), password }),
       });
 
-      const data = await res.json();
+      let data: any = null;
+      try {
+        data = await res.json();
+      } catch {
+        // Non-JSON response fallback
+      }
       setIsPending(false);
 
       if (!res.ok) {
-        setError(data.error || 'Failed to reset password');
+        setError(data?.error || `Failed to reset password (${res.status})`);
         return;
       }
 
@@ -74,7 +79,7 @@ function ResetPasswordContent() {
       <div className="w-full max-w-[420px] bg-white p-8 rounded-2xl shadow-sm border border-gray-200">
         <div className="text-center mb-6">
           <span className="font-bold text-lg tracking-widest text-[#0284c7]">
-            SANJEEVNI OS
+            SYNAPSE OS
           </span>
           <h1 className="text-2xl font-bold text-gray-900 mt-2">
             Set New Password
@@ -143,9 +148,9 @@ function ResetPasswordContent() {
           <div className="text-center py-4">
             <CheckCircle2 size={48} className="text-emerald-500 mx-auto mb-3" />
             <h3 className="font-bold text-gray-900 text-lg">Password Changed!</h3>
-            <p className="text-sm text-gray-500 mt-1">
-              Your password has been updated. Logging into Sanjeevni OS...
-            </p>
+              <p className="text-sm text-gray-500 max-w-[320px]">
+                Your password has been updated. Logging into Synapse OS...
+              </p>
           </div>
         )}
 

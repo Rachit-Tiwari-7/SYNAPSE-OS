@@ -1,5 +1,5 @@
 -- ============================================================================
--- SANJEEVNI-OS / ABDM HEALTH DATA — COMPLETE SUPABASE SCHEMA & SEED MIGRATION
+-- SYNAPSE-OS / ABDM HEALTH DATA — COMPLETE SUPABASE SCHEMA & SEED MIGRATION
 -- Robust, dollar-quoted, zero-syntax-error PostgreSQL schema & seed migration.
 -- ============================================================================
 

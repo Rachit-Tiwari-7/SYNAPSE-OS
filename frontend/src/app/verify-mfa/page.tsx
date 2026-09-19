@@ -138,7 +138,7 @@ function VerifyMfaContent() {
                 <circle cx="84" cy="74" r="9" />
               </svg>
             </div>
-            <span className="font-bold text-xl tracking-wider text-white">SANJEEVNI</span>
+            <span className="font-bold text-xl tracking-wider text-white">SYNAPSE</span>
           </div>
           <Link 
             href="/"

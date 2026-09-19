@@ -190,7 +190,7 @@ async def test_upload_file_to_ipfs_simulation():
 
 def test_format_sms_text():
     dirty_text = (
-        "### 🔴 SANJEEVNI EMERGENCY TRIAGE 🔴\n"
+        "### 🔴 SYNAPSE EMERGENCY TRIAGE 🔴\n"
         "```python\nprint('code')\n```\n"
         "Here is the result for **Patient**: Take Dolo 650.\n"
         "--------------------\n"
@@ -208,11 +208,11 @@ def test_format_sms_text():
 
 
 def test_generate_twiml_response():
-    msg = "SANJEEVNI: Visit PHC for evaluation & care."
+    msg = "SYNAPSE: Visit PHC for evaluation & care."
     xml_out = generate_twiml_response(msg)
     assert xml_out.startswith('<?xml version="1.0"')
     assert "<Response>" in xml_out
-    assert "<Body>SANJEEVNI: Visit PHC for evaluation &amp; care.</Body>" in xml_out
+    assert "<Body>SYNAPSE: Visit PHC for evaluation &amp; care.</Body>" in xml_out
 
 
 @pytest.mark.asyncio

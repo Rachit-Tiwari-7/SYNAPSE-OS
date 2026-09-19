@@ -415,8 +415,7 @@ export default function HealthSyncPanel({
       flexDirection: 'column',
       gap: '24px',
       maxWidth: '1600px',
-      margin: '0 auto',
-      fontFamily: '"Times New Roman", Times, serif'
+      margin: '0 auto'
     }}>
       {/* 1. Header Banner & Sync Controls */}
       <div style={{

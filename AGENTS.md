@@ -13,7 +13,7 @@ When pushing updates:
 ## 2. WhatsApp Clinical Messaging Protocol
 - **Format:** Emits clean, normal plain text (no markdown syntax such as `*`, `**`, `_`, `#`, `---`, or backticks).
 - **Structure:**
-  - Status Badge with emoji (e.g., `🔴 SANJEEVNI EMERGENCY TRIAGE — CRITICAL`)
+  - Status Badge with emoji (e.g., `🔴 SYNAPSE EMERGENCY TRIAGE — CRITICAL`)
   - Divider `━━━━━━━━━━━━━━━━━━━━`
   - `🩺 Suspected Diagnosis:` Clean clinical impression without leaking internal agent/markdown headings.
   - `📊 Council Consensus:` Percentage agreement.
