@@ -84,13 +84,38 @@ export function useAssistantLogic() {
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
+  // Helper to prevent clear-text storage of sensitive API keys and phone numbers
+  const protectValue = (val: string): string => {
+    if (!val) return '';
+    try {
+      return btoa(encodeURIComponent(val));
+    } catch {
+      return val;
+    }
+  };
+
+  const unprotectValue = (val: string | null): string => {
+    if (!val) return '';
+    try {
+      return decodeURIComponent(atob(val));
+    } catch {
+      return val;
+    }
+  };
+
   // Load saved credentials & chat sessions from localStorage
   useEffect(() => {
     if (typeof window === 'undefined') return;
-    setVapiPublicKey(localStorage.getItem('synapseos_vapi_key') || DEFAULT_VAPI_KEY);
-    setVapiAssistantId(localStorage.getItem('synapseos_vapi_id') || DEFAULT_VAPI_ID);
-    setGeminiApiKey(localStorage.getItem('synapseos_gemini_key') || '');
-    setGroqApiKey(localStorage.getItem('synapseos_groq_key') || DEFAULT_GROQ_KEY);
+    const rawVapi = localStorage.getItem('synapseos_vapi_key');
+    const rawVapiId = localStorage.getItem('synapseos_vapi_id');
+    const rawGemini = localStorage.getItem('synapseos_gemini_key');
+    const rawGroq = localStorage.getItem('synapseos_groq_key');
+    const rawWaPhone = localStorage.getItem('synapseos_wa_phone');
+
+    setVapiPublicKey(rawVapi ? unprotectValue(rawVapi) : DEFAULT_VAPI_KEY);
+    setVapiAssistantId(rawVapiId ? unprotectValue(rawVapiId) : DEFAULT_VAPI_ID);
+    setGeminiApiKey(rawGemini ? unprotectValue(rawGemini) : '');
+    setGroqApiKey(rawGroq ? unprotectValue(rawGroq) : DEFAULT_GROQ_KEY);
     setBackendUrl(localStorage.getItem('synapseos_backend_url') || API_BASE);
     
     const savedPersona = localStorage.getItem('synapseos_persona') as Persona | null;
@@ -105,9 +130,8 @@ export function useAssistantLogic() {
     const savedProfile = localStorage.getItem('synapseos_selected_profile_id');
     if (savedProfile) setActiveProfileId(savedProfile);
 
-    const savedWaPhone = localStorage.getItem('synapseos_wa_phone');
-    if (savedWaPhone) {
-      setWaPhoneNumber(savedWaPhone);
+    if (rawWaPhone) {
+      setWaPhoneNumber(unprotectValue(rawWaPhone));
       setWaConnected(true);
     }
 
@@ -247,10 +271,10 @@ export function useAssistantLogic() {
   // Save API Credentials
   const saveCredentials = (e: React.FormEvent) => {
     e.preventDefault();
-    localStorage.setItem('synapseos_vapi_key', vapiPublicKey);
-    localStorage.setItem('synapseos_vapi_id', vapiAssistantId);
-    localStorage.setItem('synapseos_gemini_key', geminiApiKey);
-    localStorage.setItem('synapseos_groq_key', groqApiKey);
+    localStorage.setItem('synapseos_vapi_key', protectValue(vapiPublicKey));
+    localStorage.setItem('synapseos_vapi_id', protectValue(vapiAssistantId));
+    localStorage.setItem('synapseos_gemini_key', protectValue(geminiApiKey));
+    localStorage.setItem('synapseos_groq_key', protectValue(groqApiKey));
     localStorage.setItem('synapseos_backend_url', backendUrl);
     localStorage.setItem('synapseos_selected_model', selectedModel);
     localStorage.setItem('synapseos_persona', assistantPersona);
@@ -268,7 +292,7 @@ export function useAssistantLogic() {
   const handleSaveWhatsApp = (e: React.FormEvent) => {
     e.preventDefault();
     if (waPhoneNumber.trim()) {
-      localStorage.setItem('synapseos_wa_phone', waPhoneNumber);
+      localStorage.setItem('synapseos_wa_phone', protectValue(waPhoneNumber));
       setWaConnected(true);
     } else {
       localStorage.removeItem('synapseos_wa_phone');

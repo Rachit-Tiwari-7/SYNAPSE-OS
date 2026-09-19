@@ -885,7 +885,7 @@ async def get_live_surveillance_data():
                 "deaths": 533570,
                 "active": 1240000
             },
-            "error_detail": str(e)
+            "error_detail": "Live API unavailable, serving cached baseline"
         }
 
 
@@ -1205,11 +1205,11 @@ async def get_twilio_model_backend_status():
                 "healthy": resp.status_code == 200,
                 "data": resp.json() if resp.status_code == 200 else resp.text
             }
-    except Exception as e:
+    except Exception:
         return {
             "backend_url": backend_url,
             "healthy": False,
-            "error": str(e)
+            "error": "Model backend connection timed out or offline"
         }
 
 

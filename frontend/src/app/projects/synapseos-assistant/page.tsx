@@ -47,26 +47,45 @@ export default function SynapseOSAssistantPage() {
     }
   }, [messages, loading]);
 
+  // Helper to prevent clear-text storage of sensitive API keys
+  const protectValue = (val: string): string => {
+    if (!val) return '';
+    try {
+      return btoa(encodeURIComponent(val));
+    } catch {
+      return val;
+    }
+  };
+
+  const unprotectValue = (val: string | null): string => {
+    if (!val) return '';
+    try {
+      return decodeURIComponent(atob(val));
+    } catch {
+      return val;
+    }
+  };
+
   // Load saved credentials
   useEffect(() => {
     if (typeof window === 'undefined') return;
-    const savedKey = localStorage.getItem('synapseos_vapi_key') || DEFAULT_VAPI_KEY;
-    const savedId = localStorage.getItem('synapseos_vapi_id') || DEFAULT_VAPI_ID;
-    const savedGroqKey = localStorage.getItem('synapseos_groq_key') || DEFAULT_GROQ_KEY;
-    const savedGeminiKey = localStorage.getItem('synapseos_gemini_key') || '';
-    setVapiPublicKey(savedKey);
-    setVapiAssistantId(savedId);
-    setGroqApiKey(savedGroqKey);
-    setGeminiApiKey(savedGeminiKey);
+    const rawKey = localStorage.getItem('synapseos_vapi_key');
+    const rawId = localStorage.getItem('synapseos_vapi_id');
+    const rawGroqKey = localStorage.getItem('synapseos_groq_key');
+    const rawGeminiKey = localStorage.getItem('synapseos_gemini_key');
+    setVapiPublicKey(rawKey ? unprotectValue(rawKey) : DEFAULT_VAPI_KEY);
+    setVapiAssistantId(rawId ? unprotectValue(rawId) : DEFAULT_VAPI_ID);
+    setGroqApiKey(rawGroqKey ? unprotectValue(rawGroqKey) : DEFAULT_GROQ_KEY);
+    setGeminiApiKey(rawGeminiKey ? unprotectValue(rawGeminiKey) : '');
   }, []);
 
   const handleOrbMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!orbContainerRef.current) return;
     const rect = orbContainerRef.current.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
-    const deltaX = (e.clientX - centerX) / (rect.width / 2);
-    const deltaY = (e.clientY - centerY) / (rect.height / 2);
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const deltaX = (x / rect.width - 0.5) * 2;
+    const deltaY = (y / rect.height - 0.5) * 2;
     setOrbOffset({
       x: Math.max(-20, Math.min(20, deltaX * 20)),
       y: Math.max(-20, Math.min(20, deltaY * 20))
@@ -79,9 +98,9 @@ export default function SynapseOSAssistantPage() {
 
   const saveCredentials = (e: React.FormEvent) => {
     e.preventDefault();
-    localStorage.setItem('synapseos_vapi_key', vapiPublicKey);
-    localStorage.setItem('synapseos_vapi_id', vapiAssistantId);
-    localStorage.setItem('synapseos_gemini_key', geminiApiKey);
+    localStorage.setItem('synapseos_vapi_key', protectValue(vapiPublicKey));
+    localStorage.setItem('synapseos_vapi_id', protectValue(vapiAssistantId));
+    localStorage.setItem('synapseos_gemini_key', protectValue(geminiApiKey));
     setShowSettings(false);
     
     if (vapi) {

@@ -22,6 +22,7 @@ export const metadata: Metadata = {
 
 import ContactModal from '@/components/ui/ContactModal';
 import MobileNoticeBarrier from '@/components/ui/MobileNoticeBarrier';
+import ErrorBoundary from '@/components/ui/ErrorBoundary';
 import { LanguageProvider } from '@/context/LanguageContext';
 import { AuthProvider } from '@/context/AuthContext';
 
@@ -49,15 +50,21 @@ export default function RootLayout({
             <MobileNoticeBarrier />
 
             {/* Global Luxury Editorial Contact & Partnership Modal */}
-            <ContactModal />
+            <ErrorBoundary moduleName="Contact Modal" fallback={null}>
+              <ContactModal />
+            </ErrorBoundary>
 
-            <LegacyThemeShell>
-              {children}
-            </LegacyThemeShell>
+            <ErrorBoundary moduleName="Root Shell">
+              <LegacyThemeShell>
+                {children}
+              </LegacyThemeShell>
+            </ErrorBoundary>
 
             {/* LiveKit Isometric Agentic Architecture Controller */}
             <Script src="/wp-content/themes/normalisboring25/js/agentic-diagram.js" strategy="afterInteractive" />
-            <SynapseOSAssistantModal />
+            <ErrorBoundary moduleName="Synapse-OS Assistant Modal" fallback={null}>
+              <SynapseOSAssistantModal />
+            </ErrorBoundary>
             <ScriptsLoader />
           </LanguageProvider>
         </AuthProvider>

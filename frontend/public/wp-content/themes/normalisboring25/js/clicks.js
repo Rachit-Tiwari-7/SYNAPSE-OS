@@ -285,7 +285,31 @@ setRolloversMenu()
             document.querySelectorAll('.media__wrap-source.video').forEach(elem=>{
 
                 elem.addEventListener('click', (ev) => { 
-                    modalMedia.querySelector('.modal__video').innerHTML = elem.getAttribute('data-video');
+                    const rawVideo = elem.getAttribute('data-video') || '';
+                    const modalVideo = modalMedia.querySelector('.modal__video');
+                    if (modalVideo) {
+                        try {
+                            const parser = new DOMParser();
+                            const doc = parser.parseFromString(rawVideo, 'text/html');
+                            doc.querySelectorAll('script, object, embed, link, style').forEach(s => s.remove());
+                            doc.querySelectorAll('*').forEach(el => {
+                                for (let i = el.attributes.length - 1; i >= 0; i--) {
+                                    const attr = el.attributes[i];
+                                    if (attr.name.startsWith('on') || attr.value.trim().toLowerCase().startsWith('javascript:')) {
+                                        el.removeAttribute(attr.name);
+                                    }
+                                }
+                            });
+                            while (modalVideo.firstChild) {
+                                modalVideo.removeChild(modalVideo.firstChild);
+                            }
+                            while (doc.body.firstChild) {
+                                modalVideo.appendChild(doc.body.firstChild);
+                            }
+                        } catch (e) {
+                            modalVideo.textContent = '';
+                        }
+                    }
                     modalMedia_tl.play() 
                 })
 

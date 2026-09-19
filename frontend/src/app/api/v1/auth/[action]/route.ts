@@ -52,7 +52,7 @@ export async function POST(
 
       // Dispatch Real Email via Resend
       const emailResult = await sendVerificationEmail(newUser.email, newUser.name, verification.code, verificationUrl);
-      console.log(`[Auth Register] Dispatched Resend email to ${newUser.email}:`, emailResult);
+      console.log('[Auth Register] Dispatched Resend email to %s: %o', newUser.email, emailResult);
 
       const res = NextResponse.json({
         message: 'Account created! A confirmation code has been dispatched to your email.',
@@ -153,7 +153,7 @@ export async function POST(
 
       const emailResult = await sendPasswordResetEmail(user.email, user.name, reset.code, resetUrl);
       if (!emailResult.success) {
-        console.warn(`[Forgot Password] Resend email delivery failed for ${user.email}: ${emailResult.error}`);
+        console.warn('[Forgot Password] Resend email delivery failed for %s: %s', user.email, String(emailResult.error));
       }
 
       return NextResponse.json({

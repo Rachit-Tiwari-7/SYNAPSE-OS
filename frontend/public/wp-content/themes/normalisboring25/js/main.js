@@ -298,7 +298,18 @@
         if(document.querySelectorAll('video:not([src])').length){
             document.querySelectorAll('video:not([src])').forEach( elem => {
                 const dataSrc = elem.getAttribute('data-src');
-                elem.setAttribute('src',dataSrc);
+                if (dataSrc && !dataSrc.trim().toLowerCase().startsWith('javascript:')) {
+                    try {
+                        const url = new URL(dataSrc, window.location.origin);
+                        if (url.protocol === 'http:' || url.protocol === 'https:' || url.origin === window.location.origin) {
+                            elem.setAttribute('src', url.href);
+                        }
+                    } catch {
+                        if (/^[a-zA-Z0-9_\-./%?#=&]+$/.test(dataSrc)) {
+                            elem.setAttribute('src', dataSrc);
+                        }
+                    }
+                }
             } )
         }
     }

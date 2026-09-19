@@ -39,9 +39,10 @@ async def send_whatsapp_message(to_phone: str, text: str) -> Dict[str, Any]:
     Handles message length chunking (>3800 chars) and falls back to sandbox simulation if unconfigured.
     """
     clean_to = _clean_recipient_phone(to_phone)
+    masked_to = clean_to[:4] + "****" + clean_to[-3:] if len(clean_to) > 7 else "****"
 
     if not settings.WHATSAPP_CLOUD_API_TOKEN or not settings.WHATSAPP_PHONE_NUMBER_ID:
-        logger.info(f"[Meta WhatsApp Sandbox Simulation] Outbound to {clean_to}:\n{text}")
+        logger.info(f"[Meta WhatsApp Sandbox Simulation] Outbound message to {masked_to} ({len(text)} chars)")
         return {
             "delivered": True,
             "mode": "SANDBOX_SIMULATION",
@@ -76,9 +77,9 @@ async def send_whatsapp_message(to_phone: str, text: str) -> Dict[str, Any]:
                 resp = await client.post(endpoint, json=payload, headers=headers, timeout=12.0)
                 if resp.status_code in (200, 201):
                     last_response = resp.json()
-                    logger.info(f"[Meta WhatsApp Cloud API] Sent text to {clean_to} (Status {resp.status_code})")
+                    logger.info(f"[Meta WhatsApp Cloud API] Sent message to {masked_to} (Status {resp.status_code})")
                 elif resp.status_code in (401, 403):
-                    logger.warning(f"[Meta WhatsApp Cloud API Auth Expired] Status {resp.status_code}. Gracefully falling back to simulation mode for {clean_to}.")
+                    logger.warning(f"[Meta WhatsApp Cloud API Auth Expired] Status {resp.status_code}. Gracefully falling back to simulation mode for {masked_to}.")
                     return {
                         "delivered": True,
                         "mode": "SANDBOX_SIMULATION_FALLBACK",
@@ -119,9 +120,10 @@ async def send_whatsapp_interactive_buttons(
     buttons example: [{'id': 'btn_1', 'title': 'Symptom Triage'}, {'id': 'btn_2', 'title': 'Drug Check'}]
     """
     clean_to = _clean_recipient_phone(to_phone)
+    masked_to = clean_to[:4] + "****" + clean_to[-3:] if len(clean_to) > 7 else "****"
 
     if not settings.WHATSAPP_CLOUD_API_TOKEN or not settings.WHATSAPP_PHONE_NUMBER_ID:
-        logger.info(f"[Meta WhatsApp Sandbox Interactive] Outbound to {clean_to}:\n{body_text}\nButtons: {buttons}")
+        logger.info(f"[Meta WhatsApp Sandbox Interactive] Outbound interactive message to {masked_to} ({len(buttons)} buttons)")
         return {
             "delivered": True,
             "mode": "SANDBOX_SIMULATION",

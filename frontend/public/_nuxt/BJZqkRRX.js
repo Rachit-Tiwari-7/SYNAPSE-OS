@@ -499,10 +499,17 @@ let oh = 1234567;
 const vs = Math.PI / 180,
   Vr = 180 / Math.PI;
 function Ln() {
-  const s = (Math.random() * 4294967295) | 0,
-    e = (Math.random() * 4294967295) | 0,
-    t = (Math.random() * 4294967295) | 0,
-    n = (Math.random() * 4294967295) | 0;
+  if (typeof crypto !== "undefined" && typeof crypto.randomUUID === "function") {
+    return crypto.randomUUID().toLowerCase();
+  }
+  const _buf = new Uint32Array(4);
+  if (typeof crypto !== "undefined" && typeof crypto.getRandomValues === "function") {
+    crypto.getRandomValues(_buf);
+  }
+  const s = _buf[0],
+    e = _buf[1],
+    t = _buf[2],
+    n = _buf[3];
   return (
     Ot[s & 255] +
     Ot[(s >> 8) & 255] +

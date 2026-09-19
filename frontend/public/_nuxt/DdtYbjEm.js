@@ -6485,7 +6485,7 @@ function Lo(e, t) {
     ? t.forEach((n, r) => e.set(r, n))
     : e instanceof Set && t instanceof Set && t.forEach(e.add, e);
   for (const n in t) {
-    if (!t.hasOwnProperty(n)) continue;
+    if (!t.hasOwnProperty(n) || n === '__proto__' || n === 'constructor' || n === 'prototype') continue;
     const r = t[n],
       o = e[n];
     Io(o) && Io(r) && e.hasOwnProperty(n) && !pe(r) && !dt(r)
