@@ -144,9 +144,10 @@ graph TD
 | **17. Installation & Local Setup** | Step-by-step guide to running the platform locally | [Go to section](#17-installation--local-setup) |
 | **18. Docker & Kubernetes Deployment** | Containerization and cluster auto-scaling | [Go to section](#18-docker--kubernetes-deployment) |
 | **19. Security Considerations** | Deterministic safety gates and data privacy | [Go to section](#19-security-considerations) |
-| **20. Scalability & Future Improvements** | Planned enhancements and production roadmap | [Go to section](#20-scalability--future-improvements) |
-| **21. Contributing** | Guidelines for contributing to the repository | [Go to section](#21-contributing) |
-| **22. License** | Open-source licensing and hackathon usage terms | [Go to section](#22-license) |
+| **20. Automated Testing & CI/CD Pipelines** | 190+ Pytest suite, GitHub Actions CI/CD, CodeQL | [Go to section](#20-automated-testing--cicd-pipelines) |
+| **21. Scalability & Future Improvements** | Planned enhancements and production roadmap | [Go to section](#21-scalability--future-improvements) |
+| **22. Contributing** | Guidelines for contributing to the repository | [Go to section](#22-contributing) |
+| **23. License** | Open-source licensing and hackathon usage terms | [Go to section](#23-license) |
 
 ---
 ## Product & Interface Showcase
@@ -1080,10 +1081,73 @@ If you discover a security vulnerability, please **do not** open a public GitHub
 
 ---
 
-## 20. Scalability & Future Improvements
+## 20. Automated Testing & CI/CD Pipelines
+
+Synapse-OS enforces an automated verification matrix across every pull request and commit:
+
+```
+[1. Python Bytecode Audit] ──> [2. Life-Safety Regression] ──> [3. Full Swarm Suite (190+)]
+                                                                        │
+[6. K8s Schema Validation] <── [5. Docker Compose Audit]   <── [4. Frontend & Zero-Red-Screen]
+```
+
+### Automated Testing Matrix (190+ Tests)
+
+The platform maintains 100% pass rates across **14 comprehensive test modules**:
+
+| Test Suite | Module | Test Count | Key Invariants Covered |
+| :--- | :--- | :---: | :--- |
+| **Pediatric & Clinical Safety** | `test_pediatric_and_clinical_safety.py` | 15 Tests | Pediatric Aspirin / Reye's syndrome block, age boundary classification, acute emergency routing |
+| **WhatsApp Omni-Channel** | `test_whatsapp_service.py` | 16 Tests | Deduplication, clean plain-text card formatting, interactive quick reply buttons, SOS dispatch |
+| **Prescription Vision OCR** | `test_prescription_ocr.py` | 26 Tests | Multi-format validation, solid image rejection, prompt injection mitigation, handwriting recovery |
+| **Clinical Deep Coverage** | `test_clinical_deep_coverage.py` | 28 Tests | RxNav drug contraindication matrices, drug-drug interactions, pregnancy category warnings |
+| **Swarm Inference & ML** | `test_clinical_ml_and_agents.py` | 18 Tests | MONAI radiology models, YOLOv8 vision classification, emergency risk predictors |
+| **Outbreak & Immunization** | `test_outbreak_and_preventive_agents.py` | 13 Tests | IDSP outbreak risk calculation, U-WIN vaccination schedules, community health quizzes |
+| **Decentralized SMS & IPFS** | `test_sms_and_pinata_service.py` | 10 Tests | Tamper-proof IPFS health record anchoring, Twilio SMS webhooks, Pinata gateway verification |
+| **Multilingual Matrix** | `test_multilingual_whatsapp_simulation.py` | 18 Tests | 10 Indic languages (Hindi, Tamil, Telugu, etc.), language auto-detection, schema adaptation |
+| **Core Endpoints & Schemes** | `test_api_endpoints.py` / `test_backend.py` | 46 Tests | ABDM ABHA generation, digital twin scores, FHIR R4 bundles, appointment scheduling |
+
+### Continuous Integration & Deployment Architecture
+
+1. **Continuous Integration (`.github/workflows/ci.yml`):**
+   - **Syntax & Static Analysis:** Bytecode validation (`python -m compileall`) and Flake8 code linting.
+   - **Life-Safety Regression:** Isolated verification of life-critical rules and emergency bypass routing.
+   - **Full Backend Pytest:** 190+ test suite with automated code coverage telemetry artifact upload.
+   - **Frontend & Zero-Red-Screen Audit:** Production Next.js build validation and verification of `error.tsx`, `global-error.tsx`, `not-found.tsx`, and `ErrorBoundary.tsx`.
+   - **Docker Orchestration Audit:** Validates `docker-compose.yml` and `docker-compose.prod.yml` and builds container images.
+   - **Kubernetes Schema Audit:** Validates YAML schemas across all K8s manifests in `k8s/`.
+
+2. **Continuous Deployment (`.github/workflows/cd.yml`):**
+   - **Multi-Platform OCI Container Packaging:** Builds minimal, multi-stage production container images with non-root security contexts (`appuser` / `nextjs`).
+   - **GitHub Container Registry (GHCR):** Publishes versioned images to `ghcr.io` with `latest`, git SHA (`sha-xxxxxxx`), and semver tags.
+   - **Synthetic Health Probes:** Automated smoke test verification of root endpoints (`/` and health models) prior to traffic cutover.
+   - **Production Gate Audit:** Emits deployment telemetry directly to `$GITHUB_STEP_SUMMARY`.
+
+3. **Security Audit & CodeQL (`.github/workflows/security-scan.yml`):**
+   - Weekly scheduled CodeQL SAST scanning for Python and JavaScript/TypeScript.
+   - Dependency vulnerability auditing via `pip-audit` and `npm audit`.
+
+### Developer Local Test Commands
+
+```bash
+# Execute full backend test suite (190+ tests)
+make test
+
+# Execute clinical life-safety invariant tests only
+make test-safety
+
+# Run the complete automated test runner (cross-platform)
+./scripts/run-tests.sh                  # Linux / macOS
+powershell -File .\scripts\run-tests.ps1 # Windows
+```
+
+---
+
+## 21. Scalability & Future Improvements
 
 ### Currently Implemented
 - 13 specialized autonomous agents with shared state schema
+- Comprehensive GitHub Actions CI/CD with 190+ Pytest tests, CodeQL SAST, and automated container delivery
 - Docker Compose full-stack local deployment (5 services)
 - Kubernetes manifests with HPA for auto-scaling
 - Redis for session caching and event bus
@@ -1097,10 +1161,10 @@ If you discover a security vulnerability, please **do not** open a public GitHub
 | :--- | :--- | :--- |
 | **LLM** | Fine-tuned Indic medical LLM (Ayush-LLM) for Hindi/Tamil clinical accuracy | High |
 | **Authentication** | Full MFA system: email OTP, TOTP 2FA, JWT sessions, password reset — powered by Resend + speakeasy | **✅ Implemented** |
+| **CI/CD & Testing**| Automated GitHub Actions CI/CD pipeline, 190+ test cases, and CodeQL security audit | **✅ Implemented** |
 | **Database** | PostgreSQL for structured patient telemetry history | Medium |
 | **Blockchain** | ERC-721 Non-Fungible Health Records with ABDM-compliant metadata | High |
 | **RAG Pipeline** | ChromaDB/Qdrant vector store for persistent semantic memory | Medium |
-| **CI/CD** | GitHub Actions for automated testing + Docker build + K8s rollout | Medium |
 | **Monitoring** | OpenTelemetry + Grafana/Prometheus for agent latency tracing | Medium |
 | **Mobile App** | React Native companion for direct HealthKit / Health Connect native access | High |
 | **ABDM Production** | NHA institutional ABDM API access (requires HRN + DPA) | High |
@@ -1109,7 +1173,7 @@ If you discover a security vulnerability, please **do not** open a public GitHub
 
 ---
 
-## 21. Contributing
+## 22. Contributing
 
 We welcome contributions from developers, healthcare professionals, and public health researchers.
 
@@ -1131,7 +1195,7 @@ We welcome contributions from developers, healthcare professionals, and public h
 
 5. **Test your changes**:
    ```bash
-   cd backend && pytest tests/
+   make test
    cd frontend && npm run build
    cd blockchain/contracts && npx hardhat test
    ```
@@ -1140,7 +1204,7 @@ We welcome contributions from developers, healthcare professionals, and public h
 
 ---
 
-## 22. License
+## 23. License
 
 The smart contract component (`blockchain/contracts/`) is licensed under **ISC**.
 
