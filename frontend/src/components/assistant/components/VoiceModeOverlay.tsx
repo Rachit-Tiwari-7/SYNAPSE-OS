@@ -156,7 +156,7 @@ export default function VoiceModeOverlay({
               Synapse Voice
             </div>
             <div style={{ fontSize: '10px', color: '#94a3b8', fontWeight: 500 }}>
-              Vapi · Groq LLaMA 3.3
+              Vapi · Google Gemini 2.0 Flash
             </div>
           </div>
         </div>

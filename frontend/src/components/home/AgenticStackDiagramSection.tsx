@@ -435,20 +435,20 @@ export function AgenticStackDiagramSection() {
             </span>
           </div>
 
-          {/* 10. STT / Multimodal OCR Stack */}
+          {/* 10. Voice STT / OCR Stack */}
           <div
             className="iso-tile-stack node-clinical"
             style={{ top: '520px', left: 'calc(50% + 100px)', width: '48px', height: '48px' }}
           >
             <div className="iso-tile-badge">STT / OCR</div>
-            <div className="iso-tile-stack-item focused" title="Deepgram">
+            <div className="iso-tile-stack-item focused" title="Google Gemini Vision">
+              <img src="/logos/square/google.svg" width="24" height="24" alt="Google Gemini" />
+            </div>
+            <div className="iso-tile-stack-item on-deck" title="Deepgram">
               <img src="/logos/square/deepgram.svg" width="24" height="24" alt="Deepgram" />
             </div>
-            <div className="iso-tile-stack-item on-deck" title="OpenAI Whisper">
+            <div className="iso-tile-stack-item exit" title="OpenAI Whisper">
               <img src="/logos/square/open-ai.svg" width="24" height="24" alt="OpenAI" />
-            </div>
-            <div className="iso-tile-stack-item exit" title="Groq">
-              <img src="/logos/square/groq.svg" width="24" height="24" alt="Groq" />
             </div>
             <div className="iso-tile-stack-item exit2" title="Google Vision">
               <img src="/logos/square/google.svg" width="24" height="24" alt="Google" />
@@ -461,14 +461,14 @@ export function AgenticStackDiagramSection() {
             style={{ top: '660px', left: 'calc(50% + 100px)', width: '48px', height: '48px' }}
           >
             <div className="iso-tile-badge">LLM Swarm</div>
-            <div className="iso-tile-stack-item focused" title="OpenAI GPT-4o">
+            <div className="iso-tile-stack-item focused" title="Google Gemini 2.0 Flash">
+              <img src="/logos/square/google.svg" width="24" height="24" alt="Google Gemini" />
+            </div>
+            <div className="iso-tile-stack-item on-deck" title="Google Gemini 1.5 Pro">
+              <img src="/logos/square/google.svg" width="24" height="24" alt="Google Gemini Pro" />
+            </div>
+            <div className="iso-tile-stack-item exit" title="OpenAI GPT-4o">
               <img src="/logos/square/open-ai.svg" width="24" height="24" alt="OpenAI" />
-            </div>
-            <div className="iso-tile-stack-item on-deck" title="Google Gemini">
-              <img src="/logos/square/google.svg" width="24" height="24" alt="Google" />
-            </div>
-            <div className="iso-tile-stack-item exit" title="Cerebras Llama">
-              <img src="/logos/square/cerebras.svg" width="24" height="24" alt="Cerebras" />
             </div>
             <div className="iso-tile-stack-item exit2" title="Perplexity">
               <img src="/logos/square/perplexity.svg" width="24" height="24" alt="Perplexity" />
@@ -510,8 +510,8 @@ export function AgenticStackDiagramSection() {
             <div className="iso-tile-stack-item exit" title="Deepgram">
               <img src="/logos/square/deepgram.svg" width="24" height="24" alt="Deepgram" />
             </div>
-            <div className="iso-tile-stack-item exit2" title="Groq">
-              <img src="/logos/square/groq.svg" width="24" height="24" alt="Groq" />
+            <div className="iso-tile-stack-item exit2" title="Google Cloud TTS">
+              <img src="/logos/square/google.svg" width="24" height="24" alt="Google" />
             </div>
           </div>
 

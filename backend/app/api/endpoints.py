@@ -277,7 +277,7 @@ class PrescriptionInterpretRequest(BaseModel):
 @router.post("/prescription/interpret", tags=["Vision AI - Prescription OCR"])
 async def prescription_interpret_endpoint(req: PrescriptionInterpretRequest):
     """
-    Downstream Clinical Pharmacology & Triage Layer powered by Groq.
+    Downstream Clinical Pharmacology & Triage Layer powered by Google Gemini.
     Explains likely underlying disease/condition, medication purposes, administration timing,
     precautionary tips, and emergency red flags.
     """

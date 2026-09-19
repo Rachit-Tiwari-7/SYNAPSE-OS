@@ -23,7 +23,7 @@ export default function AssistantHeader({
   waConnected,
   isFullscreen,
   activeProfileId = 'mausam_kar_verified_abha',
-  selectedModel = 'groq-llama-3.3-70b',
+  selectedModel = 'gemini-2.0-flash',
   onTabChange,
   onToggleFullscreen,
   onNewChat,

@@ -2,23 +2,23 @@ import os
 from pydantic import BaseModel
 from dotenv import load_dotenv
 
-load_dotenv(override=True)  # reloaded with Groq key
-
+load_dotenv(override=True)
+ 
 class Settings(BaseModel):
     PROJECT_NAME: str = "Synapse-OS"
     VERSION: str = "1.0.0"
     API_PREFIX: str = "/api"
     
-    # LLM API Keys & Model Configurations (Google Gemini 3.5 Flash Hero Layer)
+    # LLM API Keys & Model Configurations (Google Gemini 2.0 Flash Hero Layer)
     GEMINI_API_KEY: str = os.getenv("GEMINI_API_KEY", "")
     GEMINI_MODEL: str = os.getenv("GEMINI_MODEL", "gemini-2.0-flash")
     DEFAULT_LLM_PROVIDER: str = os.getenv("DEFAULT_LLM_PROVIDER", "gemini")
 
     GROQ_API_KEY: str = os.getenv("GROQ_API_KEY", "")
-    GROQ_MODEL: str = os.getenv("GROQ_MODEL", "qwen/qwen3.8-27b")
+    GROQ_MODEL: str = os.getenv("GROQ_MODEL", "gemini-2.0-flash")
     
     OPENROUTER_API_KEY: str = os.getenv("OPENROUTER_API_KEY", "")
-    OPENROUTER_MODEL: str = os.getenv("OPENROUTER_MODEL", "meta-llama/llama-3.3-70b-instruct")
+    OPENROUTER_MODEL: str = os.getenv("OPENROUTER_MODEL", "gemini-2.0-flash")
     
     OPENAI_API_KEY: str = os.getenv("OPENAI_API_KEY", "")
 

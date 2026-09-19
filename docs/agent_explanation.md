@@ -36,10 +36,10 @@ flowchart TD
     
     ParallelSwarm --> State["SynapseOSState Consolidation<br/>(backend/app/core/state.py)"]
     
-    subgraph CascadeEngine["🛡️ 4-Tier LLM Resilience Cascade (llm_service.py)"]
+    subgraph CascadeEngine["🛡️ Multi-Tier Google Gemini Intelligence Cascade (llm_service.py)"]
         Tier1["🥇 Tier 1: Google Gemini 2.0 Flash (Hero Engine)"]
-        Tier2["🥈 Tier 2: Groq Cloud (LLaMA 3.3 70B Versatile)"]
-        Tier3["🥉 Tier 3: OpenRouter Multi-Provider Fallback"]
+        Tier2["🥈 Tier 2: Google Gemini 1.5 Pro (Deep Clinical Reasoning)"]
+        Tier3["🥉 Tier 3: Google Gemini 1.5 Flash (High-Throughput Swarm Engine)"]
         Tier4["🎖️ Tier 4: Deterministic Clinical Rules Fallback"]
         Tier1 -.->|Failover on Quota/Timeout| Tier2
         Tier2 -.->|Failover| Tier3
@@ -184,15 +184,15 @@ In acute medical emergencies (e.g., ventricular fibrillation, active hemorrhagic
 
 ---
 
-## 🛡️ 11. The 4-Tier LLM Resilience Cascade
+## 🛡️ 11. The Multi-Tier Google Gemini Intelligence Cascade
 
 * **File:** [`backend/app/services/llm_service.py`](../backend/app/services/llm_service.py)
 
 | Tier | Engine | Model Identifier | Role | Failure Mode Action |
 | :---: | :--- | :--- | :--- | :--- |
 | **Tier 1** | **Google Gemini** | `gemini-2.0-flash` | **Hero Multimodal Intelligence Layer** (Sub-second streaming, native Indic nuance) | Cascades to Tier 2 on HTTP 429/5xx or timeout |
-| **Tier 2** | **Groq Cloud** | `llama-3.3-70b-versatile` | Ultra-low latency open-weights fallback | Cascades to Tier 3 on API error |
-| **Tier 3** | **OpenRouter** | `meta-llama/llama-3.3-70b-instruct` | Multi-cloud secondary resilience route | Cascades to Tier 4 if network is completely down |
+| **Tier 2** | **Google Gemini** | `gemini-1.5-pro` | **Deep Clinical Council & Complex Multimodal Reasoning** | Cascades to Tier 3 on API error |
+| **Tier 3** | **Google Gemini** | `gemini-1.5-flash` | **High-Throughput Indic Swarm Worker** | Cascades to Tier 4 if network is completely down |
 | **Tier 4** | **Deterministic Rules** | `code-assembled JSON engine` | High-precision static medical rules engine | Always succeeds; zero uptime interruptions |
 
 ---

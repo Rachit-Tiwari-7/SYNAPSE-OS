@@ -1,7 +1,7 @@
 """
 SynapseOS — agents/drug_agent.py
 Drug Safety, RxNav Name Normalization, and Multi-Drug Interaction Agent.
-Combines NIH RxNorm REST APIs with live LLM clinical pharmacology reasoning (Groq/OpenRouter).
+Combines NIH RxNorm REST APIs with live Google Gemini clinical pharmacology reasoning.
 """
 
 import re

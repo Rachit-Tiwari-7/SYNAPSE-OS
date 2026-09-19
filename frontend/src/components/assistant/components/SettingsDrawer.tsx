@@ -162,18 +162,17 @@ export default function SettingsDrawer({
           </div>
         </div>
 
-        {/* 3. REASONING ENGINE MODEL (Groq & Gemini) */}
+        {/* 3. REASONING ENGINE MODEL (Google Gemini Multimodal Hero Layer) */}
         <div style={{ padding: '12px', borderRadius: '14px', background: '#f8fafc', border: '1px solid #e2e8f0' }}>
           <label style={{ display: 'block', fontSize: '11px', fontWeight: 700, color: '#334155', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '8px' }}>
-            3. AI Reasoning Engine Model
+            3. Google Gemini Reasoning Engine
           </label>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
             {[
-              { id: 'gemini-3.5-flash', name: '⚡ Google Gemini 3.5 Flash', badge: 'Hero Layer • Native Multimodal Vision & Reasoning' },
-              { id: 'gemini-2.5-flash', name: '⚡ Google Gemini 2.5 Flash', badge: 'High-Throughput Multimodal Clinical' },
-              { id: 'gemini-3.5-flash-lite', name: '🚀 Gemini 3.5 Flash-Lite', badge: 'Ultra-Fast Sub-Second Triage' },
-              { id: 'groq-qwen-27b', name: '⚡ Groq Qwen 3.8 27B', badge: 'Bilingual (Hindi + English) LPU' },
-              { id: 'groq-llama-3.3-70b', name: '⚡ Groq LLaMA 3.3 70B', badge: 'High Performance LPUs' },
+              { id: 'gemini-2.0-flash', name: '⚡ Google Gemini 2.0 Flash', badge: 'Hero Layer • Multimodal Vision & Clinical Triage' },
+              { id: 'gemini-1.5-pro', name: '🧠 Google Gemini 1.5 Pro', badge: 'Deep Clinical Consensus & Complex Differential' },
+              { id: 'gemini-1.5-flash', name: '⚡ Google Gemini 1.5 Flash', badge: 'High-Throughput Multimodal Diagnostics' },
+              { id: 'gemini-2.0-flash-lite', name: '🚀 Google Gemini 2.0 Flash-Lite', badge: 'Ultra-Fast Sub-Second Triage' },
             ].map(m => (
               <div
                 key={m.id}
@@ -204,48 +203,14 @@ export default function SettingsDrawer({
           </div>
         </div>
 
-        {/* 4. GROQ API KEY SETUP */}
+        {/* 4. GOOGLE GEMINI API KEY SETUP */}
         <div style={{ padding: '12px', borderRadius: '14px', background: '#f8fafc', border: '1px solid #bae6fd' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
             <label style={{ fontSize: '11px', fontWeight: 700, color: '#0369a1', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
-              4. Groq LPU API Key (Recommended)
-            </label>
-            <span style={{ fontSize: '10.5px', color: groqApiKey ? '#15803d' : '#0284c7', fontWeight: 600 }}>
-              {groqApiKey ? '● Configured' : '○ Built-in / Custom'}
-            </span>
-          </div>
-          
-          <div style={{ position: 'relative', marginTop: '6px' }}>
-            <input
-              type={showKeyText ? "text" : "password"}
-              placeholder="gsk_..."
-              value={groqApiKey}
-              onChange={(e) => setGroqApiKey(e.target.value)}
-              style={{
-                width: '100%',
-                padding: '9px 40px 9px 12px',
-                borderRadius: '10px',
-                background: '#ffffff',
-                border: '1px solid #bae6fd',
-                fontSize: '12px',
-                color: '#0f172a',
-                outline: 'none'
-              }}
-            />
-          </div>
-          <div style={{ marginTop: '8px', padding: '8px 10px', borderRadius: '8px', background: '#f0f9ff', border: '1px solid #bae6fd', fontSize: '11px', color: '#0369a1', lineHeight: 1.4 }}>
-            ⚡ Get free Groq API key at <a href="https://console.groq.com/keys" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline', fontWeight: 600, color: '#0284c7' }}>console.groq.com/keys</a> for high-speed multi-agent inference.
-          </div>
-        </div>
-
-        {/* 5. GOOGLE GEMINI API KEY SETUP */}
-        <div style={{ padding: '12px', borderRadius: '14px', background: '#f8fafc', border: '1px solid #e2e8f0' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
-            <label style={{ fontSize: '11px', fontWeight: 700, color: '#334155', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
-              5. Google Gemini API Key
+              4. Google Gemini API Key (Hero Foundation)
             </label>
             <span style={{ fontSize: '10.5px', color: geminiApiKey ? '#15803d' : '#d97706', fontWeight: 600 }}>
-              {geminiApiKey ? '● Configured' : '○ Not Configured'}
+              {geminiApiKey ? '● Configured' : '○ Built-in / Custom'}
             </span>
           </div>
           
@@ -260,7 +225,7 @@ export default function SettingsDrawer({
                 padding: '9px 40px 9px 12px',
                 borderRadius: '10px',
                 background: '#ffffff',
-                border: '1px solid #cbd5e1',
+                border: '1px solid #bae6fd',
                 fontSize: '12px',
                 color: '#0f172a',
                 outline: 'none'
@@ -286,7 +251,7 @@ export default function SettingsDrawer({
           </div>
 
           <div style={{ marginTop: '8px', padding: '8px 10px', borderRadius: '8px', background: '#ecfdf5', border: '1px solid #a7f3d0', fontSize: '11px', color: '#047857', lineHeight: 1.4 }}>
-            📖 Get a free key at <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline', fontWeight: 600, color: '#065f46' }}>aistudio.google.com/apikey</a>.
+            📖 Primary Google AI Layer. Get your free key at <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline', fontWeight: 600, color: '#065f46' }}>aistudio.google.com/apikey</a>.
           </div>
         </div>
 

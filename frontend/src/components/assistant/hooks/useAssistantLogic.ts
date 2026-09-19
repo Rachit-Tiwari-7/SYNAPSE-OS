@@ -58,7 +58,7 @@ export function useAssistantLogic() {
   
   // Personas & Model
   const [assistantPersona, setAssistantPersona] = useState<Persona>('copilot');
-  const [selectedModel, setSelectedModel] = useState<ModelChoice>('gemini-3.5-flash');
+  const [selectedModel, setSelectedModel] = useState<ModelChoice>('gemini-2.0-flash');
   const [copiedId, setCopiedId] = useState<string | null>(null);
   const [showKeyText, setShowKeyText] = useState(false);
 
@@ -135,8 +135,8 @@ export function useAssistantLogic() {
       setWaConnected(true);
     }
 
-    // Version guard: bump to v5_realtime_groq_vapi to purge old mock chat sessions
-    const SESSION_SCHEMA_VERSION = 'v5_realtime_groq_vapi';
+    // Version guard: bump to v6_gemini_2_0_flash to purge old mock chat sessions
+    const SESSION_SCHEMA_VERSION = 'v6_gemini_2_0_flash';
     const storedVersion = localStorage.getItem('synapseos_session_version');
     if (storedVersion !== SESSION_SCHEMA_VERSION) {
       localStorage.removeItem('synapseos_chat_sessions');
@@ -421,85 +421,67 @@ Always leverage this patient's live clinical context in your answers. Provide st
     return base;
   };
 
-  // Execute Groq Chat Completion API in Real-Time
-  const queryGroqLLM = async (
+  // Execute Google Gemini Generative API in Real-Time
+  const queryGeminiLLM = async (
     queryText: string, 
-    modelName: string, 
+    modelName: string = 'gemini-2.0-flash', 
     isConcise: boolean = false,
     history: Message[] = []
   ): Promise<string | null> => {
-    const key = groqApiKey || DEFAULT_GROQ_KEY;
+    const key = geminiApiKey || process.env.NEXT_PUBLIC_GEMINI_API_KEY || '';
     if (!key) return null;
 
-    // Resolve target model:
-    // Groq confirmed active models on this key: qwen/qwen3.8-27b, openai/gpt-oss-120b, openai/gpt-oss-20b, qwen/qwen3.6-27b
-    let targetModel = 'qwen/qwen3.8-27b';
-    if (modelName === 'groq-gpt-oss-120b') targetModel = 'openai/gpt-oss-120b';
-    else if (modelName === 'groq-llama-3.1-8b') targetModel = 'openai/gpt-oss-20b';
-    else if (modelName === 'groq-mixtral') targetModel = 'qwen/qwen3.6-27b';
+    let targetModel = 'gemini-2.0-flash';
+    if (modelName === 'gemini-1.5-pro') targetModel = 'gemini-1.5-pro';
+    else if (modelName === 'gemini-1.5-flash') targetModel = 'gemini-1.5-flash';
+    else if (modelName === 'gemini-2.0-flash-lite') targetModel = 'gemini-2.0-flash-lite';
 
     try {
       const systemInstructionText = buildSystemInstruction(isConcise);
 
-      // Multi-turn conversational history context (last 8 messages)
-      const formattedHistory = (history || [])
+      // Multi-turn conversational history context (last 8 messages) formatted for Gemini
+      const formattedContents = (history || [])
         .filter(m => (m.sender === 'user' || m.sender === 'assistant') && m.text && m.text.trim().length > 0)
         .slice(-8)
         .map(m => ({
-          role: m.sender === 'user' ? 'user' : 'assistant',
-          content: m.text
+          role: m.sender === 'user' ? 'user' : 'model',
+          parts: [{ text: m.text }]
         }));
 
-      const res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${key}`,
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          model: targetModel,
-          messages: [
-            { role: 'system', content: systemInstructionText },
-            ...formattedHistory,
-            { role: 'user', content: queryText }
-          ],
-          temperature: 0.3,
-          max_tokens: 1500
-        })
+      formattedContents.push({
+        role: 'user',
+        parts: [{ text: queryText }]
       });
+
+      const res = await fetch(
+        `https://generativelanguage.googleapis.com/v1beta/models/${targetModel}:generateContent?key=${key}`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            contents: formattedContents,
+            systemInstruction: {
+              parts: [{ text: systemInstructionText }]
+            },
+            generationConfig: {
+              temperature: 0.2,
+              maxOutputTokens: 1200
+            }
+          })
+        }
+      );
 
       if (res.ok) {
         const data = await res.json();
-        const content = data.choices?.[0]?.message?.content;
-        if (content) return content;
+        const candidate = data.candidates?.[0]?.content?.parts?.[0]?.text;
+        if (candidate) return candidate.trim();
       } else {
-        // Fallback model if targetModel has restrictions
-        if (targetModel !== 'openai/gpt-oss-120b') {
-          const fallbackRes = await fetch('https://api.groq.com/openai/v1/chat/completions', {
-            method: 'POST',
-            headers: {
-              'Authorization': `Bearer ${key}`,
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-              model: 'openai/gpt-oss-120b',
-              messages: [
-                { role: 'system', content: systemInstructionText },
-                ...formattedHistory,
-                { role: 'user', content: queryText }
-              ],
-              temperature: 0.3,
-              max_tokens: 1500
-            })
-          });
-          if (fallbackRes.ok) {
-            const data = await fallbackRes.json();
-            return data.choices?.[0]?.message?.content || null;
-          }
-        }
+        console.warn(`Gemini API returned ${res.status}`);
       }
     } catch (e) {
-      console.warn('Groq API Call failed:', e);
+      console.warn('Gemini API Call failed:', e);
     }
     return null;
   };
@@ -751,13 +733,13 @@ Reference the patient's vitals when relevant. If symptoms suggest an emergency (
       } catch (e) {}
     }
 
-    // 3. Fallback to Groq LPU API if Groq model selected or as secondary fallback
+    // 3. Fallback to Google Gemini Generative AI (Hero Layer)
     if (!reply) {
-      const groqFallbackModel = selectedModel.startsWith('groq') ? selectedModel : 'groq-qwen-27b';
-      reply = await queryGroqLLM(textToSend, groqFallbackModel, false, messages) || '';
+      const geminiModel = selectedModel.startsWith('gemini') ? selectedModel : 'gemini-2.0-flash';
+      reply = await queryGeminiLLM(textToSend, geminiModel, false, messages) || '';
       if (reply) {
         trace = [
-          { agent_name: 'Groq LPU Engine', action: 'Real-Time Neural Clinical Reasoning', duration_ms: 64 },
+          { agent_name: 'Google Gemini 2.0 Flash', action: 'Multimodal Neural Clinical Reasoning', duration_ms: 64 },
           { agent_name: 'Patient Context Injector', action: `Bound ABHA Profile: ${activePatient.patient.name}`, duration_ms: 12 }
         ];
       }
@@ -792,7 +774,7 @@ Reference the patient's vitals when relevant. If symptoms suggest an emergency (
       visualType = 'scan';
       visualData = {
         modality: 'CHEST PA & SKELETAL RADIOGRAPHY',
-        finding: 'Real-time AI diagnostic screen generated via Groq Neural Medical reasoning.',
+        finding: 'Real-time AI diagnostic screen generated via Google Gemini Multimodal Vision reasoning.',
         confidence: '99.1%',
         gradcam: 'Bilateral Symmetry Verified'
       };
@@ -812,7 +794,7 @@ Reference the patient's vitals when relevant. If symptoms suggest an emergency (
       visualData = {
         confidence: '98.6%',
         agents: [
-          { name: 'Triage Agent', status: 'Evaluated (Groq LPU)' },
+          { name: 'Triage Agent', status: 'Evaluated (Google Gemini)' },
           { name: 'Drug Interaction', status: 'CYP450 Checked' },
           { name: 'Mental Health', status: 'Normal Load' },
           { name: 'Verification Agent', status: 'Signed & Validated' }

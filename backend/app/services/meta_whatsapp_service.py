@@ -482,7 +482,7 @@ async def classify_medical_image_type(image_base64: Optional[str], caption: Opti
                 "3. 'bone_fracture' if it is an orthopedic bone X-ray, fracture scan, or limb scan.\n\n"
                 "Return JSON only in this exact format: {\"category\": \"prescription\" | \"chest_xray\" | \"bone_fracture\"}"
             )
-            g_res = await call_gemini_vision(clean_b64, g_prompt, model="gemini-3.5-flash")
+            g_res = await call_gemini_vision(clean_b64, g_prompt, model="gemini-2.0-flash")
             if g_res:
                 clean_json = g_res.replace("```json", "").replace("```", "").strip()
                 parsed = json.loads(clean_json)
@@ -494,7 +494,7 @@ async def classify_medical_image_type(image_base64: Optional[str], caption: Opti
                 elif cat in ("bone_fracture", "bone", "fracture", "orthopedic"):
                     return "bone_fracture"
         except Exception as exc:
-            logger.warning(f"[Gemini 3.5 Flash Vision Classifier] Fallback triggered: {exc}")
+            logger.warning(f"[Gemini 2.0 Flash Vision Classifier] Fallback triggered: {exc}")
 
     if not settings.OPENROUTER_API_KEY:
         return "prescription"

@@ -15,7 +15,7 @@ interface Message {
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000';
 const DEFAULT_VAPI_KEY = process.env.NEXT_PUBLIC_VAPI_PUBLIC_KEY || '7709f749-ce4c-4a9f-bef2-637223f17258';
 const DEFAULT_VAPI_ID = process.env.NEXT_PUBLIC_VAPI_ASSISTANT_ID || 'f92542f6-1975-4169-8459-e46684910676';
-const DEFAULT_GROQ_KEY = process.env.NEXT_PUBLIC_GROQ_API_KEY || '';
+const DEFAULT_GEMINI_KEY = process.env.NEXT_PUBLIC_GEMINI_API_KEY || '';
 
 export default function SynapseOSAssistantPage() {
   const [messages, setMessages] = useState<Message[]>([]);
@@ -29,8 +29,7 @@ export default function SynapseOSAssistantPage() {
   // Credentials
   const [vapiPublicKey, setVapiPublicKey] = useState(DEFAULT_VAPI_KEY);
   const [vapiAssistantId, setVapiAssistantId] = useState(DEFAULT_VAPI_ID);
-  const [groqApiKey, setGroqApiKey] = useState(DEFAULT_GROQ_KEY);
-  const [geminiApiKey, setGeminiApiKey] = useState('');
+  const [geminiApiKey, setGeminiApiKey] = useState(DEFAULT_GEMINI_KEY);
 
   // 3D Orb tilt state
   const [orbOffset, setOrbOffset] = useState({ x: 0, y: 0 });
@@ -71,12 +70,10 @@ export default function SynapseOSAssistantPage() {
     if (typeof window === 'undefined') return;
     const rawKey = localStorage.getItem('synapseos_vapi_key');
     const rawId = localStorage.getItem('synapseos_vapi_id');
-    const rawGroqKey = localStorage.getItem('synapseos_groq_key');
     const rawGeminiKey = localStorage.getItem('synapseos_gemini_key');
     setVapiPublicKey(rawKey ? unprotectValue(rawKey) : DEFAULT_VAPI_KEY);
     setVapiAssistantId(rawId ? unprotectValue(rawId) : DEFAULT_VAPI_ID);
-    setGroqApiKey(rawGroqKey ? unprotectValue(rawGroqKey) : DEFAULT_GROQ_KEY);
-    setGeminiApiKey(rawGeminiKey ? unprotectValue(rawGeminiKey) : '');
+    setGeminiApiKey(rawGeminiKey ? unprotectValue(rawGeminiKey) : DEFAULT_GEMINI_KEY);
   }, []);
 
   const handleOrbMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -169,8 +166,8 @@ Provide evidence-based health guidance and reference patient vitals when relevan
         await vapiInstance.start(vapiAssistantId, {
           firstMessage: 'Namaste! Hello! I am Synapse-OS Clinical Voice Assistant. How can I help you today?',
           model: {
-            provider: 'groq',
-            model: 'llama-3.3-70b-versatile',
+            provider: 'google',
+            model: 'gemini-2.0-flash',
             messages: [
               {
                 role: 'system',
@@ -206,30 +203,37 @@ Provide evidence-based health guidance and reference patient vitals when relevan
     let reply = '';
     let trace: any[] = [];
 
-    // 1. Try Groq LPU API first (Real-Time Qwen-27B)
-    if (groqApiKey) {
+    // 1. Try Google Gemini API first (Real-Time Gemini 2.0 Flash)
+    if (geminiApiKey) {
       try {
-        const groqRes = await fetch('https://api.groq.com/openai/v1/chat/completions', {
-          method: 'POST',
-          headers: {
-            'Authorization': `Bearer ${groqApiKey}`,
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            model: 'qwen/qwen3.8-27b',
-            messages: [
-              { role: 'system', content: 'You are SynapseOS AI, an empathetic and clinical-grade multi-agent health operating assistant. Provide clear, accurate clinical guidance in fluent English and Hindi.' },
-              { role: 'user', content: userText }
-            ],
-            temperature: 0.3,
-            max_tokens: 1500
-          })
-        });
-        if (groqRes.ok) {
-          const gData = await groqRes.json();
-          reply = gData.choices?.[0]?.message?.content || '';
+        const geminiRes = await fetch(
+          `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${geminiApiKey}`,
+          {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              contents: [
+                {
+                  role: 'user',
+                  parts: [
+                    {
+                      text: `You are SynapseOS AI, an empathetic and clinical-grade multi-agent health operating assistant powered by Google Gemini 2.0 Flash. Provide clear, accurate clinical guidance in fluent English and Hindi.\n\nUser Query: ${userText}`
+                    }
+                  ]
+                }
+              ],
+              generationConfig: {
+                temperature: 0.2,
+                maxOutputTokens: 1500
+              }
+            })
+          }
+        );
+        if (geminiRes.ok) {
+          const gData = await geminiRes.json();
+          reply = gData.candidates?.[0]?.content?.parts?.[0]?.text || '';
           if (reply) {
-            trace = [{ agent_name: 'Groq LPU Engine', action: 'Real-Time Neural Inference (Qwen-27B)', duration_ms: 68 }];
+            trace = [{ agent_name: 'Google Gemini 2.0 Flash', action: 'Direct Multimodal Neural Inference', duration_ms: 110 }];
           }
         }
       } catch (err) {}

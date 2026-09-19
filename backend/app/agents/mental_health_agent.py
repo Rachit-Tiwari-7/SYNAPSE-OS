@@ -1,7 +1,7 @@
 """
 SynapseOS — agents/mental_health_agent.py
 Mental Health, Emotional Wellbeing & Women's Health Agent.
-Grounded in WHO mhGAP, Tele-MANAS protocols, and empathetic LLM reasoning (Groq/OpenRouter).
+Grounded in WHO mhGAP, Tele-MANAS protocols, and empathetic Google Gemini clinical reasoning.
 """
 
 import time
@@ -12,7 +12,7 @@ from backend.app.services.llm_service import call_llm_json
 
 async def evaluate_mental_wellbeing(text: str) -> Dict[str, Any]:
     """
-    Evaluates emotional distress, stress indicators, and generates supportive counseling via Groq/OpenRouter.
+    Evaluates emotional distress, stress indicators, and generates supportive counseling via Google Gemini.
     """
     fallback = {
         "domain": "MENTAL_WELLBEING",

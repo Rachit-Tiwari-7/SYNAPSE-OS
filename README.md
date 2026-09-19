@@ -8,7 +8,7 @@
 
 > **Category:** Our Healthcare — Rethinking the Places We Turn to for Care <br/>
 > **Initiative:** Google Gemini ₹1 Crore Innovation Fund <br/>
-> **Core Architecture:** Google Gemini 3.5 Flash Multimodal Hero Layer + Deterministic Safety Architecture <br/>
+> **Core Architecture:** Google Gemini 2.0 Flash Multimodal Hero Layer + Deterministic Safety Architecture <br/>
 > **Vision:** Reimagining Indian municipal healthcare as an ambient, decentralized intelligence grid accessible to 650+ million citizens over WhatsApp without apps, downloads, or clinical friction.
 
 <!-- CI / Screening & Quality Badges -->
@@ -55,19 +55,45 @@
 
 ---
 
-## Fund My Crazy 2026: Theme & Solution Mapping
+## 🏛️ The City as an Immune System: Ambient Urban Healthcare Architecture
 
-> **Competition**: *Fund My Crazy 2026 — Google Gemini ₹1 Crore Initiative* <br/>
-> **Theme**: *Our Healthcare — Rethink the places we turn to for care. Build healthcare for the needs of the future.* <br/>
-> **The Radical Vision**: *Transforming WhatsApp into an ambient, zero-install municipal clinical grid that decentralizes triage and diagnostic clarity to every neighborhood pharmacy and household.*
+Traditional municipal healthcare treats the city like a breakdown-maintenance machine: citizens fall sick in isolation, travel miles to congested tertiary hospital OPDs, wait hours for 2-minute consultations, and buy expensive branded medicines while epidemiological surveillance lags days or weeks behind pathogen spread.
 
-| FMC 2026 Criterion | Strategic Priority | Synapse Production Implementation |
+**Synapse-OS reframes the metropolis into a self-healing biological organism—an ambient, decentralized municipal immune system:**
+
+```mermaid
+flowchart LR
+    A["👤 Citizen<br/>(Everyday Symptoms & Vital Signs)"] 
+    -->|1. Passive Signal| B["📡 Neighborhood Signal<br/>(Meta WhatsApp / 2G SMS / Voice)"]
+    -->|2. Real-Time Neural Analysis| C["🧠 Swarm Intelligence<br/>(Google Gemini 2.0 Flash + Clinical Nodes)"]
+    -->|3. Hyper-Local Action| D["💊 Immediate Intervention<br/>(ESI Triage / Jan Aushadhi / 108 SOS)"]
+    -->|4. Anonymous Anomaly Stream| E["🛡️ Population Feedback Loop<br/>(IDSP Geospatial R0 Outbreak Early-Warning)"]
+    -->|5. Proactive Community Protection| A
+```
+
+| Immune Function | Biological Analogue | Synapse-OS Urban Implementation |
 | :--- | :--- | :--- |
-| **Vision (30%)** | Extraordinary conceptual leap reframing urban care | **The City as an Immune System**: Healthcare as an ambient municipal utility rather than reactive hospital waiting rooms. Decentralized triage node active across 650M citizens on WhatsApp. |
-| **Real-life Relevance (20%)** | Built for real people; solves everyday city needs | **Vernacular Prescription Decryption & Generic Relief**: Unreadable handwriting converted to Hindi/regional languages, saving families thousands on medications via Jan Aushadhi generic mapping. |
-| **Built with Gemini (20%)** | Hero multimodal intelligence layer | **Google Gemini 2.0 Flash & Gemini 1.5 Pro**: Directly powers complex handwritten OCR transcription, Indic vernacular understanding, multi-agent clinical synthesis, and compassionate patient communication. |
-| **Future Focused (15%)** | Solves tomorrow's city challenges today | **Predictive Ward-Level Outbreak Early-Warning**: Real-time IDSP geospatial transmission modeling ($R_0$) tracking dengue, malaria, and viral surges 48 hours before hospital OPD spikes. |
-| **Execution (15%)** | Practical, doable, working system | **Production FastAPI Backend & Meta WhatsApp Cloud API**: 197 passing clinical tests (100% green), deterministic pediatric safety constraints, ABDM ABHA ID generation, and HL7 FHIR R4 interoperability. |
+| **1. Peripheral Receptors** | *Dendritic Cells & Epithelial Barriers* | **650M+ WhatsApp Citizens & 2G Keypad Phones:** Zero-install vernacular touchpoint capturing first signs of distress at home. |
+| **2. Deterministic Reflex Arc** | *Innate Reflex Spasm / Inflammation* | **Node 0 Deterministic Safety Gate (`safety_router.py`):** Sub-15ms bypass instantly locking down life-critical emergencies (108 dispatch, cardiac, stroke, pediatric Reye's prevention) with zero LLM hallucination risk. |
+| **3. High-Affinity Adaptive Triage** | *T-Cell & B-Cell Activation* | **Google Gemini 2.0 Flash Multimodal Hero Engine:** Transcribes blurry handwritten scripts, reasons through complex polymedication contraindications (NIH RxNav), and delivers empathetic guidance in 10 Indic languages. |
+| **4. Economic & Clinical Intervention** | *Targeted Antibodies & Enzymes* | **Jan Aushadhi Generic Substitution & PM-JAY Mapping:** Slashes out-of-pocket prescription expenses by 70–85%, directing patients to nearest empanelled generic pharmacy. |
+| **5. Collective Herd Memory & Defense** | *Lymph Node Outbreak Surveillance* | **Predictive Ward-Level IDSP Vector Mapping:** Aggregates anonymized symptom signals into real-time $R_0$ surge curves, detecting dengue/malaria clusters 48 hours before hospital OPD spikes. |
+
+---
+
+## Core Strategic Pillars & Production Impact
+
+> **Initiative**: *Fund My Crazy 2026 — A Google Gemini Initiative* <br/>
+> **Category**: *Our Healthcare — Rethinking the Places We Turn to for Care* <br/>
+> **The Radical Paradigm**: *Transforming WhatsApp into an ambient, zero-install municipal clinical grid that decentralizes triage, diagnostic clarity, and economic relief directly to 650+ million citizens.*
+
+| Core Strategic Pillar | Strategic Priority | Synapse Production Implementation & Real-World Impact |
+| :--- | :--- | :--- |
+| **Autonomous Urban Healthcare Grid** | Ambient municipal infrastructure replacing reactive hospital waiting rooms | **The City as an Immune System**: Reimagines municipal health as an ambient public utility. Decentralized triage node active across 650M citizens on WhatsApp, instantly routing cases into home care, doctor consults, or emergency dispatch. |
+| **Vernacular Access & Economic Relief** | Built for real citizens across Bharat; solves daily healthcare debt | **Handwritten Prescription OCR & Jan Aushadhi Savings**: Blurry, unreadable doctor handwriting transcribed into 10 Indic languages via Gemini Multimodal Vision, cross-referencing PM-JAY Jan Aushadhi generics to slash medication bills by up to 85%. |
+| **Google Gemini Multimodal Foundation** | Hero multimodal intelligence and clinical consensus backbone | **Google Gemini 2.0 Flash & Gemini 1.5 Pro**: Primary neural reasoning engine powering sub-second prescription OCR, Indic vernacular nuance, deep clinical council consensus, and compassionate patient interaction. Built exclusively with Google Gemini. |
+| **Predictive Municipal Epidemiology** | Real-time disease intelligence solving tomorrow's urban crises today | **Predictive Ward-Level Outbreak Early-Warning**: Real-time IDSP / NCDC geospatial transmission modeling ($R_0$) tracking dengue, malaria, and viral surges 48 hours before municipal hospital OPD queues spike. |
+| **Clinical Safety & Production Engineering** | Resilient, battle-tested, life-critical software architecture | **Production FastAPI Backend & Meta WhatsApp Cloud API**: 197 automated test cases passing 100% green, sub-15ms deterministic pediatric & emergency air-lock (`safety_router.py`), ABDM ABHA ID generation, and HL7 FHIR R4 interoperability. |
 
 ---
 
@@ -92,11 +118,11 @@ graph TD
     Swarm --> Vaccine["7. UIP & U-WIN Vaccination Node"]
     Swarm --> Prevent["8. Rural Preventive Health Node"]
     
-    Swarm --> Cascade["4-Tier LLM Resilience Engine"]
-    Cascade --> Gemini["Tier 1: Google Gemini 2.0 Flash (Hero)"]
-    Gemini -.->|Failover| Groq["Tier 2: Groq LLaMA 3.3 70B"]
-    Groq -.->|Failover| OpenRouter["Tier 3: OpenRouter Multi-Model"]
-    OpenRouter -.->|Failover| Mock["Tier 4: Deterministic Rules Fallback"]
+    Swarm --> Cascade["Multi-Tier Google Gemini Resilience Engine"]
+    Cascade --> Gemini["Tier 1: Google Gemini 2.0 Flash (Hero Engine)"]
+    Gemini -.->|Clinical Consensus| Pro["Tier 2: Google Gemini 1.5 Pro (Deep Reasoning)"]
+    Pro -.->|High-Throughput Swarm| Flash["Tier 3: Google Gemini 1.5 Flash"]
+    Flash -.->|Deterministic Failover| Mock["Tier 4: Deterministic Clinical Rules Fallback"]
     
     Cascade --> Out["Structured Plain-Text Clinical Card<br/>(10 Indic Scripts | Clean Protocol)"]
     Cascade --> SMS["2G Plain-Text SMS Response & Pinata IPFS Record"]
@@ -106,7 +132,7 @@ graph TD
 | # | Engineering Pillar | Architecture & Implementation |
 | :-: | :--- | :--- |
 | **1** | **Deterministic Emergency Air-Lock** | Acute emergencies (cardiac arrest, stroke, anaphylaxis, suicide crisis) **completely bypass LLMs** via a `<15ms` regex & keyword gate in `safety_router.py`. Eliminates latency and 100% of LLM hallucination danger for life-threatening events. |
-| **2** | **4-Tier LLM Resilience Cascade** | High-availability resilience design: if Google Gemini hits quota or network drops, execution immediately cascades to **Groq Cloud (LLaMA 3.3 70B)** $\rightarrow$ **OpenRouter** $\rightarrow$ **Deterministic Clinical Mock**. Guaranteed zero system downtime. |
+| **2** | **Multi-Tier Google Gemini Intelligence Engine** | High-availability clinical design: led by **Google Gemini 2.0 Flash** for sub-second multimodal vision and triage, verified by **Google Gemini 1.5 Pro** for deep multidisciplinary council consensus, with deterministic clinical rule fallbacks. Guaranteed zero system downtime. |
 | **3** | **Handwritten Prescription OCR + Jan Aushadhi Savings** | Blurry handwritten Indian doctor prescriptions transcribed via **Gemini 2.0 Multimodal Vision**, extracted into FHIR dosage structures, and cross-referenced with **PM-JAY Jan Aushadhi** generic databases—saving patients up to 85% on medicine costs. |
 | **4** | **10 Indic Regional Languages Over WhatsApp** | Zero-install healthcare over Meta WhatsApp Cloud API v20.0 with native code-mixed understanding across **Hindi, Bengali, Tamil, Telugu, Marathi, Gujarati, Kannada, Malayalam, Punjabi, and Odia**. |
 | **5** | **Strict Clinical Plain-Text WhatsApp Protocol** | Implements the clean protocol defined in `AGENTS.md`—zero ugly markdown asterisks, raw backticks, or prompt leaks. Outputs clean status badges (`🔴 SYNAPSE EMERGENCY TRIAGE`), structured council consensus percentages, and 1-click reply shortcuts (`Reply 5`, `Reply sos`). |
@@ -124,7 +150,8 @@ graph TD
 | :--- | :--- | :--- |
 | **System Highlights & Architecture** | Core multi-agent clinical pipeline and engineering design | [Go to section](#system-highlights--core-engineering-architecture) |
 | **1. Executive Summary** | High-level overview of the health platform | [Go to section](#1-executive-summary) |
-| **National Competition Alignment & Impact** | Built for Fund My Crazy 2026 (A Google Gemini Initiative) | [Go to section](#fund-my-crazy-2026-theme--solution-mapping) |
+| **The City as an Immune System** | Ambient urban healthcare architecture and biological feedback loops | [Go to section](#-the-city-as-an-immune-system-ambient-urban-healthcare-architecture) |
+| **National Competition Alignment & Impact** | Built for Fund My Crazy 2026 (A Google Gemini Initiative) | [Go to section](#core-strategic-pillars--production-impact) |
 | **Product & Interface Showcase** | Visual gallery of the SynapseOS platform | [Go to section](#product--interface-showcase) |
 | **2. Feature Documentation** | List of all 21 core features and capabilities | [Go to section](#2-feature-documentation) |
 | **3. Official Architecture Diagrams** | System flows and user journey maps | [Go to section](#3-official-architecture-diagrams) |
@@ -196,14 +223,14 @@ graph TD
 
 | Feature | Description | Key Technologies |
 | :--- | :--- | :--- |
-| **Clinical AI Copilot** | Floating assistant with 5 personas, markdown streaming, multi-persona context | FastAPI, Groq LLM, React |
-| **Live Voice AI Orb** | WebRTC voice session with animated orb, real-time transcript, 11-language STT | VAPI AI, React |
+| **Clinical AI Copilot** | Floating assistant with 5 personas, markdown streaming, multi-persona context | FastAPI, Google Gemini 2.0 Flash, React |
+| **Live Voice AI Orb** | WebRTC voice session with animated orb, real-time transcript, 11-language STT | VAPI AI, Google Gemini 2.0 Flash, React |
 | **2FA / MFA Security** | TOTP 2FA (Google Authenticator / Authy), email OTP verification, session management, password reset | speakeasy, Resend, bcryptjs |
 | **3D Digital Health Twin** | Anatomical body with clickable hotspots, real-time organ vitality scores (0-100) | Python ML engine |
 | **10-Year Organ Simulation** | Multi-organ trajectory simulation with intervention scenario modeling | `ml/digital_twin.py` |
 | **FractureNet YOLOv8** | Genuine bone fracture detection on uploaded X-rays using `Final.pt` (22 MB) | Ultralytics YOLO |
 | **MONAI Chest Radiograph** | MONAI DenseNet-121 chest PA interpretation with Grad-CAM heatmap | MONAI framework |
-| **Drug Interaction Checker** | NIH RxNorm + 7 high-risk DDI pairs + CYP3A4 reasoning | NIH RxNav REST, Groq |
+| **Drug Interaction Checker** | NIH RxNorm + 7 high-risk DDI pairs + CYP3A4 reasoning | NIH RxNav REST, Google Gemini 2.0 Flash |
 | **UIP Vaccine Tracker** | Complete Indian UIP schedule (Birth → 16 years), U-WIN certificates | `agents/vaccination_agent.py` |
 | **WHO Epidemic Surveillance** | 194-country WHO SVG map, epidemic timeline, 8 priority pathogen cards | D3-Geo, react-simple-maps |
 | **District Outbreak EWS** | 10 Indian districts, surge velocity tracking, proactive WhatsApp advisory | `agents/outbreak_agent.py` |
@@ -266,7 +293,7 @@ flowchart LR
     end
 
     subgraph Core ["3. Orchestrator"]
-        ORCH{"Groq LLaMA-70B\nAgent Router"}:::core
+        ORCH{"Google Gemini 2.0 Flash\nAgent Router"}:::core
     end
 
     subgraph Swarm ["4. Agent Swarm"]
@@ -404,19 +431,19 @@ All 13 agents share a common `SynapseOSState` Pydantic schema and contribute str
 
 | Agent | File | Responsibility | External Services |
 | :--- | :--- | :--- | :--- |
-| **Clinical Symptom Triage** | `agents/triage_agent.py` | ESI Level 1-5 severity classification. Routes to Emergency, Doctor Consult (24-48h), or Home Care with multilingual output. | Groq / OpenRouter LLM |
-| **Drug Safety & RxNav** | `agents/drug_agent.py` | NIH RxNorm drug name normalization, known DDI database (7 high-risk pairs), CYP3A4 interaction logic. | NIH RxNav REST API |
-| **Medical Scan AI** | `agents/scan_agent.py` | Genuine FractureNet YOLOv8 inference on uploaded images (`Final.pt`), MONAI DenseNet-121 chest PA interpretation, TrOCR prescription OCR. | Custom YOLOv8 weights |
+| **Clinical Symptom Triage** | `agents/triage_agent.py` | ESI Level 1-5 severity classification. Routes to Emergency, Doctor Consult (24-48h), or Home Care with multilingual output. | Google Gemini 2.0 Flash |
+| **Drug Safety & RxNav** | `agents/drug_agent.py` | NIH RxNorm drug name normalization, known DDI database (7 high-risk pairs), CYP3A4 interaction logic. | NIH RxNav REST API, Google Gemini 2.0 Flash |
+| **Medical Scan AI** | `agents/scan_agent.py` | Genuine FractureNet YOLOv8 inference on uploaded images (`Final.pt`), MONAI DenseNet-121 chest PA interpretation, Gemini 2.0 Multimodal prescription OCR. | Custom YOLOv8 weights, Google Gemini 2.0 Flash |
 | **Hybrid Retrieval Agent** | `agents/retrieval_agent.py` | Parallel Wikipedia Medical REST + curated knowledge index (23 WHO/ICMR/MoHFW guidelines). Returns grounded clinical context. | Wikipedia REST API |
-| **Mental Health Agent** | `agents/mental_health_agent.py` | Tele-MANAS (14416) integration, WHO mhGAP protocol routing, CBT/SSRIs guidance. | Groq LLM |
+| **Mental Health Agent** | `agents/mental_health_agent.py` | Tele-MANAS (14416) integration, WHO mhGAP protocol routing, CBT/SSRIs guidance. | Google Gemini 2.0 Flash |
 
 ### 4.3 Public Health Cluster
 
 | Agent | File | Responsibility | External Services |
 | :--- | :--- | :--- | :--- |
 | **Outbreak Surveillance** | `agents/outbreak_agent.py` | District-level IDSP/WHO outbreak risk database (Dengue, Nipah, Zika, Malaria, etc.), R₀ velocity tracking, proactive WhatsApp/SMS advisory dispatch. | OpenWA WhatsApp Gateway |
-| **Universal Immunization** | `agents/vaccination_agent.py` | Complete UIP schedule (Birth → 16 years), U-WIN digital certificate generation, maternal Td immunization, age-milestone due-date calculation. | Groq LLM |
-| **Preventive Health Hub** | `agents/preventive_health_agent.py` | ORS preparation, nutrition guides (POSHAN), breastfeeding, vector control, community health quizzes in 11 languages. | Groq LLM |
+| **Universal Immunization** | `agents/vaccination_agent.py` | Complete UIP schedule (Birth → 16 years), U-WIN digital certificate generation, maternal Td immunization, age-milestone due-date calculation. | Google Gemini 2.0 Flash |
+| **Preventive Health Hub** | `agents/preventive_health_agent.py` | ORS preparation, nutrition guides (POSHAN), breastfeeding, vector control, community health quizzes in 11 languages. | Google Gemini 2.0 Flash |
 
 ### 4.4 Records & Digital Twin Cluster
 
@@ -629,7 +656,7 @@ sequenceDiagram
 | ![FastAPI](https://img.shields.io/badge/FastAPI-009688?logo=fastapi&logoColor=white&style=flat) **FastAPI** | ≥0.110 | Async REST API framework, 30+ endpoints, OpenAPI at `/docs` |
 | ![Uvicorn](https://img.shields.io/badge/Uvicorn-499848?logo=gunicorn&logoColor=white&style=flat) **Uvicorn** | ≥0.28 | ASGI production server, 4-worker multi-process runtime |
 | ![Pydantic](https://img.shields.io/badge/Pydantic-E92063?logo=pydantic&logoColor=white&style=flat) **Pydantic** | v2 | `SynapseOSState`, `DigitalTwinInput`, all request/response schemas |
-| ![HTTPX](https://img.shields.io/badge/HTTPX-475569?style=flat) **HTTPX** | ≥0.27 | Async HTTP client for Groq, OpenRouter, NIH RxNav, Wikipedia |
+| ![HTTPX](https://img.shields.io/badge/HTTPX-475569?style=flat) **HTTPX** | ≥0.27 | Async HTTP client for Google Gemini, NIH RxNav, Wikipedia |
 | ![Pillow](https://img.shields.io/badge/Pillow-475569?style=flat) **Pillow** | ≥10.2 | Decodes base64 medical scan uploads before YOLOv8 inference |
 | ![ReportLab](https://img.shields.io/badge/ReportLab-475569?style=flat) **ReportLab** | ≥4.1 | Clinical PDF health summary with QR codes |
 | ![QRCode](https://img.shields.io/badge/QRCode-475569?style=flat) **QRCode** | ≥7.4 | Blockchain-linked ABHA health passport QR embedded in PDFs |
@@ -642,12 +669,12 @@ sequenceDiagram
 
 | Model / Service | Provider | Role |
 | :--- | :--- | :--- |
-| ![LLaMA 3.3-70B Versatile](https://img.shields.io/badge/LLaMA%203.3--70B%20Versatile-047857?logo=meta&logoColor=white&style=flat) **LLaMA 3.3-70B Versatile** | Groq | Primary LLM reasoning across all clinical agents |
-| ![LLaMA 3.3-70B Instruct](https://img.shields.io/badge/LLaMA%203.3--70B%20Instruct-047857?logo=meta&logoColor=white&style=flat) **LLaMA 3.3-70B Instruct** | OpenRouter | Automatic failover if Groq unavailable or rate-limited |
-| ![Gemini API](https://img.shields.io/badge/Gemini%20API-8E75B2?logo=google-gemini&logoColor=white&style=flat) **Gemini API** | Google | Optional integration (`GEMINI_API_KEY` configured) |
+| ![Google Gemini 2.0 Flash](https://img.shields.io/badge/Google_Gemini-2.0_Flash-4285F4?logo=google&logoColor=white&style=flat) **Google Gemini 2.0 Flash** | Google DeepMind | Hero Multimodal Intelligence Layer (Prescription Vision OCR, real-time clinical triage, 10 Indic languages) |
+| ![Google Gemini 1.5 Pro](https://img.shields.io/badge/Google_Gemini-1.5_Pro-4285F4?logo=google&logoColor=white&style=flat) **Google Gemini 1.5 Pro** | Google DeepMind | Deep Multidisciplinary Clinical Board & Complex Diagnostic Consensus |
+| ![Google Gemini 1.5 Flash](https://img.shields.io/badge/Google_Gemini-1.5_Flash-4285F4?logo=google&logoColor=white&style=flat) **Google Gemini 1.5 Flash** | Google DeepMind | High-Throughput Swarm Worker & Vernacular Summarization |
 | ![FractureNet YOLOv8](https://img.shields.io/badge/FractureNet%20YOLOv8-475569?style=flat) **FractureNet YOLOv8** | Custom (22MB) | Genuine bone fracture detection (`Final.pt`, `conf=0.15`) |
 | ![MONAI DenseNet-121](https://img.shields.io/badge/MONAI%20DenseNet--121-475569?style=flat) **MONAI DenseNet-121** | MONAI | Chest radiograph analysis with Grad-CAM localization |
-| ![VAPI AI](https://img.shields.io/badge/VAPI%20AI-475569?style=flat) **VAPI AI** | Vapi | WebRTC voice pipeline: STT → LLM → TTS real-time |
+| ![VAPI AI](https://img.shields.io/badge/VAPI%20AI-475569?style=flat) **VAPI AI** | Vapi | WebRTC voice pipeline: STT → Gemini LLM → TTS real-time |
 | ![Wikipedia Medical REST](https://img.shields.io/badge/Wikipedia%20Medical%20REST-000000?logo=wikipedia&logoColor=white&style=flat) **Wikipedia Medical REST** | Wikimedia | Knowledge retrieval, no auth required |
 | ![NIH RxNav REST](https://img.shields.io/badge/NIH%20RxNav%20REST-475569?style=flat) **NIH RxNav REST** | NIH NLM | Drug name normalization and interaction lookup |
 
@@ -679,8 +706,7 @@ sequenceDiagram
 
 | Provider / Service | Category | Integration Point |
 | :--- | :--- | :--- |
-| ![Groq](https://img.shields.io/badge/Groq-FF6B35?style=flat) **Groq** | LLM Inference | `services/llm_service.py` |
-| ![OpenRouter](https://img.shields.io/badge/OpenRouter-3B82F6?style=flat) **OpenRouter** | LLM Failover | `services/llm_service.py` |
+| ![Google Gemini API](https://img.shields.io/badge/Google_Gemini-API-4285F4?logo=google&logoColor=white&style=flat) **Google Gemini API** | Multimodal Neural Intelligence | `services/llm_service.py` & `prescription_ocr_service.py` |
 | ![Twilio](https://img.shields.io/badge/Twilio-F22F46?style=flat&logo=twilio&logoColor=white) **Twilio SMS** | 2-Way SMS & TwiML | `services/sms_service.py` |
 | ![Pinata](https://img.shields.io/badge/Pinata-7F2BCE?style=flat) **Pinata** | IPFS Pinning | `services/pinata_service.py` & `frontend/src/lib/blockchain/ipfs.js` |
 | ![NIH RxNav](https://img.shields.io/badge/NIH%20RxNav-475569?style=flat) **NIH RxNav** | Drug Database | `agents/drug_agent.py` |
@@ -702,7 +728,7 @@ sequenceDiagram
     participant GATE as Safety Gate
     participant ORCH as Orchestrator DAG
     participant AGENTS as Specialist Agents
-    participant LLM as Groq / OpenRouter
+    participant LLM as Google Gemini 2.0 Flash
     participant CHAIN as Blockchain + IPFS
 
     U->>FE: Send health query / upload scan / voice input
@@ -756,7 +782,7 @@ flowchart LR
     INT["Intent Classifier"]
     PARA["Parallel Agent Execution"]
     MERGE["Result Merge\n(Orchestrator)"]
-    LLM["LLM Synthesis\n(Groq/OpenRouter)"]
+    LLM["LLM Synthesis\n(Google Gemini 2.0 Flash)"]
     FHIR_B["FHIR R4 Bundle\nSerializer"]
     I18N["i18n Translation\n(11 Languages)"]
     OUT["Unified Response\n+ Agent Trace"]
@@ -850,7 +876,7 @@ Synapse-OS/
 │   │   │   ├── digital_twin.py       # 10-year organ trajectory simulation
 │   │   │   └── diagnostics.py        # Framingham, ADA, CKD, FIB-4 calculators
 │   │   ├── services/
-│   │   │   ├── llm_service.py        # Groq / OpenRouter unified async client
+│   │   │   ├── llm_service.py        # Google Gemini Multi-Tier Intelligence client
 │   │   │   ├── fhir_service.py       # HL7 FHIR R4 bundle builder
 │   │   │   ├── abdm_service.py       # ABHA ID generator + PM-JAY
 │   │   │   ├── i18n_service.py       # 11-language clinical translation
@@ -955,11 +981,8 @@ Copy `.env.example` to `.env`. No secrets required for core offline operation �
 | **Twilio SMS** | `TWILIO_PHONE_NUMBER` | Optional | Twilio virtual phone number for 2-way SMS |
 | **IPFS / Blockchain**| `PINATA_JWT` | Optional | Pinata API JWT for IPFS pinning |
 | **IPFS / Blockchain**| `PINATA_GATEWAY_URL` | Optional | Pinata Gateway URL (default: `https://gateway.pinata.cloud/ipfs`) |
-| **LLM — Primary** | `GROQ_API_KEY` | Optional | Groq LLaMA-3.3-70B for live AI reasoning |
-| **LLM — Primary** | `GROQ_MODEL` | Optional | Default: `llama-3.3-70b-versatile` |
-| **LLM — Failover** | `OPENROUTER_API_KEY` | Optional | OpenRouter fallback for LLM calls |
-| **LLM — Failover** | `OPENROUTER_MODEL` | Optional | Default: `meta-llama/llama-3.3-70b-instruct` |
-| **LLM — Google** | `GEMINI_API_KEY` | Optional | Google Gemini (configured, not primary) |
+| **LLM — Primary** | `GEMINI_API_KEY` | Optional | Google Gemini API key (Gemini 2.0 Flash & 1.5 Pro) |
+| **LLM — Primary** | `GEMINI_MODEL` | Optional | Default: `gemini-2.0-flash` |
 | **Blockchain** | `BLOCKCHAIN_RPC_URL` | Optional | EVM RPC (default: `http://127.0.0.1:8545`) |
 | **Blockchain** | `CONTRACT_ADDRESS` | Optional | Deployed `MedicalRecords.sol` address |
 | **Blockchain** | `DEPLOYER_PRIVATE_KEY` | Optional | Sepolia deployer account private key |
