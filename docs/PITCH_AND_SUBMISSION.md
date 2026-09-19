@@ -1,8 +1,8 @@
 # 🏛️ The City Immune System: Autonomous Urban Health Operating Grid
 ### Official Project Pitch & Technical Defense Dossier — Fund My Crazy 2026 (A Google Gemini Initiative)
 
-[![Initiative](https://img.shields.io/badge/Fund_My_Crazy-2026-4285F4?style=flat-square&logo=google)](https://fundmycrazy.com/)
-[![Built_With](https://img.shields.io/badge/Hero_Layer-Google_Gemini_3.5_Flash-34A853?style=flat-square&logo=google)](https://ai.google.dev/)
+[![Hero_Layer](https://img.shields.io/badge/Hero_Layer-Google_Gemini_2.0_Flash-34A853?style=flat-square&logo=google)](https://ai.google.dev/)
+[![Tests](https://img.shields.io/badge/Tests-197%2F197_Passing_(100%25)-success?style=flat-square&logo=pytest)](https://github.com/Rachit-Tiwari-7/SYNAPSE-OS)
 [![Public_Health](https://img.shields.io/badge/National_Grid-ABDM_%7C_IDSP_%7C_PMBJP-FF9933?style=flat-square)](#)
 
 ---
@@ -15,7 +15,7 @@
 >
 > *We did not build a chatbot.*
 >
-> *We built **Sanjeevni-OS: The City Immune System** — an **Autonomous Urban Health Operating Grid** that redesigns how Indian metropolitan municipalities detect, triage, and contain public health crises before emergency departments are overwhelmed.*
+> *We built **Synapse-OS: The City Immune System** — an **Autonomous Urban Health Operating Grid** that redesigns how Indian metropolitan municipalities detect, triage, and contain public health crises before emergency departments are overwhelmed.*
 >
 > *By combining **Google Gemini 3.5 Flash** as our multimodal reasoning hero layer with **deterministic clinical safety gates**, everyday citizen triage events over **WhatsApp and 2G SMS** act as decentralized biological sensors. A cluster of 40 citizens in Karol Bagh reporting high fever and joint pain doesn't just get individual homecare guidance — it dynamically calculates localized effective reproduction numbers ($R_t = 1.84$), flags an outbreak surge 48 hours before hospital OPD registers fill up, and dispatches automated municipal fogging and ASHA worker directives.*
 >
@@ -83,19 +83,19 @@ Rather than waiting for hospital bed registries, **The City Immune System** aggr
 
 ## 🏆 7. Fund My Crazy 2026 Judging Criteria Alignment Matrix
 
-| Criteria | Weight | How Sanjeevni Dominates |
+| Criteria | Weight | How Synapse Dominates |
 | :--- | :---: | :--- |
 | **Vision** | **30%** | Reimagines urban public health from reactive hospital queues to an **Autonomous City Immune System** that detects epidemics 48 hours early, eliminates pediatric drug hallucinations, and protects 1.4B citizens. |
 | **Real-Life Relevance** | **20%** | Solves India's true healthcare crisis: 10,000+ Jan Aushadhi generic savings engine, ABDM 14-digit ABHA passport, 11 Indic languages, and 2G SMS accessibility for the rural last-mile. |
 | **Built with Gemini** | **20%** | **Google Gemini 2.0 Flash** is the central hero multimodal intelligence engine — powering handwritten prescription transcription, Indic reasoning, and multi-agent clinical synthesis with deterministic safety guardrails. |
 | **Future Focused** | **15%** | Ward-level geospatial transmission modeling ($R_t$), 3D Digital Health Twin with longitudinal telemetry, and tamper-proof blockchain health records. |
-| **Execution** | **15%** | 88/88 passing unit tests, live FastAPI backend with 13 agents, live Next.js 16 dashboard, and certified Meta WhatsApp Cloud API gateway. |
+| **Execution** | **15%** | **197/197 passing unit and integration tests (100% green)** across FastAPI backend & WhatsApp microservice, live Next.js 16 dashboard, and certified Meta WhatsApp Cloud API v20.0 gateway. |
 
 ---
 
 <div align="center">
 
 ### 🌿 Built with love for Fund My Crazy 2026 — A Google Gemini Initiative
-*Sanjeevni / Synapse-OS: The City Immune System*
+*Synapse / Synapse-OS: The City Immune System*
 
 </div>

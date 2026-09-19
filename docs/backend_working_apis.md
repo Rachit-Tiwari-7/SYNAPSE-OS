@@ -45,13 +45,13 @@ flowchart TB
     classDef abdmLayer fill:#fffbeb,stroke:#d97706,stroke-width:2px,color:#0f172a;
     classDef storageLayer fill:#fef2f2,stroke:#dc2626,stroke-width:2px,color:#0f172a;
 
-    subgraph CLIENT["1. Omnichannel Client Layer (Next.js 14 & React 18)"]
+    subgraph CLIENT["1. Omnichannel Client Layer (Next.js 16.3.1 & React 19)"]
         UI_TWIN["3D Digital Health Twin (Three.js WebGL)"]:::clientLayer
         UI_ANALYTICS["Visual Analytics & Telemetry (Spline & Bar Charts)"]:::clientLayer
         UI_SYNC["HealthKit / Google Fit Sync (Webhook Bridge)"]:::clientLayer
-        UI_SCAN["Medical Imaging AI (YOLOv8 & Grad-CAM)"]:::clientLayer
+        UI_SCAN["Medical Imaging AI (Gemini 2.0 Multimodal Vision)"]:::clientLayer
         UI_PASSPORT["ABHA QR Blockchain Passport"]:::clientLayer
-        UI_WHATSAPP["Omnichannel WhatsApp / Voice (Twilio & OpenWA)"]:::clientLayer
+        UI_WHATSAPP["Omnichannel WhatsApp / Voice (Meta Cloud API v20.0)"]:::clientLayer
     end
 
     subgraph GATEWAY["2. FastAPI Core Orchestration Gateway"]
@@ -64,12 +64,12 @@ flowchart TB
 
     subgraph SWARM["3. Multi-Agent Clinical Intelligence Swarm (LangGraph DAG)"]
         ORCHESTRATOR["Swarm Orchestrator & Supervisor"]:::swarmLayer
-        TRIAGE_AGENT["Clinical Triage Agent (Llama 3.3 70B)"]:::swarmLayer
+        TRIAGE_AGENT["Clinical Triage Agent (Google Gemini 2.0 Flash Hero)"]:::swarmLayer
         CARDIO_AGENT["Cardiology & Lead-I ECG Classifier"]:::swarmLayer
         PULMO_AGENT["Pulmonology & Spirometry Specialist"]:::swarmLayer
         ORTHO_AGENT["Orthopedic & Joint Kinematics Agent"]:::swarmLayer
-        DRUG_AGENT["NIH RxNav Drug Interaction Auditor"]:::swarmLayer
-        VISION_AGENT["FractureNet YOLOv8 Bone Segmentation"]:::swarmLayer
+        DRUG_AGENT["NIH RxNav & Jan Aushadhi Generic Auditor"]:::swarmLayer
+        VISION_AGENT["Prescription & Scan Gemini Vision Agent"]:::swarmLayer
         VERIFY_AGENT["AI Council Diagnostic Supervisor"]:::swarmLayer
     end
 
