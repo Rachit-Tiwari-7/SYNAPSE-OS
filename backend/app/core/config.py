@@ -11,7 +11,7 @@ class Settings(BaseModel):
     
     # LLM API Keys & Model Configurations (Google Gemini 3.5 Flash Hero Layer)
     GEMINI_API_KEY: str = os.getenv("GEMINI_API_KEY", "")
-    GEMINI_MODEL: str = os.getenv("GEMINI_MODEL", "gemini-3.5-flash")
+    GEMINI_MODEL: str = os.getenv("GEMINI_MODEL", "gemini-2.0-flash")
     DEFAULT_LLM_PROVIDER: str = os.getenv("DEFAULT_LLM_PROVIDER", "gemini")
 
     GROQ_API_KEY: str = os.getenv("GROQ_API_KEY", "")

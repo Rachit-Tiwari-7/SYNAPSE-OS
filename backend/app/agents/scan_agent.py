@@ -143,15 +143,19 @@ async def scan_agent_node(state: SynapseOSState) -> SynapseOSState:
     t0 = time.time()
     res = analyze_medical_image("prescription", "prescription_query.jpg", None)
     elapsed = int((time.time() - t0) * 1000)
+    input_preview = state.input_text[:100] if getattr(state, "input_text", None) else ""
     step = AgentTraceStep(
         agent_name="OpenRouter Prescription & Vision Agent",
-        status="success",
-        input_data=state.raw_input[:100],
-        output_summary=f"Vision document reasoning: {res.get('ai_diagnosis_summary')}",
-        latency_ms=elapsed,
-        badge="Prescription Vision"
+        action=f"Vision document reasoning: {res.get('ai_diagnosis_summary', 'Prescription Vision')}",
+        status="completed",
+        duration_ms=elapsed,
+        details={
+            "badge": "Prescription Vision",
+            "input_preview": input_preview,
+            "modality": res.get("modality", "prescription"),
+        }
     )
-    state.agent_trace.append(step)
-    state.scan_findings = res.get("clinical_findings", [])
+    state.trace.append(step)
+    state.scan_analysis = res
     return state
 

@@ -191,3 +191,29 @@ def test_appointment_booking_agent():
     assert booking["patient_name"] == "Priya Sharma"
     assert "DOC-AIIMS-101" in booking["doctor_id"] if "doctor_id" in booking else True
     assert "booking_id" in booking
+
+
+@pytest.mark.asyncio
+async def test_scan_agent_and_mental_health_node_state_integrity():
+    """Tests scan_agent_node and mental_health_node state tracking and trace compatibility."""
+    from backend.app.core.state import SynapseOSState
+    from backend.app.agents.scan_agent import scan_agent_node
+    from backend.app.agents.mental_health_agent import mental_health_node
+
+    state = SynapseOSState(
+        session_id="test-session-node-123",
+        input_text="Patient with severe anxiety and an uploaded prescription image"
+    )
+
+    # 1. Test scan_agent_node does not raise AttributeError and populates state
+    scan_state = await scan_agent_node(state)
+    assert scan_state.scan_analysis is not None
+    assert len(scan_state.trace) >= 1
+    assert scan_state.trace[-1].agent_name == "OpenRouter Prescription & Vision Agent"
+    assert scan_state.trace[-1].status == "completed"
+
+    # 2. Test mental_health_node persists state.mental_health_data
+    mh_state = await mental_health_node(state)
+    assert mh_state.mental_health_data is not None
+    assert "tele_manas_helpline" in mh_state.mental_health_data
+    assert len(mh_state.trace) >= 2

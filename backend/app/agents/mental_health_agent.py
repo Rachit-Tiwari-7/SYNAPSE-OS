@@ -64,4 +64,5 @@ async def mental_health_node(state: SynapseOSState) -> SynapseOSState:
         duration_ms=duration,
         details={"domain": res.get("domain")}
     ))
+    state.mental_health_data = res
     return state

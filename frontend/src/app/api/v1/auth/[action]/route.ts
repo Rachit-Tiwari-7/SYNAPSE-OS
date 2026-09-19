@@ -152,14 +152,9 @@ export async function POST(
       const resetUrl = `${origin}/reset-password?code=${reset.code}&email=${encodeURIComponent(user.email)}`;
 
       const emailResult = await sendPasswordResetEmail(user.email, user.name, reset.code, resetUrl);
-      console.log(`[Forgot Password] Resend email dispatched to ${user.email}:`, emailResult);
-      console.log(`\n======================================================`);
-      console.log(`🔑 [PASSWORD RESET CODE] for ${user.email}: ${reset.code}`);
-      console.log(`🔗 [DIRECT RESET URL]: ${resetUrl}`);
       if (!emailResult.success) {
-        console.log(`⚠️  [MAILER NOTICE]: Resend API failed (${emailResult.error}). Use the reset code or direct URL above.`);
+        console.warn(`[Forgot Password] Resend email delivery failed for ${user.email}: ${emailResult.error}`);
       }
-      console.log(`======================================================\n`);
 
       return NextResponse.json({
         message: 'A password reset link has been dispatched to your email.',

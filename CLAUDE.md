@@ -64,8 +64,9 @@ Strong success criteria let you loop independently. Weak criteria ("make it work
 
 **These guidelines are working if:** fewer unnecessary changes in diffs, fewer rewrites due to overcomplication, and clarifying questions come before implementation rather than after mistakes.
 
-## 5. Knowledge OS
 
-This project is tracked in EurionKnowledge. Load
-`C:\Users\Mohammad\Desktop\EurionKnowledge\CLAUDE.md` for full context
-— decisions, lessons, project state, tasks, and institutional knowledge.
+5. I'm always open to ideas on better ways to do things. Please don't hesitate to suggest a better way, or one that has long lasting impact over a tactical change. (as a few examples)"
+
+
+
+
